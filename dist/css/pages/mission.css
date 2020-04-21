@@ -1,0 +1,21 @@
+.stepper .step_item img{
+    max-width: 250px;
+    width: 100%;
+}
+.stepper .step_item {
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    width: 33%;
+    padding: 20px;
+}
+.stepper .step_item i{
+    font-size: 40px;
+}
+.stepper .step_item .step_header{
+    font-size:16px;
+    font-weight: bold;
+}
+.stepper{
+    display: flex;
+}

@@ -1,0 +1,19 @@
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    background: #5d78ff;
+    color: #fff!important;
+    border:none!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    background: #5d78ff;
+    color: #fff!important;
+    border:none!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    outline: none;
+    background: #5d78ff!important;
+    border:1px #fff solid;
+}
+.dataTable.no-footer{
+    border-bottom: none!important;
+}
