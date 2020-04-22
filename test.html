@@ -1,1 +1,38 @@
-asdfadasf
+<html>
+<head>
+  <title>Your Website Title</title>
+    <!-- You can use open graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Your Website Title" />
+  <meta property="og:description"   content="Your description" />
+  <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+</head>
+<body>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0"></script>
+
+  <div class="fb-like" data-href="https://www.facebook.com/fff.com.vn" data-width="50" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '1795529270684966',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v6.0'
+      });
+
+      FB.Event.subscribe('edge.create', function(href, widget) {
+        console.log('You just liked '+href);
+    });
+
+    };
+  </script>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+</body>
+</html> 
