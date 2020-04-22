@@ -13,8 +13,14 @@ $( document ).ready(function() {
             if (userToken == userTokenDemo){
                 showLoginModal();
             }else{
+                $('.btn-lockURL i').removeClass('fad fa-layer-plus').addClass('fas fa-spinner fa-pulse')
                 $.getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${facebookURL}`,function(res){
-                    if (res.data == ""){
+                console.log(res);
+                console.log(userToken);  
+                
+                
+                if (res.data == ""){
+                        fcdca.remove('spin')
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
@@ -24,8 +30,21 @@ $( document ).ready(function() {
                             showCancelButton: false,
                             showConfirmButton: false,
                           })
-                    }else{
-                        showLockUrlModal(facebookURL,res.data);
+                        
+                    }
+                    else if (res.data== null){
+                        console.log('type of ',typeof(res.data))
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            html: `<div class="text-center">Xin lỗi bạn ! Chúng tôi không tìm được bài post Facebook cần tương tác</div>`,
+                            footer: '<a href>Xem hướng dẫn sử dụng</a>'
+                          })
+                    }
+                    else{
+                        $('.btn-lockURL i').removeClass('fas fa-spinner fa-pulse').addClass('fad fa-layer-plus')
+                        // showLockUrlModal(facebookURL,res.data);
+                        showLockModalSelect();
                     }
                 });
             }
@@ -36,20 +55,78 @@ $( document ).ready(function() {
         Swal.showValidationMessage(msg);
         $(".swal2-validation-message").addClass("fontSize-14 mt-2");
     }
+    function showLockModalSelect(){
+        Swal.fire({
+            html: `
+                <div class="form-group">
+                    <label>URL chuyển đến sau khi tương tác</label>
+                    <input type="text" value="" class="form-control input-targetURL">
+                    </div>
+                <div class="form-group d-none kq-LockedLink">
+                    <label class="font-weight-bold">Link rút gọn (share link này vào bài post facebook)</label>
+                    <input type="text" value="" onClick="this.select();" class="form-control input-resultLockedLink">
+                </div>
 
+                <button type="submit" class="btn btn-doLockUrl btn-primary">Hoàn Tất</button>
+            `,
+            showCloseButton: false,
+            showCancelButton: false,
+            showConfirmButton: false,
+            allowOutsideClick:true,
+            focusConfirm: true,
+            padding: "2em 2em 2em",
+            width: "800px",
+            position:"top",
+            onOpen: () => {
+                
+                $(".btn-doLockUrl").click(() => {
+                    var facebookURL = $(".input-facebookURL").val();
+                    var me = $(this);
+                    me.html(`<i class="fas fa-spinner fa-pulse"></i> Tạo link khóa`);
+                    var post = {};
+                    post.targetUrl = $(".input-targetURL").val();
+                    post.facebookId = facebookId;
+                    post.facebookUrl = $(".input-facebookURL").val();
+
+                    if ($('.input-requestLike').is(":checked")){
+                        post.missionType = "LIKE";
+                    }
+                    if ($('.input-requestComment').is(":checked")){
+                        post.missionType = "COMMENT";
+                    }
+
+                    if ($('.input-requestLike').is(":checked") && $('.input-requestComment').is(":checked")){
+                        post.missionType = "LIKECOMMENT";
+                    }
+                    $.post(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=createLockedLink`,post,function(res){
+                        res = JSON.parse(res);
+                        console.log(res);
+                        console.log(res.data.status);
+                        console.log(res.data.lockedLink);
+                        if (res.data.status == "success"){
+                            $(".kq-LockedLink").removeClass("d-none").fadeIn();
+                            $(".input-resultLockedLink").val(res.data.data.lockedLink);
+                        }
+                    })
+                });
+            
+            },
+    
+        });
+    }
     function showLockUrlModal(facebookURL,facebookId){
         Swal.fire({
             html: `
-  <div class="form-group">
-    <label>URL chuyển đến sau khi tương tác</label>
-    <input type="text" value="" class="form-control input-targetURL">
-    </div>
-  <div class="form-group d-none kq-LockedLink">
-    <label class="font-weight-bold">Link rút gọn (share link này vào bài post facebook)</label>
-    <input type="text" value="" onClick="this.select();" class="form-control input-resultLockedLink">
-  </div>
+                <div class="form-group">
+                    <label>URL chuyển đến sau khi tương tác</label>
+                    <input type="text" value="" class="form-control input-targetURL">
+                    </div>
+                <div class="form-group d-none kq-LockedLink">
+                    <label class="font-weight-bold">Link rút gọn (share link này vào bài post facebook)</label>
+                    <input type="text" value="" onClick="this.select();" class="form-control input-resultLockedLink">
+                </div>
 
-  <button type="submit" class="btn btn-doLockUrl btn-primary">Hoàn Tất</button>
+                <button type="submit" class="btn btn-doLockUrl btn-primary">Hoàn Tất</button>
             `,
             showCloseButton: false,
             showCancelButton: false,

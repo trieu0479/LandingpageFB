@@ -13,5 +13,6 @@ if (empty($userToken))  $userToken = $demoToken;
 $rootURL = "http://localfff.blue";
 $mysqli = new mysqli ('210.211.116.252', '2020_fffblue_shorturl', '123qazZAQ', '2020_fffblue_shorturl');
 $db = new MysqliDb ($mysqli);
+
 $version = "1.0.1";
 ?>
