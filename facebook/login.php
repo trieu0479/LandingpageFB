@@ -22,6 +22,7 @@ try {
       $insert['alias'] =  $kq['alias'];
       $insert['userId'] =  $kq['userId'];
     }
+
       $insert['facebookId'] =  $user->getId();
       $insert['facebookName'] =  $user->getName();
       $insert['facebookEmail'] =  $user->getEmail();
@@ -37,8 +38,9 @@ try {
           $db->where("id",$kq['id']);
           $db->update("fff_url",$updateKq);
       }else{
-          $db->where("id",$insert);
-          $db->update("fff_user",$checker['id']);
+
+          $db->where("facebookId",$insert['facebookId']);
+          $db->update("fff_user",$insert);
           setcookie("userKey", $checker['userKey'], time()+30*24*3600, "/", ".fff.blue", 1);
       }
       $target = $rootURL.'/unlock/'.$_COOKIE['targetKey'];
