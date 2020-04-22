@@ -517,6 +517,25 @@ h4.background span {
     background: #fd397a;
     
 }
+.badge-COMMENT{
+    color: #fff;
+    background: #1dc9b7;
+}
+.badge-LIKE-POST{
+    color: #fff;
+    background: #2b96ca;
+}
+.ml-6px{
+    margin-left: 6px!important;
+}
+.mb-1{
+    margin-bottom: 1rem!important;
+}
+.custom-select:focus {
+    border-color: #007bff!important;
+    outline: 0!important;
+    box-shadow: none!important;
+  }
 @media only screen and (max-width: 767px)  {
     .navbar .navbar-nav{
         flex-direction: row;
