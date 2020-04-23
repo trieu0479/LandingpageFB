@@ -300,7 +300,9 @@ h4.background span {
     background: #fff;
     padding: 0 15px;
 }
-
+.form-control{
+    border-radius: 0px!important;
+}
 .form-control:focus {
     box-shadow: none!important;
 }
@@ -629,6 +631,7 @@ h4.background span {
 }
 .customTabColor .nav-link:hover {
     border-color: #e9ecef #e9ecef #dee2e6;
+}
 .badge-COMMENT{
     color: #fff;
     background: #1dc9b7;
@@ -675,5 +678,21 @@ h4.background span {
     }
     .pt-md-0rem{
         padding-top: 0px!important;
+    }
+    .pt-md-5{
+        padding-top: 5rem!important;
+    }
+    .mrl-md-1{
+        margin: 0 1rem!important;
+    }
+    .form-control{
+        font-size: 9px!important;
+        border-radius: 5px 0px 0px 5px!important;
+    }
+    .mpt-md-2{
+        padding-top: 2rem!important;
+    }
+    .md-FontSize20{
+        font-size: 20px!important;
     }
 }

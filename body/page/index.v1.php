@@ -8,16 +8,16 @@ require_once(__DIR__."/modules/topmenu.php");
 
 ?>
 
-    <div class="text-center pb-5 pt-7">
+    <div class="text-center pb-5 pt-7 pt-md-5">
         <div class="fontSize-16 font-weight-bold text-success">FFF BLUE</div>
         <div class="fontSize-24 font-weight-bold text-primary">Công Cụ Tăng Tương Tác Facebook</div>
         <div class="fontSize-14 text-muted mb-2">Tạo khóa link, yêu cầu người dùng tương tác (Like và Comment) vào post trên Facebook để mở khóa </div>        
     </div>
-    <div class="maxWidth-800 pb-5 m-auto">
+    <div class="maxWidth-800 pb-5 m-auto mrl-md-1">
 
         <div class="text-left"><a target="blank"  class="text-box-catelog text-white bg-001" href="https://help.fff.com.vn/cong-cu-facebook/tang-tuong-tac-facebook">Xem hướng dẫn</a></div>
             <div class="input-group">
-                    <select class="form-control wantToDo">
+                    <select class="form-control border-tr-br-radius-0 fontSize-14 wantToDo">
                         <option value="LIKECOMMENT-PROFILE">Tăng Like & Comment Post trên Profile Facebook</option>
                         <option value="LIKECOMMENT-FANPAGE">Tăng Like & Comment Post trên Fanpage Facebook</option>
                         <option value="LIKECOMMENT-GROUP">Tăng Like & Comment Post trên Group Facebook</option>
@@ -53,11 +53,11 @@ require_once(__DIR__."/modules/topmenu.php");
     </div>
     <?}else{?>
 
-    <div class="homepageMission maxWidth-1080 pt-8 m-auto">
+    <div class="homepageMission maxWidth-1080 pt-8 m-auto pt-md-2">
         
-        <h2 class="pt-2 text-gray text-center fontSize-24">Hệ Thống Hoạt Động Ra Sao</h2>
+        <h2 class="pt-2 text-gray text-center fontSize-24 md-FontSize20">Hệ Thống Hoạt Động Ra Sao</h2>
         <hr width="20%">
-        <div class="stepper pt-5">
+        <div class="stepper pt-5 pt-md-0rem">
             <div class="step_item">
                 <i class="fad fa-bullseye-pointer text-danger"></i>
                 <div class="step_header text-info mt-2">(1) Tương tác</div>
