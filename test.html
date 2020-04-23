@@ -29,7 +29,14 @@
       FB.Event.subscribe('edge.create', function(href, widget) {
         console.log('You just liked '+href);
     });
-
+    FB.api({ method: 'pages.isFan', page_id: '334921363567496' }, function(response) {
+        console.log(response);
+	if (response) {
+	  console.log("user has liked the page");
+	} else {
+        console.log("user has not liked the page");
+	}
+});
     };
   </script>
   <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>

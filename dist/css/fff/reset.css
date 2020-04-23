@@ -7,6 +7,7 @@ body {
     color: #646c9a;
 }
 a{color:#5867dd}
+.pointer{cursor: pointer;}
 .maxWidth-1180{max-width: 1180px;}
 .maxWidth-1080{max-width: 1080px;}
 .maxWidth-980{max-width: 980px;}
@@ -24,6 +25,7 @@ a{color:#5867dd}
 .font-weight-bold{
     font-weight: 500!important;
 }
+
 .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -40,7 +42,6 @@ a{color:#5867dd}
 .pt-8, .py-8 {
     padding-top: 8rem!important;
 } 
-
 .text-success {
     color: #0abb87!important
 }
@@ -503,20 +504,131 @@ h4.background span {
     font-size: 12px!important;
 }
 .badge-mission{
-    padding: 5px 10px;
+    padding: 2px 10px;
     border-radius: 15px;
     font-size: 9px;
+    color: #fff;
 }
 .badge-LIKE-COM{
-    color: #fff;
+    
     background: #5867dd;
     
 }
+.badge-LIKEPOST,
+.badge-COMMENT,
+.badge-LIKECOMMENT,
 .badge-LIKE{
-    color: #fff;
     background: #fd397a;
     
 }
+.badge-JOINGROUP {
+    background-color: #3d6cf3;
+}
+
+.badge-JOINGROUP:hover {
+    background-color: #2354e1;
+}
+
+.badge-LIKEPAGE {
+    background-color: #ff9700;
+}
+
+.badge-LIKEPAGE:hover {
+    background-color: #e18a0b;
+}
+
+.badge-LIKECOMMENT-PROFILE {
+    background-color: #607d8b;
+}
+
+.badge-LIKECOMMENT-PROFILE:hover {
+    background-color: #4d7487;
+}
+
+.badge-LIKECOMMENT-FANPAGE {
+    background-color: #3f51b5;
+}
+
+.badge-LIKECOMMENT-FANPAGE:hover {
+    background-color: #32408e;
+}
+
+.badge-LIKECOMMENT-GROUP {
+    background-color: #eb3c56;
+}
+
+.badge-LIKECOMMENT-GROUP:hover {
+    background-color: #e61e3c;
+}
+
+.text-violet {
+    background-color: #8e44ad;
+}
+
+.text-violet:hover {
+    background-color: #7f319f;
+}
+
+.text-turquoise {
+    background-color: #07adab;
+}
+
+.text-turquoise:hover {
+    background-color: #0790ad;
+}
+
+.text-redbg {
+    background-color: #db4438;
+}
+
+.text-redbg:hover {
+    background-color: #c5382d;
+}
+
+.text-greenbg {
+    background-color: #0f9d58;
+}
+
+.text-greenbg:hover {
+    background-color: #05ac5b;
+}
+
+.text-graybg {
+    background-color: #989aa2;
+}
+
+.text-graybg:hover {
+    background-color: #7f8497;
+}
+
+.text-blackbg {
+    background-color: #1c1c2b;
+}
+
+.text-blackbg:hover {
+    background-color: #2a2a49;
+}
+
+
+.customTabColor {
+    background: #fff;
+    color: #595d6e !important;
+    line-height: 30px;
+}
+.customTabColor.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+.customTabColor a{
+    font-weight: bold;
+}
+.customTabColor .nav-link.active {
+    color: #4285f4 !important;
+    border-bottom: 2px solid #0abb87;
+    background: #e7f8f3;
+    font-weight: bold;
+}
+.customTabColor .nav-link:hover {
+    border-color: #e9ecef #e9ecef #dee2e6;
 .badge-COMMENT{
     color: #fff;
     background: #1dc9b7;

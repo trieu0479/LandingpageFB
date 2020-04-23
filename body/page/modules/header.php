@@ -27,7 +27,7 @@
     <link href="<?=$rootURL?>/dist/css/pages/mission.css" rel="stylesheet">
     <link href="<?=$rootURL?>/dist/css/pages/stepper.css" rel="stylesheet">
     
-    <link href="<?=$rootURL?>/dist/css/fff/reset.css" rel="stylesheet">
+    <link href="<?=$rootURL?>/dist/css/fff/reset.css?v=<?=$version?>" rel="stylesheet">
     
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="<?=$rootURL?>/dist/js/extension/jquery.min.js"></script>

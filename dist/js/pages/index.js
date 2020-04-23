@@ -13,7 +13,6 @@ $( document ).ready(function() {
             if (userToken == userTokenDemo){
                 showLoginModal();
             }else{
-                $('.btn-lockURL i').removeClass('fad fa-layer-plus').addClass('fas fa-spinner fa-pulse')
                 $.getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${facebookURL}`,function(res){
 
                 var facebookId= res.data
@@ -300,7 +299,7 @@ $( document ).ready(function() {
                     <input type="text" value="" onClick="this.select();" class="form-control input-resultLockedLink">
                 </div>
 
-                <button type="submit" class="btn btn-doLockUrl btn-primary">Hoàn Tất</button>
+  <button type="submit" class="btn btn-doLockUrl btn-primary">Hoàn Tất</button>
             `,
             showCloseButton: false,
             showCancelButton: false,
