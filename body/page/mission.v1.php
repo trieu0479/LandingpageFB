@@ -3,29 +3,12 @@
     require_once(__DIR__."/modules/mission.header.php");
     switch($kq['missionType']){
         case "LIKE":
-            $meta['title'] = "Bạn cần Like bài viết để mở khóa";
-            $meta['h1'] = "Cần Like Post";
-            $meta['des'] = 'Bạn cần Like vào <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">bài viết này</a> sau đó bấm mở khóa link';
-            if ($kq['fbLinkFrom'] != "GROUP"){
-                $meta['fbEmbed'] = '<div class="fb-post" data-href="'.$kq['missionFbUrl'].'" data-show-text="true" data-width=""></div>';
-            }else{
-                $meta['fbEmbed'] = '<div class="step_img pt-2 pb-2 d-none d-sm-block"><img src="'.$rootURL.'/dist/images/step-1.png"></div>';
-            }
-            $meta['btn'] = "Đã Like - Mở Khóa";
-            break;
-        case "LIKEPOST":
-            $meta['title'] = "Bạn cần Like bài viết để mở khóa";
-            $meta['h1'] = "Cần Like Post";
-            $meta['des'] = 'Bạn cần Like vào <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">bài viết này</a> sau đó bấm mở khóa link';
-            if ($kq['fbLinkFrom'] != "GROUP"){
-                $meta['fbEmbed'] = '<div class="fb-post" data-href="'.$kq['missionFbUrl'].'" data-show-text="true" data-width=""></div>';
-            }else{
-                $meta['fbEmbed'] = '<div class="step_img pt-2 pb-2 d-none d-sm-block"><img src="'.$rootURL.'/dist/images/step-1.png"></div>';
-            }
-            $meta['btn'] = "Đã Like - Mở Khóa";
-            break;
-        case "LIKECOMMENT":
         case "COMMENT":
+        case "LIKEPOST":            
+        case "LIKECOMMENT":            
+        case "LIKECOMMENT-PROFILE":
+        case "LIKECOMMENT-FANPAGE":
+        case "LIKECOMMENT-GROUP":
             $meta['title'] = "Bạn cần Like bài viết để mở khóa";
             $meta['h1'] = "Cần Like & Comment Post";
             $meta['des'] = 'Bạn cần Like & Comment vào <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">bài viết này</a> sau đó bấm mở khóa link';
@@ -35,8 +18,9 @@
                 $meta['fbEmbed'] = '<div class="step_img pt-2 pb-2 d-none d-sm-block"><img src="'.$rootURL.'/dist/images/step-1.png"></div>';
             }
             $meta['btn'] = "Đã Like & Comment - Mở Khóa";
-            break;   
+            break;
         case "LIKEPAGE":
+        case "LIKEFANPAGE":
             $meta['title'] = "Bạn cần Like Fanpage để mở khóa";
             $meta['h1'] = "Cần Like Fanpage";
             $meta['des'] = 'Bạn cần Like (thích) <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">fanpage này</a> sau đó bấm mở khóa link';
@@ -70,6 +54,7 @@
 
      
     </main>
+
 
     <script> var alias = '<?=$kq['alias']?>';</script>
     <script src="<?=$rootURL?>/dist/js/pages/mission.js"></script>

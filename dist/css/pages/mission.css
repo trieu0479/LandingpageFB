@@ -22,21 +22,3 @@
 .stepper{
     display: flex;
 }
-@media only screen and (max-width: 767px)  {
-    
-    .mobile-group-input{
-        margin: 0px 24px!important;
-    }
-    .mobile-group-input input::placeholder{
-        font-size: 14px
-    }
-    .stepper{
-        display: block;
-    }
-    .stepper .step_item{
-        width: 100%;
-    }
-    .stepper .step_item i{
-        font-size: 70px;
-    }
-}

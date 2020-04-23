@@ -72,8 +72,7 @@ window.fbAsyncInit = function() {
                         post.fbname= fbname;
                         post.fbemail= fbemail;
                         post.clickMission= clickMission;
-                        console.log(post);
-                        var postVal = {data:btoa(JSON.stringify(post))};
+                        var postVal ={data: btoa(unescape(encodeURIComponent(JSON.stringify(post))))};
                         $.post(`https://localapi.trazk.com/2020/api/facebook/index.php?task=confirmMission`,postVal,function(res){
                             res = JSON.parse(res);
                             

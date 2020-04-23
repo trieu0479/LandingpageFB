@@ -14,36 +14,45 @@ require_once(__DIR__."/modules/topmenu.php");
         <div class="fontSize-14 text-muted mb-2">Tạo khóa link, yêu cầu người dùng tương tác (Like và Comment) vào post trên Facebook để mở khóa </div>        
     </div>
     <div class="maxWidth-800 pb-5 m-auto">
-        <div class="text-center clearfix">
-            <div class="form-group">
-                 <div class="text-left"><a target="blank"  class="text-box-catelog text-white bg-001" href="https://help.fff.com.vn/cong-cu-facebook/tang-tuong-tac-facebook">Xem hướng dẫn</a></div>
-                 <input value="" type="text" class="form-control input-facebookURL  border " autocomplete="off"
-                        placeholder="Nhập bài post facebook cần tăng tương tác">
-                
-            </div>
-            <div class="form-group">
-            <div class="d-flex no-block">
-                <div class="text-left d-flex no-block align-self-center">
-                    <div class="font-gg font-weight-500 font-16 text-muted d-none d-md-block">
-                        Tăng Tương Tác:
-                    </div>
-                    <div class="ml-0 ml-md-5 custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input  input-requestLike" name="check-requestLike" checked>
-                        <label class="custom-control-label cursor-pointer"><i class="font-14 mr-2 fad fa-thumbs-up"></i>Tăng Like</label>
-                    </div>
-                    <div class="ml-3 ml-md-5 custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input  input-requestComment" id="check-requestComment" checked name="check-option">
-                        <label class="custom-control-label" for="check-requestComment"><i class="font-20 mr-2 fad fa-comments"></i>Tăng Comment</label>
-                    </div>
-                </div>
-              
 
-                        <button class="ml-auto  btn-lockURL btn btn-info"><i class="fad fa-layer-plus mr-2"></i> Cấu Hình</button>
+        <div class="text-left"><a target="blank"  class="text-box-catelog text-white bg-001" href="https://help.fff.com.vn/cong-cu-facebook/tang-tuong-tac-facebook">Xem hướng dẫn</a></div>
+            <div class="input-group">
+                    <select class="form-control wantToDo">
+                        <option value="LIKECOMMENT-PROFILE">Tăng Like & Comment Post trên Profile Facebook</option>
+                        <option value="LIKECOMMENT-FANPAGE">Tăng Like & Comment Post trên Fanpage Facebook</option>
+                        <option value="LIKECOMMENT-GROUP">Tăng Like & Comment Post trên Group Facebook</option>
+                        <option value="LIKEFANPAGE">Tăng Like Facebook Fanpage</option>
+                        <option value="JOINGROUP">Tăng Member Facebook Group</option>
+                    </select>
+                
+                <div class="input-group-append">
+                    <button class="ml-auto  btn-Step1 btn btn-info"><i class="fad fa-layer-plus mr-2"></i> Tiếp tục</button>
+                </div>
             </div>
-            </div>
+
+            
         </div>
     </div>
  
+    <? if ($userToken != $demoToken){?>
+    <div class="homepageMission maxWidth-1080  m-auto">
+        <div>
+            <ul class="nav customTabColor">
+                <li class="nav-item">
+                    <a  class="nav-link active" data-toggle="tab" data-value="listMyMission" href="#listMyMission">Nhiệm vụ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link listMyAllData" data-toggle="tab" data-value="listMyAllData" href="#listMyAllData">Data khách hàng</a>
+                </li>
+            
+            </ul>
+        </div>
+
+        <table id="myLockUrl" class="table ">
+        </table>
+    </div>
+    <?}else{?>
+
     <div class="homepageMission maxWidth-1080 pt-8 m-auto">
         
         <h2 class="pt-2 text-gray text-center fontSize-24">Hệ Thống Hoạt Động Ra Sao</h2>
@@ -69,8 +78,8 @@ require_once(__DIR__."/modules/topmenu.php");
             </div>
         </div>
     </div>
-
-    <script src="<?=$rootURL?>/dist/js/pages/index.js?v=<?=$version?>"></script>
+    <?}?>
+    <script src="<?=$rootURL?>/dist/js/pages/index.v1.js?v=<?=$version?>"></script>
     <script src="<?=$rootURL?>/dist/js/default/header.js?v=<?=$version?>"></script>
 
  <? require_once(__DIR__."/modules/footer.php")?>

@@ -22,13 +22,12 @@ if (empty($user)){
     exit();
 }
 
+
 if ($user){
-    @$targetURL = $_COOKIE['targetKey'];
+    @$targetURL = $_GET['key'];
     $kq = $db->rawQueryOne("SELECT * FROM fff_url WHERE `alias`='".$targetURL."' OR `custom`='".$targetURL."'");
     $targetId = $kq['missionFbId'];
-
     $output = getTargetLikeComment($targetId);
-
     $isLike = $isComment = 0;
     if (in_array($user['facebookName'],$output['like'])){
         $isLike = 1;
@@ -40,6 +39,7 @@ if ($user){
     */
   
     if ($isLike == 1){
+        $kq = $db->rawQueryOne("SELECT * FROM fff_url WHERE `alias`='".$targetURL."' OR `custom`='".$targetURL."'");
         header("Location: ".$kq['url']);
         exit();
     }else{
