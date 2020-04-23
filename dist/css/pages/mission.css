@@ -22,3 +22,14 @@
 .stepper{
     display: flex;
 }
+@media only screen and (max-width: 767px)  {
+    .stepper{
+        display: block;
+    }
+    .stepper .step_item{
+        width: 100%!important;
+    }
+    .stepper .step_item i{
+        font-size: 110px!important;
+    }
+}
