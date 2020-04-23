@@ -16,7 +16,7 @@ require_once(__DIR__."/modules/topmenu.php");
     <div class="maxWidth-800 pb-5 m-auto mrl-md-1">
 
         <div class="text-left"><a target="blank"  class="text-box-catelog text-white bg-001" href="https://help.fff.com.vn/cong-cu-facebook/tang-tuong-tac-facebook">Xem hướng dẫn</a></div>
-            <div class="input-group">
+            <div class="input-group" id="input-group">
                     <select class="form-control border-tr-br-radius-0 fontSize-14 wantToDo">
                         <option value="LIKECOMMENT-PROFILE">Tăng Like & Comment Post trên Profile Facebook</option>
                         <option value="LIKECOMMENT-FANPAGE">Tăng Like & Comment Post trên Fanpage Facebook</option>

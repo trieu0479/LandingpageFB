@@ -22,6 +22,89 @@
 .stepper{
     display: flex;
 }
+.dataTables_wrapper{
+    overflow-x: auto!important;
+}
+.input-group{
+    display: block!important;
+    text-align: center;
+}
+#input-group{
+    display: flex!important;
+}
+.group-targetURL, .group-analyticCode, .group-pixelCode, .group-status, .group-customSlug{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.group-status{
+    padding: 6px 0px;
+}
+.input-group input{
+    max-width: 70%;
+    border: none;
+    padding-bottom: 10px;
+    text-align: left;
+}
+/* Nút trạng thái  */
+/* Estilo iOS */
+.switch__container {
+    /* margin: 30px auto; */
+    width: 50px;
+  }
+  
+  .switch {
+    visibility: hidden;
+    position: absolute;
+    margin-left: -9999px;
+  }
+  
+  .switch + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+  }
+ 
+  .switch--shadow + label {
+    padding: 2px;
+    width: 50px;
+    height: 25px;
+    background-color: #dddddd;
+    border-radius: 60px;
+    margin-bottom: 0px!important;
+  }
+  .switch--shadow + label:before,
+  .switch--shadow + label:after {
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    content: "";
+  }
+  .switch--shadow + label:before {
+    right: 1px;
+    background-color: #f1f1f1;
+    border-radius: 60px;
+    transition: background 0.4s;
+  }
+  .switch--shadow + label:after {
+    width: 25px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s;
+  }
+  .switch--shadow:checked + label:before {
+    background-color: #8ce196;
+  }
+  .switch--shadow:checked + label:after {
+    transform: translateX(25px);
+  }
+  /* Kết thúc nút trạng thái */
+  
 @media only screen and (max-width: 767px)  {
     .stepper{
         display: block;

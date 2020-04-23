@@ -12,6 +12,7 @@ a{color:#5867dd}
 .maxWidth-1080{max-width: 1080px;}
 .maxWidth-980{max-width: 980px;}
 .maxWidth-800{max-width: 800px;} 
+.fontSize-12{font-size:12px}
 .fontSize-14{font-size:14px!important}
 .fontSize-16{font-size:16px}
 .fontSize-18{font-size:18px}
@@ -25,7 +26,9 @@ a{color:#5867dd}
 .font-weight-bold{
     font-weight: 500!important;
 }
-
+.text-align-center{
+    text-align: center;
+}
 .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -154,7 +157,9 @@ a{color:#5867dd}
 .alert.alert-secondary .alert-text {
     color: #595d6e;
 }
-
+/* .ml-6rem{
+    margin-left: 6.2rem;
+} */
 /* swal2 */
 .swal2-html-container{
     text-align: left;

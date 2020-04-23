@@ -8,17 +8,18 @@ $( document ).ready(function() {
             doStep1(wantToDo);
         }
     }) 
-
+    
   
     if (userToken != userTokenDemo){
         tableMyLockUrl = renderTableLockedUrl();
-
+        
          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             value = $(this).data("value");
             tableMyLockUrl.clear().destroy();
             $("#myLockUrl thead").empty();
             if (value == "listMyMission")  tableMyLockUrl = renderTableLockedUrl(); 
             if (value == "listMyAllData")  tableMyLockUrl =  renderMyData();
+            
           })
           $("body").on("click",".showDataByMission",function(res){
               $(".nav-link").removeClass("active");
@@ -29,6 +30,15 @@ $( document ).ready(function() {
               tableMyLockUrl = renderMyData(alias);
               $(".listMyAllData").html(`Data khách hàng <span class='text-danger'>(${alias})<span>`);
           })
+          $("body").on("click",".btn-editAlias",function(res){
+            var alias = $(this).data("alias");
+            if(alias){
+                editMission(alias);
+            }else{
+                showPopupError("Bạn không có quyền tùy chỉnh link này");
+            }
+        })
+          
       
           
     }
@@ -37,40 +47,136 @@ $( document ).ready(function() {
         var facebookURL = $(".input-facebookURL").val();
       
         if (facebookURL == ""){
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                html: `<div class="text-center">Trước khi tiếp tục, bạn cần nhập bài post Facebook cần tương tác</div>`,
-                footer: '<a href>Xem hướng dẫn sử dụng</a>'
-              })
+            showPopupError("Trước khi tiếp tục, bạn cần nhập bài post Facebook cần tương tác");
         }else{
             if (userToken == userTokenDemo){
                 showLoginModal();
             }else{
-                $.getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${facebookURL}`,function(res){
+                getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${facebookURL}`).then(res =>{
                     if (res.data == ""){
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            html: `<div class="text-center">Không xác định được facebook post ID, vui lòng xem hướng dẫn</div>`,
-                            footer: '<a href>Xem hướng dẫn sử dụng</a>',
-                            showCloseButton: false,
-                            showCancelButton: false,
-                            showConfirmButton: false,
-                          })
+                        showPopupError("Không xác định được facebook post ID, vui lòng xem hướng dẫn")
                     }else{
                         showLockUrlModal(facebookURL,res.data);
                     }
-                });
+                })
+                
             }
         }
     })
-
+    function showPopupError(text){
+        Swal.fire({
+            icon: 'error',
+            title: text,
+            
+            footer: '<a href>Xem hướng dẫn sử dụng</a>',
+            showCloseButton: false,
+            showCancelButton: false,
+            showConfirmButton: false,
+          })
+    }
+    function showPopopSuccess(text){
+        Swal.fire({
+            icon: 'success',
+            title: text,
+            footer: '<a href>Xem hướng dẫn sử dụng</a>',
+            showCloseButton: false,
+            showCancelButton: false,
+            showConfirmButton: false,
+        })
+    }
     function showErrorOnModal(msg){
         Swal.showValidationMessage(msg);
         $(".swal2-validation-message").addClass("fontSize-14 mt-2");
     }
+    function editMission(alias){
+        getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getInfoAlias&alias=${alias}`).then(data => {
+            if (data && data.data){
+                showPopupEdit(data.data);
+            }
+            else{
 
+            }
+        })
+    }
+    async function getJSON(url){
+        return await $.getJSON(url)
+    }
+    async function postJSON(url,data){
+        return await $.post(url,data)
+    }
+    function showPopupEdit(data){
+        console.log(data)
+
+        Swal.fire({
+            html: `
+    <div class="pb-3 fontSize-16 text-align-center"><strong>Chỉnh sửa nhiệm vụ</strong></div>
+    
+    <div class="input-group">
+        
+        <div class="group-targetURL">
+            <div class="pb-1 fontSize-12"><strong>Đường dẫn URL:</strong></div>
+            <input type="text" value="${data.url}" class="form-control input-targetURL border-bottom">
+        </div>
+        <div class="group-analyticCode">
+            <div class="pb-1 fontSize-12"><strong>Analytic Code:</strong></div>
+            <input type="text" value="${(data.analyticCode) ? data.analyticCode : ""}" class="form-control input-analyticCode border-bottom">
+        </div>
+        <div class="group-pixelCode">
+            <div class="pb-1 fontSize-12"><strong>Pixels Code:</strong></div>
+            <input type="text"  value="${(data.pixelsCode) ? data.pixelsCode : ""}" class="form-control input-pixelCode border-bottom">
+        </div>
+        <div class="group-status">
+            <div class="pb-1 fontSize-12"><strong>Trạng thái:</strong></div>
+            <div class="switch__container">
+                <input id="switch-shadow" class="switch switch--shadow" ${(data.status == "PAUSE"  || data.status == "0") ? "" : "checked"} type="checkbox">
+                <label for="switch-shadow"></label>
+            </div>
+            
+        </div>
+        <div class="group-customSlug">
+            <div class="pb-1 fontSize-12"><strong>Tùy chỉnh Back-half:</strong></div>
+            <input type="text" maxlength="30" value="${(data.custom) ? data.custom : ""}" class="form-control input-customSlug border-bottom">
+        </div>
+        <button type="button" class="mt-3 btn btn-ConfirmEdit btn-primary">Tiếp Tục</button>
+    </div>    
+            `,
+            showCloseButton: false,
+            showCancelButton: false,
+            showConfirmButton: false,
+            allowOutsideClick:true,
+            focusConfirm: true,
+            padding: "2em 2em 2em",
+            width: "600px",
+            position:"top",
+            onOpen: () => {
+                $('.btn-ConfirmEdit').click(function(){
+                    if ($('.input-targetURL').val() != ""){
+                        console.log("lodfan")
+                        let post={
+                            targetUrl: $('.input-targetURL').val(),
+                            analyticCode: $('.input-analyticCode').val(),
+                            pixelsCode: $('.input-pixelCode').val(),
+                            status: ($('#switch-shadow').prop("checked")) ? "RUN" : "PAUSE",
+                            customSlug: $(".input-customSlug").val()
+                        };
+                        postJSON(`https://localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=editLockedLink&alias=${data.alias}`,post).then(res => {
+                            res = JSON.parse(res);
+                            if (res.data.status == "success"){
+                                showPopopSuccess("Đã cập nhật thành công");
+                            } else {
+                                showPopupError(res.data.msg)
+                            }
+                        })
+                    }
+                    else{
+                        
+                    }
+                    
+                })
+            },
+    
+        });
+    }
     function doStep1(wantToDo){
         var meta={};
         switch(wantToDo){
@@ -237,6 +343,11 @@ $( document ).ready(function() {
                            
                             columns.push(output);
                         })
+                        //
+                        $(".btn-editAlias").on("click",function(){
+                            console.log("123");
+                        })
+                        //
                         return columns;
                     },
                 },
@@ -422,5 +533,5 @@ $( document ).ready(function() {
 
 
     }
-   
+    
 });
