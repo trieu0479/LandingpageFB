@@ -530,11 +530,11 @@ h4.background span {
 .badge-JOINGROUP:hover {
     background-color: #2354e1;
 }
-
+.badge-LIKEFANPAGE,
 .badge-LIKEPAGE {
     background-color: #ff9700;
 }
-
+.badge-LIKEFANPAGE:hover,
 .badge-LIKEPAGE:hover {
     background-color: #e18a0b;
 }

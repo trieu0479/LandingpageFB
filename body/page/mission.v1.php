@@ -11,7 +11,7 @@
         case "LIKECOMMENT-GROUP":
             $meta['title'] = "Bạn cần Like bài viết để mở khóa";
             $meta['h1'] = "Cần Like & Comment Post";
-            $meta['des'] = 'Bạn cần Like & Comment vào <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">bài viết này</a> sau đó bấm mở khóa link';
+            $meta['des'] = 'Bạn cần Like & Comment vào <a class="text-info" target="blank" href="https://facebook.com/'.$kq['missionFbId'].'">bài viết này</a> sau đó bấm mở khóa link';
             if ($kq['fbLinkFrom'] != "GROUP"){
                 $meta['fbEmbed'] = '<div class="fb-post" data-href="'.$kq['missionFbUrl'].'" data-show-text="true" data-width=""></div>';
             }else{
@@ -23,7 +23,7 @@
         case "LIKEFANPAGE":
             $meta['title'] = "Bạn cần Like Fanpage để mở khóa";
             $meta['h1'] = "Cần Like Fanpage";
-            $meta['des'] = 'Bạn cần Like (thích) <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">fanpage này</a> sau đó bấm mở khóa link';
+            $meta['des'] = 'Bạn cần Like (thích) <a class="text-info" target="blank" href="https://facebook.com/'.$kq['missionFbId'].'">fanpage này</a> sau đó bấm mở khóa link';
             $meta['fbEmbed'] = '<div class="fb-page" data-href="https://www.facebook.com/'.$kq['missionFbId'].'/"  data-tabs="timeline"  data-width="" data-height="360" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
             ';
             $meta['btn'] = "Đã Like Fanpage - Mở Khóa";
@@ -31,7 +31,7 @@
         case "JOINGROUP":
             $meta['title'] = "Bạn cần Join Vào Group để mở khóa";
             $meta['h1'] = "Cần Join Group";
-            $meta['des'] = 'Bạn cần tham gia <a class="text-info" target="blank" href="https://facebook.com/'.['missionFbId'].'">nhóm này</a> sau đó bấm mở khóa link';
+            $meta['des'] = 'Bạn cần tham gia <a class="text-info" target="blank" href="https://facebook.com/'.$kq['missionFbId'].'">nhóm này</a> sau đó bấm mở khóa link';
             $meta['fbEmbed'] = '<div class="fb-group" data-href="https://www.facebook.com/groups/'.$kq['missionFbId'].'/" data-width="360" data-show-social-context="true" data-show-metadata="false"></div>';
             $meta['btn'] = "Đã Tham Gia Nhóm";
             break;      
@@ -57,6 +57,6 @@
 
 
     <script> var alias = '<?=$kq['alias']?>';</script>
-    <script src="<?=$rootURL?>/dist/js/pages/mission.js"></script>
+    <script src="<?=$rootURL?>/dist/js/pages/mission.js?v=<?=$version?>"></script>
 
     <? require_once(__DIR__."/modules/footer.php")?>

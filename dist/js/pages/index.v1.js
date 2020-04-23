@@ -209,6 +209,7 @@ $( document ).ready(function() {
 
     function initDatatable(select, tableOptions) {
         const table = $(`#${select}`).DataTable(tableOptions);
+        $('[data-toggle="tooltip"]').tooltip();
         return table;
     }
     function renderTableLockedUrl() {
@@ -232,6 +233,7 @@ $( document ).ready(function() {
                             output.missionFbUrl = v.missionFbUrl;
                             output.url = v.url;
                             output.insertDate = v.insertDate;
+                            output.task = `<i  data-toggle="tooltip" data-placement="top" title="Chỉnh sửa nhiệm vụ" data-alias="${v.alias}" class="fad text-info pointer fontSize-16 btn-editAlias fa-pen-square"></i>  <i data-toggle="tooltip" data-placement="top" title="Danh sách data khách"  data-alias="${v.alias}" class="fal fa-server ml-1 pointer text-info showDataByMission"></i>`;
                            
                             columns.push(output);
                         })
@@ -257,7 +259,7 @@ $( document ).ready(function() {
                     
                     {
                         title: '<strong>Link</strong>',
-                        data:  (data) => `<a class="text-gray" href="https://fff.blue/detail/${data.alias}?userToken=${userToken}">https://fff.blue/${data.alias}</a> <a href="https://fff.blue/${data.alias}"><i class="fal text-muted fa-external-link-square-alt ml-1"></i></a> <i data-alias="${data.alias}" class="fal fa-server ml-1 pointer text-info showDataByMission"></i></a>`,
+                        data:  (data) => `<a class="text-gray" href="https://fff.blue/detail/${data.alias}?userToken=${userToken}">https://fff.blue/${data.alias}</a> <a href="https://fff.blue/${data.alias}"><i class="fal text-muted fa-external-link-square-alt ml-1"></i></a>`,
                         className: 'text-left',
                        
                     },
@@ -275,7 +277,13 @@ $( document ).ready(function() {
                        
                     },
                     
-                   
+                    {
+                        title: '<strong>Tác vụ</strong>',
+                        data: 'task',
+                        className: 'text-left',
+                       
+                    },
+                    
                    
                    
                 ],

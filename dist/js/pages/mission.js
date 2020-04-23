@@ -83,7 +83,10 @@ window.fbAsyncInit = function() {
                                     case "LIKE": alertmsg = "Bạn cần LIKE bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
                                     case "COMMENT": alertmsg = "Bạn cần COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
                                     case "LIKECOMMENT": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "LIKEPAGE": alertmsg = "Bạn cần LIKE (bấm thích) Fanpage để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã thích, hãy <strong>truy cập lại fanpage</strong>  để hoàn thành nhiệm vụ"; break;
+                                    case "LIKECOMMENT-PROFILE": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                                    case "LIKECOMMENT-FANPAGE": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                                    case "LIKECOMMENT-GROUP": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                                    case "LIKEFANPAGE": alertmsg = "Bạn cần LIKE (bấm thích) Fanpage để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã thích, hãy <strong>truy cập lại fanpage</strong>  để hoàn thành nhiệm vụ"; break;
                                     case "JOINGROUP": alertmsg = "Bạn cần tham gia nhóm để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã tham gia, hãy <strong>truy cập vào nhóm lại </strong> để hoàn thành nhiệm vụ"; break;
                                     default: alertmsg = "Bạn cần hoàn thành nhiệm vụ trước khi mở khóa link";
                                 }
