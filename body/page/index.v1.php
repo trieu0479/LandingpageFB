@@ -16,7 +16,7 @@ require_once(__DIR__."/modules/topmenu.php");
     <div class="maxWidth-800 pb-5 m-auto mrl-md-1">
 
         <div class="text-left"><a target="blank"  class="text-box-catelog text-white bg-001" href="https://help.fff.com.vn/cong-cu-facebook/tang-tuong-tac-facebook">Xem hướng dẫn</a></div>
-            <div class="input-group" id="input-group">
+            <div class="input-group">
                     <select class="form-control border-tr-br-radius-0 fontSize-14 wantToDo">
                         <option value="LIKECOMMENT-PROFILE">Tăng Like & Comment Post trên Profile Facebook</option>
                         <option value="LIKECOMMENT-FANPAGE">Tăng Like & Comment Post trên Fanpage Facebook</option>
@@ -44,7 +44,9 @@ require_once(__DIR__."/modules/topmenu.php");
                 <li class="nav-item">
                     <a class="nav-link listMyAllData" data-toggle="tab" data-value="listMyAllData" href="#listMyAllData">Data khách hàng</a>
                 </li>
-            
+                <li class="nav-item ml-auto">
+                    <a class="nav-link donwloadData btn-sm mt-2 text-box-catelog text-white bg-001" data-toggle="tab" data-value="donwloadData" href="#donwloadData">Download</a>
+                </li>
             </ul>
         </div>
 
@@ -53,10 +55,11 @@ require_once(__DIR__."/modules/topmenu.php");
     </div>
     <?}else{?>
 
-    <div class="homepageMission maxWidth-1080 pt-8 m-auto pt-md-2">
+    <div class="homepageMission maxWidth-1080 pt-5 m-auto pt-md-2">
+        <h2 class="pt-2 pb-2 text-gray text-center fontSize-24 md-FontSize20">Hệ Thống Hoạt Động Ra Sao</h2>
+        <div class="text-center video-container "><iframe src="https://www.youtube.com/embed/a7tibZnx0Cg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         
-        <h2 class="pt-2 text-gray text-center fontSize-24 md-FontSize20">Hệ Thống Hoạt Động Ra Sao</h2>
-        <hr width="20%">
+        
         <div class="stepper pt-5 pt-md-0rem">
             <div class="step_item">
                 <i class="fad fa-bullseye-pointer text-danger"></i>

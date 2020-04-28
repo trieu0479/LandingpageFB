@@ -629,7 +629,7 @@ h4.background span {
     font-weight: bold;
 }
 .customTabColor .nav-link.active {
-    color: #4285f4 !important;
+    color: #4285f4;
     border-bottom: 2px solid #0abb87;
     background: #e7f8f3;
     font-weight: bold;
@@ -656,6 +656,8 @@ h4.background span {
     outline: 0!important;
     box-shadow: none!important;
   }
+
+  .video-container iframe, .video-container object, .video-container embed { width: 800px; height: 400px; }
 @media only screen and (max-width: 767px)  {
     .navbar .navbar-nav{
         flex-direction: row;
@@ -700,4 +702,17 @@ h4.background span {
     .md-FontSize20{
         font-size: 20px!important;
     }
+    
+    .video-container iframe, .video-container object, .video-container embed { width: 90%; height: 100%; }
+}
+
+
+#myLockUrl_wrapper .dt-buttons{
+    display: none;
+}
+.donwloadData.active{
+    color: #fff !important;
+    border-bottom: none!important;
+    background: #3c4cc2!important;
+    font-weight: bold!important;
 }

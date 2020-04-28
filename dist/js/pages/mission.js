@@ -101,7 +101,7 @@ window.fbAsyncInit = function() {
                                     })
                                 me.html(`<i class="fad fa-exclamation-circle mr-1"></i> Lỗi Nhiệm Vụ`);
                             }else{
-                                window.location.href=res.data.resultURL;
+                                location.href=res.data.resultURL;
                             }
                         });
                     }

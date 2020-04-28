@@ -15,10 +15,15 @@ $( document ).ready(function() {
         
          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             value = $(this).data("value");
-            tableMyLockUrl.clear().destroy();
-            $("#myLockUrl thead").empty();
-            if (value == "listMyMission")  tableMyLockUrl = renderTableLockedUrl(); 
-            if (value == "listMyAllData")  tableMyLockUrl =  renderMyData();
+            
+            if (value == "donwloadData"){
+                donwloadData();
+            }  else{
+                tableMyLockUrl.clear().destroy();
+                $("#myLockUrl thead").empty();
+                if (value == "listMyMission")  tableMyLockUrl = renderTableLockedUrl(); 
+                if (value == "listMyAllData")  tableMyLockUrl =  renderMyData();
+            }
             
           })
           $("body").on("click",".showDataByMission",function(res){
@@ -42,7 +47,9 @@ $( document ).ready(function() {
       
           
     }
-    
+    function donwloadData(){
+        $(".buttons-csv").trigger("click");
+    }
     $("body").on("click",".btn-lockURL",function(res){
         var facebookURL = $(".input-facebookURL").val();
       
@@ -52,7 +59,7 @@ $( document ).ready(function() {
             if (userToken == userTokenDemo){
                 showLoginModal();
             }else{
-                getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${facebookURL}`).then(res =>{
+                getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${btoa(facebookURL)}`).then(res =>{
                     if (res.data == ""){
                         showPopupError("Không xác định được facebook post ID, vui lòng xem hướng dẫn")
                     }else{
@@ -84,6 +91,10 @@ $( document ).ready(function() {
             showConfirmButton: false,
         })
     }
+    function showErrorOnModal(text){
+        Swal.showValidationMessage(text);
+        $(".swal2-validation-message").addClass("fontSize-14 mt-2");
+    }
     function showErrorOnModal(msg){
         Swal.showValidationMessage(msg);
         $(".swal2-validation-message").addClass("fontSize-14 mt-2");
@@ -105,39 +116,27 @@ $( document ).ready(function() {
         return await $.post(url,data)
     }
     function showPopupEdit(data){
-        console.log(data)
-
         Swal.fire({
             html: `
     <div class="pb-3 fontSize-16 text-align-center"><strong>Chỉnh sửa nhiệm vụ</strong></div>
-    
-    <div class="input-group">
-        
-        <div class="group-targetURL">
-            <div class="pb-1 fontSize-12"><strong>Đường dẫn URL:</strong></div>
-            <input type="text" value="${data.url}" class="form-control input-targetURL border-bottom">
+        <div class="form-group">
+            <label><strong>Tùy chỉnh Short URL (30 ký tự)</strong></label>
+            <input type="text" maxlength="30" value="${(data.custom) ? data.custom : ""}" class="form-control input-customSlug">
         </div>
-        <div class="group-analyticCode">
-            <div class="pb-1 fontSize-12"><strong>Analytic Code:</strong></div>
+        <div class="form-group">
+            <label><strong>Target URL:</strong></label>
+            <input type="text" value="${data.url}" class="form-control input-targetURL">
+        </div>
+        <div class="form-group">
+            <label><strong>Analytic Code:</strong></label>
             <input type="text" value="${(data.analyticCode) ? data.analyticCode : ""}" class="form-control input-analyticCode border-bottom">
         </div>
-        <div class="group-pixelCode">
-            <div class="pb-1 fontSize-12"><strong>Pixels Code:</strong></div>
+        <div class="form-group">
+            <label><strong>Facebook Pixel Code:</strong></label>
             <input type="text"  value="${(data.pixelsCode) ? data.pixelsCode : ""}" class="form-control input-pixelCode border-bottom">
         </div>
-        <div class="group-status">
-            <div class="pb-1 fontSize-12"><strong>Trạng thái:</strong></div>
-            <div class="switch__container">
-                <input id="switch-shadow" class="switch switch--shadow" ${(data.status == "PAUSE"  || data.status == "0") ? "" : "checked"} type="checkbox">
-                <label for="switch-shadow"></label>
-            </div>
-            
-        </div>
-        <div class="group-customSlug">
-            <div class="pb-1 fontSize-12"><strong>Tùy chỉnh Back-half:</strong></div>
-            <input type="text" maxlength="30" value="${(data.custom) ? data.custom : ""}" class="form-control input-customSlug border-bottom">
-        </div>
-        <button type="button" class="mt-3 btn btn-ConfirmEdit btn-primary">Tiếp Tục</button>
+      
+        <button type="button" class="mt-3 btn btn-ConfirmEdit btn-primary">Hiệu Chỉnh</button>
     </div>    
             `,
             showCloseButton: false,
@@ -156,7 +155,6 @@ $( document ).ready(function() {
                             targetUrl: $('.input-targetURL').val(),
                             analyticCode: $('.input-analyticCode').val(),
                             pixelsCode: $('.input-pixelCode').val(),
-                            status: ($('#switch-shadow').prop("checked")) ? "RUN" : "PAUSE",
                             customSlug: $(".input-customSlug").val()
                         };
                         postJSON(`https://localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=editLockedLink&alias=${data.alias}`,post).then(res => {
@@ -164,7 +162,7 @@ $( document ).ready(function() {
                             if (res.data.status == "success"){
                                 showPopopSuccess("Đã cập nhật thành công");
                             } else {
-                                showPopupError(res.data.msg)
+                                showErrorOnModal(res.data.msg);
                             }
                         })
                     }
@@ -229,7 +227,7 @@ $( document ).ready(function() {
                         var facebookURL = $(".input-facebookURL").val();
                         var me = $(this);
                         me.html(`<i class="fas fa-spinner fa-pulse"></i> Tiếp Tục`);
-                        $.getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${facebookURL}&type=${wantToDo}`,function(res){
+                        $.getJSON(`//localapi.trazk.com/2020/api/facebook/index.php?userToken=${userToken}&task=getFacebookPostId&url=${btoa(facebookURL)}&type=${wantToDo}`,function(res){
                             if (res.data == "" || res.data == null){
                                 Swal.fire({
                                     icon: 'error',
@@ -312,13 +310,31 @@ $( document ).ready(function() {
     
         });
     }
-
+    function extractHostname(url) {
+        var hostname;
+        //find & remove protocol (http, ftp, etc.) and get hostname
+    
+        if (url.indexOf("//") > -1) {
+            hostname = url.split('/')[2];
+        }
+        else {
+            hostname = url.split('/')[0];
+        }
+    
+        //find & remove port number
+        hostname = hostname.split(':')[0];
+        //find & remove "?"
+        hostname = hostname.split('?')[0];
+    
+        return hostname;
+    }
     function initDatatable(select, tableOptions) {
         const table = $(`#${select}`).DataTable(tableOptions);
         $('[data-toggle="tooltip"]').tooltip();
         return table;
     }
     function renderTableLockedUrl() {
+        $(".tooltip").hide();
        return initDatatable(
             'myLockUrl', {
                 ajax: {
@@ -328,7 +344,7 @@ $( document ).ready(function() {
                         var columns =[];
                         $.each(res.data,function (k,v){
                             var output = {};
-                            output.alias =  v.alias;
+                            if (! v.custom) output.alias =  v.alias; else output.alias = v.custom;
                             output.custom = v.custom;
                             output.click = v.click;
                             output.status = v.status;
@@ -339,7 +355,7 @@ $( document ).ready(function() {
                             output.missionFbUrl = v.missionFbUrl;
                             output.url = v.url;
                             output.insertDate = v.insertDate;
-                            output.task = `<i  data-toggle="tooltip" data-placement="top" title="Chỉnh sửa nhiệm vụ" data-alias="${v.alias}" class="fad text-info pointer fontSize-16 btn-editAlias fa-pen-square"></i>  <i data-toggle="tooltip" data-placement="top" title="Danh sách data khách"  data-alias="${v.alias}" class="fal fa-server ml-1 pointer text-info showDataByMission"></i>`;
+                            output.task = `<i  data-toggle="tooltip" data-placement="top" title="Chỉnh sửa nhiệm vụ" data-alias="${v.alias}" class="fal text-success pointer fontSize-16 btn-editAlias fa-pen-square"></i>  <i data-toggle="tooltip" data-placement="top" title="Danh sách data khách"  data-alias="${v.alias}" class="fal fa-server fontSize-16 ml-1 pointer text-info showDataByMission"></i> <a href="https://fff.blue/${v.alias}"><i class="fal fontSize-16 text-muted fa-external-link-square-alt ml-1" target="blank" data-toggle="tooltip" data-placement="top" title="Xem trang nhiệm vụ" ></i></a>`;
                            
                             columns.push(output);
                         })
@@ -352,25 +368,34 @@ $( document ).ready(function() {
                     },
                 },
 
-                drawCallback: function (settings) {},
+                drawCallback: function (settings) {
+                    $('body').tooltip({
+                        selector: '[data-toggle="tooltip"]'
+                    });
+                },
                 columns: [
                     {
                         title: '<strong>Thêm ngày</strong>',
                         data:  (data) => moment(data.insertDate).format("hh:mm DD/MM"),
                         className: 'text-left',
-                        width: '150',
+                        width: '90',
 
                     },
                     {
                         title: '<strong>Nhiệm vụ</strong>',
                         data:  (data) => `<span class="badge-mission  badge-${data.missionType}">${data.missionType}</span>`,
                         className: 'text-left',
-                        width: '150'
+                        width: '120'
                     },
-                    
                     {
-                        title: '<strong>Link</strong>',
-                        data:  (data) => `<a class="text-gray" href="https://fff.blue/detail/${data.alias}?userToken=${userToken}">https://fff.blue/${data.alias}</a> <a href="https://fff.blue/${data.alias}"><i class="fal text-muted fa-external-link-square-alt ml-1"></i></a>`,
+                        title: '<strong>Alias</strong>',
+                        data:  (data) => `<a class="text-gray" href="https://fff.blue/detail/${data.alias}?userToken=${userToken}">${data.alias}</a>`,
+                        className: 'text-left',
+                       
+                    },
+                    {
+                        title: '<strong>Target</strong>',
+                        data:  (data) => `<a class="text-gray" href="${data.url}">${extractHostname(data.url)}</a>`,
                         className: 'text-left',
                        
                     },
@@ -398,11 +423,14 @@ $( document ).ready(function() {
                    
                    
                 ],
-              
-                buttons: [
-                    'copy', 'excel',
-                ],
                 dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'csv',
+                        title: 'Mission'
+                    }
+                ],
+                
                 paging: true,
                 autoWidth: false,
                 pageLength: 50,
@@ -438,6 +466,7 @@ $( document ).ready(function() {
     }
 
     function renderMyData(alias=null) {
+        $(".tooltip").hide();
         if (alias == null){
             var ajaxURL = `//localapi.trazk.com/2020/api/facebook/index.php?task=listMyAllData&userToken=${userToken}`;
         }else{
@@ -463,7 +492,9 @@ $( document ).ready(function() {
                     },
                 },
 
-                drawCallback: function (settings) {},
+                drawCallback: function (settings) {
+                  
+                },
                 columns: [
                     {
                         title: '<strong>Thêm ngày</strong>',
@@ -495,11 +526,14 @@ $( document ).ready(function() {
                     
                    
                 ],
-              
-                buttons: [
-                    'excel'
-                ],
                 dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'csv',
+                        title: 'Lead Data'
+                    }
+                ],
+                
                 paging: true,
                 autoWidth: false,
                 pageLength: 50,

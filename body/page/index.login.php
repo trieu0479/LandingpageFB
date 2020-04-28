@@ -17,18 +17,11 @@ require_once(__DIR__."/modules/topmenu.php");
         <div class="text-center clearfix">
             <div class="form-group">
                  <div class="text-left"><a target="blank"  class="text-box-catelog text-white bg-001" href="https://help.fff.com.vn/cong-cu-facebook/tang-tuong-tac-facebook">Xem hướng dẫn</a></div>
-                 <div class="d-flex">
-                 <select class="custom-select" id="listSelectInteractive">
-                        <option selected value="">Chọn tương tác</option>
-                        <option value="likePost">Tăng Like 👍 bài post</option>
-                        <option value="Like&Comment">Tăng Like 👍 và Comment bài post</option>
-                        <option value="likePage">Tăng Like 👍 page</option>
-                        <option value="joinInGroup">Tăng Member Group</option>
-                    </select>
-                    <button class="ml-6px btn-lockOption btn btn-info"><i class="fad fa-layer-plus mr-2"></i> Cấu Hình</button>
-                </div>
+                 <input value="" type="text" class="form-control input-facebookURL  border " autocomplete="off"
+                        placeholder="Nhập bài post facebook cần tăng tương tác">
+                
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
             <div class="d-flex no-block">
                 <div class="text-left d-flex no-block align-self-center">
                     <div class="font-gg font-weight-500 font-16 text-muted d-none d-md-block">
@@ -46,7 +39,7 @@ require_once(__DIR__."/modules/topmenu.php");
               
 
                         <button class="ml-auto  btn-lockURL btn btn-info"><i class="fad fa-layer-plus mr-2"></i> Cấu Hình</button>
-            </div> -->
+            </div>
             </div>
         </div>
     </div>

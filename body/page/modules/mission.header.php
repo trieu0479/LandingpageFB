@@ -39,6 +39,13 @@
     <link href="<?=$rootURL?>/dist/css/pages/mission.css" rel="stylesheet">
     <link href="<?=$rootURL?>/dist/css/pages/stepper.css" rel="stylesheet">
     <link href="<?=$rootURL?>/dist/css/fff/reset.css" rel="stylesheet">
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MFS4FQC');</script>
+
     <? if ($kq['analyticCode']){?>
       <script async src="https://www.googletagmanager.com/gtag/js?id=<?=$kq['analyticCode']?>"></script>
       <script>
@@ -51,6 +58,8 @@
       </script>
     <?}?>
     <script> var alias = '<?=$view?>';</script>
+
+
   </head>
 
   <body>

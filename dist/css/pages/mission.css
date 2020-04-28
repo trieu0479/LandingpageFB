@@ -25,27 +25,9 @@
 .dataTables_wrapper{
     overflow-x: auto!important;
 }
-.input-group{
-    display: block!important;
-    text-align: center;
-}
-#input-group{
-    display: flex!important;
-}
-.group-targetURL, .group-analyticCode, .group-pixelCode, .group-status, .group-customSlug{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.group-status{
-    padding: 6px 0px;
-}
-.input-group input{
-    max-width: 70%;
-    border: none;
-    padding-bottom: 10px;
-    text-align: left;
-}
+
+
+
 /* Nút trạng thái  */
 /* Estilo iOS */
 .switch__container {
@@ -111,8 +93,15 @@
     }
     .stepper .step_item{
         width: 100%!important;
+    }    
+    .step_img img{
+        width: 70%!important;
     }
     .stepper .step_item i{
         font-size: 110px!important;
+    }
+    .missionHeader{
+      padding-left:30px;
+      padding-right:30px;
     }
 }
