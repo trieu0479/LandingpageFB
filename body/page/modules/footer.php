@@ -6,14 +6,15 @@
 
     <script src="<?=$rootURL?>/dist/js/bootstrap.bundle.js"></script>
     <script src="<?=$rootURL?>/dist/js/extension/sweetalert2.min.js"></script>
-    <!-- <script src="<?=$rootURL?>/dist/js/extension/moment.js"></script> -->
-    <script src="<?=$rootURL?>/dist/js/flatpickr.js"></script>
-    <script src="<?=$rootURL?>/dist/js/flatpickr_vn.js"></script>
-    <script src="<?=$rootURL?>/dist/js/echarts.min.js"></script>
-    <script src="<?=$rootURL?>/dist/js/moment.js"></script>
+    <script src="<?=$rootURL?>/dist/js/extension/moment.min.js"></script>
+    <script src="<?=$rootURL?>/dist/js/extension/flatpickr.js"></script>
+    <script src="<?=$rootURL?>/dist/js/extension/flatpickr_vn.js"></script>
+    <script src="<?=$rootURL?>/dist/js/extension/echarts.min.js"></script>
+    <!--<script src="<?=$rootURL?>/dist/js/moment.js"></script>-->
     <script src="<?=$rootURL?>/dist/js/numeral.min.js"></script>
     <script src="<?=$rootURL?>/dist/js/ResizeSensor.js"></script>
     
+
     
   </body>
 </html>

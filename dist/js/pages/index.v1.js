@@ -1,5 +1,16 @@
 var tableMyLockUrl = null;
 $( document ).ready(function() {
+
+    var now = new Date();
+    var defaultEndDate = moment().format("YYYY-MM-DD")
+    var defaultStartDate = moment().subtract(30,'d').format("YYYY-MM-DD")
+
+    from = url.searchParams.get("startDate");
+    to = url.searchParams.get("endDate");
+    if (from == null) from = defaultStartDate;
+    if (to == null) to = defaultEndDate;
+
+
     $("body").on("click",".btn-Step1",function(res){
         if (userToken == userTokenDemo){
             showLoginModal();
@@ -567,5 +578,344 @@ $( document ).ready(function() {
 
 
     }
+
+     // ------------------trieu-----------
+     $("#rangeChart").flatpickr({
+        locale: "vn",
+        mode: 'range',
+        dateFormat: "d/m/Y",
+        maxDate: new Date(),
+        defaultDate: [moment(from,"DD-MM-YYYY").format("DD/MM/YYYY"), moment(to,"DD-MM-YYYY").format("DD/MM/YYYY")],
+        onClose: function (date) { 
+            let aaa = flatpickr.formatDate(date[0], "d/m/Y");
+            let bbb = flatpickr.formatDate(date[1], "d/m/Y");
+            console.log(aaa,bbb)
+            if(aaa != from ||  bbb!= to){ 
+                window.location.href = `./?userToken=${userToken}&startDate=${aaa}&endDate=${bbb}`
+            }
+        }
+    })
+
+    function renderReportChart(data) {
+        // let wrapper = $('#getKeywordsSuggestion--eCharts_wrapper');
+        let ele = document.getElementById('ClickChart');
+
+        // wrapper.removeClass('is-loading')
+        //     .append(`<div class="flex-center flex-grow-1 display-5 font-gg text-favorite counter"></div>`);
+        $.getJSON(`//localapi.trazk.com/2020/api/facebook/report.php?task=reportByDate&userToken=${userToken}&from=${from}&to=${to}`).then(data => {
+            let dataChart = {
+                keys: [],
+                values: {
+                    pc: [],
+                    mobile: [],
+                    total: [],
+                    lead: []
+                }
+            };
+
+            Object.values(data.data.data).forEach(item => {
+                dataChart.keys.push(moment(item.date).format("DD/MM"));
+                dataChart.values.pc.push(item.Computer);
+                dataChart.values.mobile.push(item.Phone);
+                dataChart.values.lead.push(item.lead);
+                dataChart.values.total.push(parseInt(item.Computer) + parseInt(item.Phone));
+            })
+
+            let option = {
+                grid: {
+                    // bottom: 0,
+                    left: '2%',
+                    right: '2%',
+                },
+                legend: {
+                    itemWidth: 16,
+                    itemHeight: 10,
+                    itemGap: 16,
+                    right: 30,
+                    textStyle: {
+
+                        fontFamily: 'Google Sans'
+                    },
+                    data: [ 'Tổng Traffic', 'Lead', 'Máy tính', 'Điện thoại']
+                },
+                tooltip: {
+                    showContent: true,
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    borderColor: '#444444',
+                    fontFamily: 'Google Sans',
+                    borderWidth: 1,
+                    extraCssText: 'padding: 10px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);',
+                    formatter: params => {
+
+                        if (params.length > 0) {
+
+                            let {
+                                name
+                            } = params[0];
+
+
+                            let kq = `<div class="text-dark text-capitalize border-bottom pb-1 mb-2">${name}</div>`
+
+                            params.forEach(param => {
+
+                                let {
+                                    marker,
+                                    color,
+                                    seriesName,
+                                    value
+                                } = param;
+
+                                value = numeral(value).format('0,0')
+
+                                kq += `<div class="text-dark">${marker} ${seriesName} <span style="color:${color};font-weight:bold">${value}</span></div>`
+                            })
+
+                            return kq;
+                        }
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        shadowStyle: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: dataChart.keys,
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                       
+                        fontSize: 12,
+                        formatter: (data) =>
+                            data
+                        // margin: 20
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // show: false,
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                           
+                            // type: 'dashed'
+                        }
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                       
+                        fontSize: 12,
+                        formatter: (data) => numeral(data).format('0a')
+                    }
+                }, ],
+                series: [{
+                        name: 'Máy tính',
+                        type: 'bar',
+                        data: dataChart.values.pc,
+                        itemStyle: {
+                            color: '#1abc9c'
+                        },
+                    },
+                    {
+                        name: 'Điện thoại',
+                        type: 'bar',
+                        data: dataChart.values.mobile,
+                        itemStyle: {
+                            color: '#e74c3c'
+                        },
+                    },
+                    {
+                        name: 'Lead',
+                        type: 'line',
+                        data: dataChart.values.lead,
+                        smooth: true,
+                        symbolSize: 15,
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#8ec6ad'
+                            }, {
+                                offset: 1,
+                                color: '#ffe'
+                            }])
+                        },
+                    },
+                    {
+                        name: 'Tổng Traffic',
+                        type: 'line',
+                        data: dataChart.values.total,
+                        smooth: true,
+                        symbolSize: 15,
+                        itemStyle: {
+                            color: '#667388'
+                        },
+                    }
+                ]
+            };
+            // $(".historyByMonthKeywords").removeClass("d-none");
+            let myChart = echarts.init(ele);
+
+            myChart.setOption(option);
+            new ResizeSensor(ele, function () {
+                myChart.resize();
+            });
+            
+
+        })
+
+    }
+    renderReportChart();
+
+    function renderLeadChart(data) {        
+        let ele = document.getElementById('LeadChart');
+        $.getJSON(`//localapi.trazk.com/2020/api/facebook/report.php?task=reportByDate&userToken=${userToken}&from=${moment(from,"DD-MM-YYYY").format("YYYY-MM-DD")}&to=${moment(to,"DD-MM-YYYY").format("YYYY-MM-DD")}`).then(data => {      
+         let dataChart = {
+                keys: [],
+                values: {
+                    lead: [],
+                }
+            };
+
+            Object.values(data.data.data).forEach(item => {
+                dataChart.keys.push(item.date);
+                dataChart.values.lead.push(item.lead);
+            })
+            console.log(dataChart);
+            
+            let option = {
+                grid: {
+                    // bottom: 0,
+                    left: 80,
+                    right: 40,
+                },
+                legend: {
+                    itemWidth: 16,
+                    itemHeight: 10,
+                    itemGap: 16,
+                    right: 30,
+                    textStyle: {
+                        color: 'rgba(255, 255, 255, 0.5)',
+                        // fontSize: 12,
+                        fontFamily: 'Google Sans'
+                    },
+                    data: ['Lead']
+                },
+                tooltip: {
+                    showContent: true,
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    borderColor: 'rgba(93,120,255,1)',
+                    borderWidth: 1,
+                    extraCssText: 'padding: 10px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);',
+                    formatter: params => {
+                        if (params.length > 0) {
+                            let {
+                                name
+                            } = params[0];
+                            name = moment(name).format('DD,MMMM,YYYY');
+                            let kq = `<div class="text-dark text-capitalize border-bottom pb-1 mb-2">${name}</div>`
+                           console.log(name);
+                           
+                            params.forEach(param => {
+                                let {
+                                    marker,
+                                    color,
+                                    seriesName,
+                                    value
+                                } = param;
+
+                                value = numeral(value).format('0,0')
+
+                                kq += `<div class="text-dark">${marker} ${seriesName} <span style="color:${color};font-weight:bold">${value}</span></div>`
+                            })
+
+                            return kq;
+                        }
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        shadowStyle: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    }
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: dataChart.keys,
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: 'rgba(255, 255, 255, 0.5)',
+                        fontSize: 12,
+                        formatter: (data) =>
+                            data
+                        // margin: 20
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // show: false,
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.1)',
+                            // type: 'dashed'
+                        }
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        color: 'rgba(255, 255, 255, 0.5)',
+                        fontSize: 12,
+                        formatter: (data) => numeral(data).format('0a')
+                    }
+                }, ],
+                series: [{
+                        name: 'Lead',
+                        type: 'bar',
+                        data: dataChart.values.lead,
+                        itemStyle: {
+                            color: '#1abc9c'
+                        },
+                    }
+
+                ]
+            };
+            let myChart = echarts.init(ele);
+            myChart.setOption(option);
+            new ResizeSensor(ele, function () {
+                myChart.resize();
+            });
+            
+        })
+    }
+ //   renderLeadChart();
+
     
 });

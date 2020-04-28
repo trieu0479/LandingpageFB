@@ -36,6 +36,13 @@ require_once(__DIR__."/modules/topmenu.php");
  
     <? if ($userToken != $demoToken){?>
     <div class="homepageMission maxWidth-1080  m-auto">
+
+        <div class="row">
+            <div class="col-12 col-md-12 ">
+                <div id="ClickChart" style="height: 300px;width:100%;"></div>
+            </div>
+        </div>
+        
         <div>
             <ul class="nav customTabColor">
                 <li class="nav-item">
