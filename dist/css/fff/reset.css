@@ -716,3 +716,29 @@ h4.background span {
     background: #3c4cc2!important;
     font-weight: bold!important;
 }
+
+
+/* top menu drop down */
+
+.extensionLogo img {
+    height: 35px;
+    filter: none;
+    -webkit-filter: grayscale(0);
+}
+
+.extensionLogo img:hover {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+@media screen and (max-width: 768px) {
+    .extensionLogo {
+        margin-top: 10px;
+    }
+    .extensionLogo img {
+        height: 20px;
+    }
+    .keywordWapper {
+        max-width: 90%;
+    }
+}

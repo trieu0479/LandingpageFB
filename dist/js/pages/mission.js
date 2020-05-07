@@ -37,6 +37,50 @@ window.fbAsyncInit = function() {
                 $.getJSON(`https://localapi.trazk.com/2020/api/facebook/index.php?task=updateLog&alias=${alias}`);
             }
             confirmMission();
+            function postConfirmMission(){
+                var post = {};
+                post.mission= $(".confirmMission").data("mission");
+                post.missionid=$(".confirmMission").data("missionid");
+                post.alias=$(".confirmMission").data("alias");
+                post.fbuid= fbuid;
+                post.fbtoken= fbtoken;
+                post.fbname= fbname;
+                post.fbemail= fbemail;
+                post.clickMission= clickMission;
+                console.log(post);
+                var postVal ={data: btoa(unescape(encodeURIComponent(JSON.stringify(post))))};
+                $.post(`https://localapi.trazk.com/2020/api/facebook/index.php?task=confirmMission`,postVal,function(res){
+                    res = JSON.parse(res);
+                    
+                    if (res.data.status == "error"){
+                       
+                        var alertmsg = "";
+                        switch(post.mission){
+                            case "LIKE": alertmsg = "Bạn cần LIKE bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                            case "COMMENT": alertmsg = "Bạn cần COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                            case "LIKECOMMENT": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                            case "LIKECOMMENT-PROFILE": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                            case "LIKECOMMENT-FANPAGE": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                            case "LIKECOMMENT-GROUP": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
+                            case "LIKEFANPAGE": alertmsg = "Bạn cần LIKE (bấm thích) Fanpage để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã thích, hãy <strong>truy cập lại fanpage</strong>  để hoàn thành nhiệm vụ"; break;
+                            case "JOINGROUP": alertmsg = "Bạn cần tham gia nhóm để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã tham gia, hãy <strong>truy cập vào nhóm lại </strong> để hoàn thành nhiệm vụ"; break;
+                            default: alertmsg = "Bạn cần hoàn thành nhiệm vụ trước khi mở khóa link";
+                        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: '😞, đợi chút ...',
+                            html: `<div class="text-center">${alertmsg}</div>`,
+                            footer: '<a href>Xem hướng dẫn sử dụng</a>',
+                            showCloseButton: false,
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            })
+                        me.html(`<i class="fad fa-exclamation-circle mr-1"></i> Lỗi Nhiệm Vụ`);
+                    }else{
+                        location.href=res.data.resultURL;
+                    }
+                });
+            }
             function confirmMission(){
                 $(".confirmMission").click(function(res){
                     me = $(this);
@@ -45,10 +89,13 @@ window.fbAsyncInit = function() {
                     if (fbuid == 0 || fbuid == 1){
                         FB.login(function(response) {
                             fbtoken = response.authResponse.accessToken;
+                            fbuid = response.authResponse.userID;
                             if (response.authResponse) {
                              FB.api('/me?fields=id,name,email', function(response) {
                                 fbname = response.name;
                                 fbemail = response.email;
+                                fbemail = response.email;
+                                postConfirmMission();
                              });
                             } else {
                                 Swal.fire({
@@ -63,47 +110,7 @@ window.fbAsyncInit = function() {
                             }
                         }, {scope: 'email'});
                     }else{
-                        var post = {};
-                        post.mission= $(this).data("mission");
-                        post.missionid= $(this).data("missionid");
-                        post.alias= $(this).data("alias");
-                        post.fbuid= fbuid;
-                        post.fbtoken= fbtoken;
-                        post.fbname= fbname;
-                        post.fbemail= fbemail;
-                        post.clickMission= clickMission;
-                        var postVal ={data: btoa(unescape(encodeURIComponent(JSON.stringify(post))))};
-                        $.post(`https://localapi.trazk.com/2020/api/facebook/index.php?task=confirmMission`,postVal,function(res){
-                            res = JSON.parse(res);
-                            
-                            if (res.data.status == "error"){
-                               
-                                var alertmsg = "";
-                                switch(post.mission){
-                                    case "LIKE": alertmsg = "Bạn cần LIKE bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "COMMENT": alertmsg = "Bạn cần COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "LIKECOMMENT": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "LIKECOMMENT-PROFILE": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "LIKECOMMENT-FANPAGE": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "LIKECOMMENT-GROUP": alertmsg = "Bạn cần LIKE và COMMENT bài post để hoàn tất nhiệm vụ và mở khóa link"; break;
-                                    case "LIKEFANPAGE": alertmsg = "Bạn cần LIKE (bấm thích) Fanpage để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã thích, hãy <strong>truy cập lại fanpage</strong>  để hoàn thành nhiệm vụ"; break;
-                                    case "JOINGROUP": alertmsg = "Bạn cần tham gia nhóm để hoàn tất nhiệm vụ và mở khóa link.<br> Nếu bạn đã tham gia, hãy <strong>truy cập vào nhóm lại </strong> để hoàn thành nhiệm vụ"; break;
-                                    default: alertmsg = "Bạn cần hoàn thành nhiệm vụ trước khi mở khóa link";
-                                }
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: '😞, đợi chút ...',
-                                    html: `<div class="text-center">${alertmsg}</div>`,
-                                    footer: '<a href>Xem hướng dẫn sử dụng</a>',
-                                    showCloseButton: false,
-                                    showCancelButton: false,
-                                    showConfirmButton: false,
-                                    })
-                                me.html(`<i class="fad fa-exclamation-circle mr-1"></i> Lỗi Nhiệm Vụ`);
-                            }else{
-                                location.href=res.data.resultURL;
-                            }
-                        });
+                        postConfirmMission();
                     }
                 });
             }
