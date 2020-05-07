@@ -4,7 +4,7 @@ class facebook{
     var $userId = null;
     var $cookie = null;
     public function __construct(){
-        $mysqli = new mysqli ('maindb.fff.com.vn', '2020_u_fffblue', '2020_u_fffblue', '2020_fffblue_shorturl');
+        $mysqli = new mysqli ('210.211.116.252', '2020_u_fffblue', '2020_u_fffblue', '2020_fffblue_shorturl');
         $this->db =new MysqliDb ($mysqli);
     }
     function checkUserLevel($userToken){

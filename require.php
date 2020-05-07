@@ -1,4 +1,5 @@
 <?php
+
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 set_time_limit(0);
 ini_set('display_errors', 1);
@@ -12,7 +13,7 @@ if (@$_GET['userToken']) $userToken =$_GET['userToken'];else $userToken =  $_COO
 if (empty($userToken))  $userToken = $demoToken;
 
 $rootURL = "https://fff.blue";
-$mysqli = new mysqli ('maindb.fff.com.vn', '2020_fffblue_shorturl', '123qazZAQ', '2020_fffblue_shorturl');
+$mysqli = new mysqli ('210.211.116.252', '2020_u_fffblue', '2020_u_fffblue', '2020_fffblue_shorturl');
 $db = new MysqliDb ($mysqli);
 $version = "1.0.3.1";
 ?>
