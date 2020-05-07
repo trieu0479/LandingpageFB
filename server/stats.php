@@ -1,11 +1,23 @@
 <?php
 require_once("./require.php");
+require_once("./include/stats.php");
 $userToken = $_GET['userToken'];
-$view = $_GET['view'];
-$action = $_GET['action'];
-require_once('modules/header.php') ;
-?>
-
-<?php require_once('modules/top.php');?>
-<?php require_once("body/".$view."/".$action.".php");?> 
-<?php require_once("modules/footer.php");?>
+$task = $_GET['task'];
+$stats = new stats();
+$noNeedToken = array("updateLog","confirmMission","confirmMissionV1");
+if (!in_array($task,$noNeedToken)){
+    if (!$stats->checkUserLevel($userToken)){
+        $output['status'] = "error";
+        $output['msg'] = "User Token Error";
+        echo json_encode($output);
+        exit();
+    }
+}
+switch ($task){
+    case "getFacebookInformation":  
+        $fbId = $_GET['fbId'];
+        $kq->data  =  $stats->getFacebookInformation($fbId); break;
+   
+ 
+}
+echo json_encode($kq); 
