@@ -1,0 +1,170 @@
+body{
+    color: #000;
+}
+.fontsize-12 {
+    font-size: 12px;
+}
+
+.fontsize-14 {
+    font-size: 14px;
+}
+
+.fontsize-16 {
+    font-size: 16px;
+}
+
+.fontsize-18 {
+    font-size: 18px;
+}
+
+.fontsize-20 {
+    font-size: 20px;
+}
+
+.fontsize-24 {
+    font-size: 24px;
+}
+
+.fontsize-32 {
+    font-size: 32px;
+}
+
+.fontsize-36 {
+    font-size: 36px;
+}
+
+.fontsize-42 {
+    font-size: 42px;
+}
+
+.fontsize-44 {
+    font-size: 44px;
+}
+
+.fontsize-48 {
+    font-size: 48px;
+}
+
+.font-md-29-size {
+    font-size: 29px;
+}
+
+.maxwidth-1080 {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.maxwidth-1100 {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.second-pricing-table {
+    text-align: center;
+    padding: 30px 30px;
+    background: #fff;
+    box-shadow: 0 10px 100px 0 rgba(77, 77, 119, 0.16);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.second-pricing-table-title {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.second-pricing-table-price {
+    text-align: left;
+    font-size: 30px;
+    display: block;
+    margin: 20px 0;
+    font-style: inherit !important;
+}
+
+.second-pricing-table-body {
+    padding-left: 0;
+    text-align: left;
+}
+
+.second-pricing-table-body li {
+    list-style: none;
+    font-size: 14px;
+    padding: 6px;
+    font-weight: 500;
+    border-radius: 30px;
+    color: #4c5b63;
+    position: relative;
+    z-index: 1;
+}
+
+.second-pricing-table-button {
+    background: #2fd5c9;
+    border: 2px solid #2fd5c9;
+    margin-top: 5px;
+    display: inline-block;
+    float: left;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 9px;
+    width: 100%;
+    border-radius: 5px;
+    text-decoration: none !important;
+}
+
+/* homepage */
+
+.tvBar .page-wrapper {
+    margin-left: 0px;
+}
+
+
+.fontsize-12 {
+    font-size: 12px;
+}
+
+.fontsize-13 {
+    font-size: 13px;
+}
+
+.fontsize-14 {
+    font-size: 14px;
+}
+
+.fontsize-16 {
+    font-size: 16px;
+}
+
+.fontsize-18 {
+    font-size: 18px;
+}
+
+.fontsize-20 {
+    font-size: 20px;
+}
+
+.fontsize-24 {
+    font-size: 24px;
+}
+
+.fontsize-32 {
+    font-size: 32px;
+}
+
+.fontsize-36 {
+    font-size: 36px;
+}
+
+.fontsize-42 {
+    font-size: 42px;
+}
+
+.fontsize-44 {
+    font-size: 44px;
+}
+
+.fontsize-48 {
+    font-size: 48px;
+}
