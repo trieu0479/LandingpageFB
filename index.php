@@ -1,12 +1,18 @@
 <?php 
 include("./require.php");
-$a = $_GET['a'];
-$a = explode("/",$_GET['a']);
+$a = $_GET['view'];
+$a = explode("/",$_GET['view']);
 @$view = $a[0];
 @$action = $a[1];
+// echo "view - ".$view." - action".$action;
 if (empty($view) && empty($action)){
    require_once("./body/page/index.v1.php"); 
 }else{
+
+  if($view == "reportFanpage") {
+    require_once("./body/page/".$view."/".$action.".php"); 
+  }
+
   if (empty($action)){
     //do redirect 
     $kq = $db->rawQueryOne("SELECT * FROM fff_url WHERE `alias`='".$view."' OR `custom`='".$view."'");
