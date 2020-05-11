@@ -51,6 +51,7 @@ class stats{
             $data = $showCategory;
         }
         return $showCategory;
+        //http://v7-fffblue.com/server/stats.php?task=showCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o
     }
     // loc theo category
     function getFacebookCategory($category){
