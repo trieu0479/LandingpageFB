@@ -53,10 +53,12 @@ class stats{
         return $data;
     }
     function getFacebookLikesDay($fbId, $from, $to){
+        if (empty($from)) $from = date("Y-m-d",strtotime("-10 days"));
+        if (empty($to)) $to = date("Y-m-d");
         $this->db->where("fbId",$fbId);
         $this->db->Where ('insertTime', Array ($from, $to), 'BETWEEN');
         $likesFb = $this->db->get('facebook_fanpage_log');
-        echo $this->db->getLastQuery();
+        // echo $this->db->getLastQuery();
         $data = []; 
         $output = [];
         if($likesFb) {
