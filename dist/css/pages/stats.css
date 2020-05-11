@@ -225,6 +225,47 @@ body {
     border-bottom: 1px dashed #ebedf2;
 }
 
+.table-fbRank thead tr th {
+    background: #343a40;
+    color: #fff !important;
+}
+
+
+/* .cut-text-title {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+} */
+
+.cut-text-category {
+    width: 180px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dataTables_wrapper tbody .even {
+    background-color: rgba(122, 172, 237, .1) !important;
+}
+
+.odd {
+    background: #fff !important;
+}
+
+.btn-result-kq {
+    background-color: #fff;
+    color: #444;
+    border: 1px #f4f4f4 solid;
+}
+
+.btn-result-kq:hover i,
+.btn-result-kq:hover {
+    background-color: #5578eb!important;
+    transition: all 0.2s;
+    color: #fff!important;
+}
+
 @media (max-width: 768px) {
     .d-show {
         display: block !important;
