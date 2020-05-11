@@ -13,10 +13,12 @@ if (!in_array($task,$noNeedToken)){
         exit();
     }
 }
+$fbId = $_GET['fbId'];
 switch ($task){
     case "getFacebookInformation":  
-        $fbId = $_GET['fbId'];
         $kq->data  =  $stats->getFacebookInformation($fbId); break;
+    case "getFacebookLikeDay":  
+        $kq->data  =  $stats->getFacebookLikeDay($fbId); break;
    
  
 }
