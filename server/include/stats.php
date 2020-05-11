@@ -21,15 +21,17 @@ class stats{
             }else return null;
         }else return null;
     }
+    // tong hop tat ca cac fanpage 
     function getAllFacebookInformation($limit){
-        $informationFb = $this->db->rawQuery("SELECT * FROM facebook_fanpage Orders LIMIT ".$limit."");
+        $allInformationFb = $this->db->rawQuery("SELECT * FROM facebook_fanpage Orders LIMIT ".$limit."");
         $data = [];
-        if($informationFb) {
-            $data = $informationFb;
+        if($allInformationFb) {
+            $data = $allInformationFb;
         }
         // http://v7-fffblue.com/server/stats.php?task=getAllFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&limit=100
         return $data;
     }
+    // thong tin chi tiet ve fanpage 
     function getFacebookInformation($fbId){
         $this->db->where("fbId",$fbId);
         $informationFb = $this->db->getone('facebook_fanpage');
@@ -41,6 +43,16 @@ class stats{
         // http://v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=101162088206729
         return $data;
     }
+    // toan bo category
+    function showCategory(){
+        $showCategory = $this->db->rawQuery("SELECT DISTINCT fbCategory FROM facebook_fanpage");
+        $data = [];
+        if($showCategory) {
+            $data = $showCategory;
+        }
+        return $showCategory;
+    }
+    // loc theo category
     function getFacebookCategory($category){
         $this->db->where("fbCategory",$category);
         $categoryFb = $this->db->get('facebook_fanpage');
@@ -52,6 +64,7 @@ class stats{
         // http://v7-fffblue.com/server/stats.php?task=getFacebookCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&category=Nh%C3%A0%20xu%E1%BA%A5t%20b%E1%BA%A3n
         return $data;
     }
+    // luot like fanpage hang ngay 
     function getFacebookLikesDay($fbId, $from, $to){
         if (empty($from)) $from = date("Y-m-d",strtotime("-10 days"));
         if (empty($to)) $to = date("Y-m-d");
