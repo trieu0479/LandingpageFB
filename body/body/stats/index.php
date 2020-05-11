@@ -22,3 +22,10 @@
         </div>
     </div>
 </div>
+<script>
+    $.get(`//v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=${userToken}&fbId=101162088206729`,function(data){
+        // data = JSON.parse(data)
+        
+        console.log(data)
+    })
+</script>
