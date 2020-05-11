@@ -59,7 +59,6 @@ class stats{
     function getFacebookCategory($category){
         $this->db->where("fbCategory",$category);
         $categoryFb = $this->db->get('facebook_fanpage');
-        echo $this->db->getLastQuery();
         $data = [];
         if($categoryFb) {
             $data = $categoryFb;
@@ -74,7 +73,6 @@ class stats{
         $this->db->where("fbId",$fbId);
         $this->db->Where ('insertTime', Array ($from, $to), 'BETWEEN');
         $likesFb = $this->db->get('facebook_fanpage_log');
-        // echo $this->db->getLastQuery();
         $data = []; 
         $output = [];
         if($likesFb) {
