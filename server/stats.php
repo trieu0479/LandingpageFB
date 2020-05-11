@@ -7,6 +7,7 @@ $fbId = $_GET['fbId'];
 $category = $_GET['category'];
 $from = $_GET['from'];
 $to = $_GET['to'];
+$limit = $_GET['limit'];
 $stats = new stats();
 $noNeedToken = array("updateLog","confirmMission","confirmMissionV1");
 if (!in_array($task,$noNeedToken)){
@@ -18,10 +19,10 @@ if (!in_array($task,$noNeedToken)){
     }
 }
 switch ($task){
+    case "getAllFacebookInformation":  
+        $kq->data  =  $stats->getAllFacebookInformation($limit); break;
     case "getFacebookInformation":  
         $kq->data  =  $stats->getFacebookInformation($fbId); break;
-    case "showFacebookCategory":  
-        $kq->data  =  $stats->showFacebookCategory(); break;
     case "getFacebookCategory":  
         $kq->data  =  $stats->getFacebookCategory($category); break;
     case "getFacebookLikeDay":  

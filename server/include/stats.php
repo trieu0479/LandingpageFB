@@ -21,6 +21,15 @@ class stats{
             }else return null;
         }else return null;
     }
+    function getAllFacebookInformation($limit){
+        $informationFb = $this->db->rawQuery("SELECT * FROM facebook_fanpage Orders LIMIT ".$limit."");
+        $data = [];
+        if($informationFb) {
+            $data = $informationFb;
+        }
+        // http://v7-fffblue.com/server/stats.php?task=getAllFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o
+        return $data;
+    }
     function getFacebookInformation($fbId){
         $this->db->where("fbId",$fbId);
         $informationFb = $this->db->getone('facebook_fanpage');
@@ -47,6 +56,7 @@ class stats{
         $this->db->where("fbId",$fbId);
         $this->db->Where ('insertTime', Array ($from, $to), 'BETWEEN');
         $likesFb = $this->db->get('facebook_fanpage_log');
+        echo $this->db->getLastQuery();
         $data = []; 
         $output = [];
         if($likesFb) {
