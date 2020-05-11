@@ -48,9 +48,11 @@ class stats{
         $showCategory = $this->db->rawQuery("SELECT DISTINCT fbCategory FROM facebook_fanpage");
         $data = [];
         if($showCategory) {
-            $data = $showCategory;
+            foreach($showCategory as $key => $value) {
+                array_push($data,$value [fbCategory]);
+            }
         }
-        return $showCategory;
+        return $data;
         //http://v7-fffblue.com/server/stats.php?task=showCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o
     }
     // loc theo category
