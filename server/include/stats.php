@@ -22,7 +22,11 @@ class stats{
         }else return null;
     }
     function getFacebookInformation($fbId){
-        echo $fbId;
+        $this->db->where("fbId", $fbId);
+        $user = $this->db->getOne("facebook_fanpage");
+        
+        var_dump($user)
+
     }
 
 }
