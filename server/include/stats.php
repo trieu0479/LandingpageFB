@@ -28,17 +28,38 @@ class stats{
         $data = [];
         if($informationFb) {
             $data = $informationFb;
-        //     foreach($informationFb as $key => $value) {
-        //         $data["fbId"] = $value["fbId"];
-        //         $data["fbCategory"] = $value["fbCategory"];
-        //         $data["fanpageName"] = $value["fanpageName"];
-        //     }
         }
+        // http://v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=101162088206729
         return $data;
     }
-    function getFacebookLikeDay($fbId){
+    function getFacebookCategory($category){
+        $this->db->where("fbCategory",$category);
+        $categoryFb = $this->db->get('facebook_fanpage');
+        echo $this->db->getLastQuery();
+        $data = [];
+        if($categoryFb) {
+            $data = $categoryFb;
+        }
+        // http://v7-fffblue.com/server/stats.php?task=getFacebookCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&category=Nh%C3%A0%20xu%E1%BA%A5t%20b%E1%BA%A3n
+        return $data;
+    }
+    function getFacebookLikesDay($fbId, $from, $to){
         $this->db->where("fbId",$fbId);
-        $this->db->orWhere ('firstName', 'Peter');
+        $this->db->Where ('insertTime', Array ($from, $to), 'BETWEEN');
+        $likesFb = $this->db->get('facebook_fanpage_log');
+        $data = []; 
+        $output = [];
+        if($likesFb) {
+            foreach($likesFb as $key => $value) {
+                $data["logKey"] = $value["logKey"];
+                $data["fbId"] = $value["fbId"];
+                $data["likes"] = $value["likes"];
+                $data["insertTime"] = $value["insertTime"];
+                array_push($output,$data);
+            }
+        }
+        return $output;
+        // http://v7-fffblue.com/server/stats.php?task=getFacebookLikeDay&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=36634376117&from=2020-05-07&to=2020-05-11
     }
 }
 ?>
