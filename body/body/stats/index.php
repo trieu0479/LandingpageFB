@@ -32,4 +32,4 @@
     </div>
 
 </div>
-<script src="dist/js/pages/stats.js"></script>
+<script src="../../dist/js/pages/stats.js"></script>
