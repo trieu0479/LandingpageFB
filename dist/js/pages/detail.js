@@ -23,24 +23,18 @@ function getDataFB() {
 
 function getLike10Days() {
     $.ajax({
-        url: `http://v7-fffblue.com/server/stats.php?task=getFacebookLikeDay&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}&from=2020-05-07&to=2020-05-11`,
+        url: `//v7-fffblue.com/server/stats.php?task=getFacebookLikeDay&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}&from=2020-05-07&to=2020-05-11`,
         type: "GET"
     }).then(res => {
         res = JSON.parse(res)
-
         renderChart(res)
-
     })
-
-
 }
 
 
 function renderChart(data) {
-    // console.log(data)
     let arrDate = [];
     let arrLikes = [];
-    console.log(data)
     if (!data || data.data.length == 0) {
         console.log(1)
     } else {
@@ -50,9 +44,10 @@ function renderChart(data) {
             arrDate.push(formatDate)
             arrLikes.push(getLikes)
         })
-
-        let myChart = echarts.init($('#chartLikes'), 'light')
-        console.log($(myChart))
+        console.log(arrDate)
+        console.log(arrLikes)
+        let myChart = echarts.init(document.getElementById(`chartLikes`),'light')
+        console.log(1)
         let option = {
             tooltip: {
                 trigger: "axis",
@@ -90,7 +85,7 @@ function renderChart(data) {
                 bottom: '3%',
                 containLabel: true
             },
-            color: masterColor,
+            // color: masterColor,
             xAxis: [{
                 type: 'category',
                 boundaryGap: false,
@@ -125,32 +120,16 @@ function renderChart(data) {
                 },
             }, ],
             series: [{
-                name: 'Xếp hạng',
+                data: arrLikes,
                 type: 'line',
-                smooth: true,
-                // stack: "0",
-                areaStyle: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgb(79, 141, 249)'
-                    }, {
-                        offset: 1,
-                        color: '#fff'
-                    }])
-                },
-                symbol: 'none',
-                // symbolSize: 10,
-                itemStyle: {
-                    color: 'rgb(79, 141, 249)'
-                },
-                data: arrRank
-            }, ]
+                smooth: true
+            }]
         };
         myChart.setOption(option);
-        new ResizeSensor($(`#${type + metric}`), function() {
-            myChart.resize();
-        });
-        console.log(myChart)
+        // new ResizeSensor($(`#${type + metric}`), function() {
+        //     myChart.resize();
+        // });
+        // console.log(myChart)
     }
 
 }
