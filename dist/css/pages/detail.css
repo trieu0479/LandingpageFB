@@ -111,6 +111,7 @@ body {
     padding: 50px 0;
     z-index: 3;
     background: #fff;
+    border-radius: 0 0 5px 5px;
 }
 
 .top-header-author {
@@ -139,4 +140,41 @@ body {
     display: block;
     overflow: hidden;
     max-width: unset;
+    height: 100%;
+}
+
+.ui-block-title {
+    padding: 23px 25px 18px;
+    line-height: 1;
+    border-bottom: 1px solid #e6ecf5;
+    border-top: 1px solid #e6ecf5;
+    display: table;
+    width: 100%;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+}
+
+.w-personal-info li {
+    padding: 15px 0;
+    list-style: none;
+}
+
+.w-personal-info li .title {
+    color: #515365;
+    font-weight: 500;
+    margin-right: 30px;
+    float: left;
+    width: 30%;
+}
+
+.w-personal-info li .text {
+    color: #888da8;
+    display: block;
+    overflow: hidden;
+}
+
+.w-personal-info.item-block .title {
+    margin-right: 0;
+    float: none;
+    width: auto;
 }

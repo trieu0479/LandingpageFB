@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="dist/css/pages/stats.css">
+<link rel="stylesheet" href="../../dist/css/pages/stats.css">
 <div class="container">
     <div class="row my-5">
         <div class="col">
@@ -24,7 +24,7 @@
 
     <div class="row">
         <div class="col-12 col-12 pb-3 pb-lg-5">
-            <div class="content-table mt-5 text-left m-auto" style="white-space:nowrap">
+            <div class="content-table mt-5 text-left m-auto">
                 <table class="table mb-0 dataTable borderless no-footer table-fbRank" id="tablefbRank">
                 </table>
             </div>

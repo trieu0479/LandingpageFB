@@ -66,11 +66,11 @@ function getData() {
         type: "GET"
     }).then(data => {
         data = JSON.parse(data)
-        if (data.length == 0) {
-            $('#tablefbRank').addClass('d-none')
-        } else {
+            // if (data.length == 0) {
+            //     $('#tablefbRank').addClass('d-none')
+            // } else {
             // console.log(1)
-            $(`#tablefbRank`).DataTable({
+        $(`#tablefbRank`).DataTable({
                 data: renderData(data),
                 // drawCallback: function(settings) {},
                 columns: [{
@@ -78,7 +78,7 @@ function getData() {
                         "data": data => `<div class="text-center m-auto">${data.stt}</div>`
                     }, {
                         title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px">Tên FanPage</div>`,
-                        "data": data => `<div class="text-left mr-auto text-cut" ><a href="https://facebook.com/${data.fbId}"> <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px"><span href="https://facebookcom/${data.fbId}" class="text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</span></a></div>`,
+                        "data": data => `<div class="text-left mr-auto text-cut" ><a href="?view=stats&action=detail&fbId=${data.fbId}"> <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px"><span href="https://facebookcom/${data.fbId}" class="text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</span></a></div>`,
                     },
                     {
                         title: `<div class="text-capitalize font-weight-bold font-12 text-left ml-auto">Danh Mục</div>`,
@@ -91,7 +91,7 @@ function getData() {
                                         </div>`,
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-left " style="max-width:150px;width:150px">Lượt thích<span class="fontsize-10">(Hôm nay và hôm qua)<span></div>`,
+                        title: `<div class="text-capitalize font-weight-bold font-12 text-left " style="max-width:150px;width:150px">Lượt thích(Hôm nay và hôm qua)</div>`,
                         "data": data => `<div class="text-left" style="margin-top: 12px;" style="max-width:150px;width:150px">
                                             <div class="take-care-likes d-flex">
                                            <span class="text-box-catelog text-white bg-success"">${data.likes}</span><span class="text-box-catelog text-white bg-danger">${data.likes_yesterday}</span>
@@ -102,10 +102,6 @@ function getData() {
                                         </div>`
                     }
                 ],
-
-
-
-
                 initComplete: function(settings, json) {
                     // $(`#table-manager td`).attr('style', 'padding:10px 18px')
                     $(`#table-manager_wrapper .dataTables_scrollBody`).perfectScrollbar();
@@ -126,7 +122,7 @@ function getData() {
                 searching: false,
                 language
             })
-        }
+            // }
 
     })
 }
