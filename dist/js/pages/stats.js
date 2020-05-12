@@ -52,7 +52,6 @@ function renderData(data) {
                                 <span class="btn btn-result-kq btn-default btn-sm rounded-pill px-3 py-2 font-13"><i class="fad fa-eye text-info mr-2 font-14 font-weight-bold"></i>Đi đến</span>
                             </a>`
         }
-        // console.log(output.website)
         arrtTable.push(output);
     })
     return arrtTable;
@@ -111,14 +110,6 @@ function getData() {
                     // $(`#table-manager td`).attr('style', 'padding:10px 18px')
                     $(`#table-manager_wrapper .dataTables_scrollBody`).perfectScrollbar();
                     $(`.tabletable-manager`).removeClass('is-loading')
-                        // $(`.table th, .table thead`).addClass('thead-light')
-                        // console.log(data.hieu)
-
-                    // if (hieu > 0) {
-                    //     $(".take-care-like").append('<i class="fad fa-arrow-alt-square-up"></i>')
-                    // } else if (hieu < 0) {
-                    //     $(".take-care-like").append('<i class="fad fa-arrow-alt-square-down"></i>')
-                    // }
 
 
                 },
