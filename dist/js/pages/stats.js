@@ -32,9 +32,9 @@ function renderData(data) {
         output.pageAlias = v.pageAlias
         output.hieu = v.likes - v.likes_yesterday
         if (v.likes - v.likes_yesterday > 0) {
-            output.kq = `<i class="fad text-success bg-success-2 fa-arrow-up"></i> <span class=" text-sucess fontsize-14"> ${v.likes - v.likes_yesterday}</span>`
+            output.kq = `<span class=" text-sucess fontsize-14"> ${v.likes - v.likes_yesterday}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i> `
         } else if (v.likes - v.likes_yesterday < 0) {
-            output.kq = `<i class="fad text-danger fa-arrow-down"></i> <span class=" text-danger fontsize-14"> ${v.likes - v.likes_yesterday}</span>`
+            output.kq = `<span class=" text-danger fontsize-14"> ${v.likes - v.likes_yesterday}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
         } else if (v.likes - v.likes_yesterday == 0) {
             output.kq = ``
         }
@@ -74,40 +74,46 @@ function getData() {
                 data: renderData(data),
                 // drawCallback: function(settings) {},
                 columns: [{
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-center m-auto" style="max-width:30px;width:30px">Stt</div>`,
-                        "data": data => `<div class="text-center m-auto">${data.stt}</div>`
+                        title: `<div class="text-capitalize font-weight-bold font-12 text-center m-auto" style="max-width:30px;width:30px; line-height:36px">Stt</div>`,
+                        "data": data => `<div class="text-center m-auto" style="line-height:40px">${data.stt}</div>`
                     }, {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px">Tên FanPage</div>`,
-                        "data": data => `<div class="text-left mr-auto text-cut" ><a href="?view=stats&action=detail&fbId=${data.fbId}"> <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px"><span href="https://facebookcom/${data.fbId}" class="text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</span></a></div>`,
+                        title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px; line-height:36px">Tên FanPage</div>`,
+                        "data": data => `<div class="text-left mr-auto text-cut" style="max-width:200px;width: 200px">
+                            <a class="d-flex align-items-center" href="?view=stats&action=detail&fbId=${data.fbId}"> 
+                                <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px">
+                                <p class="mb-0 text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</p>
+                            </a>
+                        </div>`,
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-left ml-auto">Danh Mục</div>`,
-                        "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="margin-top: 12px;"> <span>${data.fbCategory }</span></div>`,
+                        title: `<div class="text-capitalize font-weight-bold font-12 text-left ml-auto" style="line-height:36px">Danh Mục</div>`,
+                        "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <span>${data.fbCategory }</span></div>`,
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-left mr-auto">Website</div>`,
-                        "data": data => `<div class="text-center m-auto" style="margin-top: 12px;">
+                        title: `<div class="text-capitalize font-weight-bold font-12 text-center mr-auto" style="line-height:36px">Website</div>`,
+                        "data": data => `<div class="text-center m-auto">
                                             ${data.website}
                                         </div>`,
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-left " style="max-width:150px;width:150px">Lượt thích(Hôm nay và hôm qua)</div>`,
-                        "data": data => `<div class="text-left" style="margin-top: 12px;" style="max-width:150px;width:150px">
-                                            <div class="take-care-likes d-flex">
-                                           <span class="text-box-catelog text-white bg-success"">${data.likes}</span><span class="text-box-catelog text-white bg-danger">${data.likes_yesterday}</span>
-                                                <div class="take-care-like ml-auto"> 
-                                                    ${data.kq}
-                                                </div>
-                                                </div>
+                        title: `<div class="text-capitalize font-weight-bold font-12 text-left " style="max-width:150px;width:150px;">
+                                    Lượt thích
+                                    <div class="fontsize-10">(Hôm nay và hôm qua)</div>
+                                </>`,
+                        "data": data => `
+                                        <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
+                                            <span class="text-box-catelog text-white bg-success mr-2 ml-0 mb-0">${data.likes}</span>
+                                            <span class="text-box-catelog text-white bg-danger mr-2 ml-0 mb-0">${data.likes_yesterday}</span>
+                                            <div class="take-care-like ml-auto d-flex justify-content-center align-items-center"> 
+                                                ${data.kq}
+                                            </div>
                                         </div>`
                     }
                 ],
                 initComplete: function(settings, json) {
-                    // $(`#table-manager td`).attr('style', 'padding:10px 18px')
-                    $(`#table-manager_wrapper .dataTables_scrollBody`).perfectScrollbar();
-                    $(`.tabletable-manager`).removeClass('is-loading')
-
-
+                    $(`#tablefbRank td`).attr('style', 'padding:10px 18px')
+                    $(`#tablefbRank_wrapper .dataTables_scrollBody`).perfectScrollbar();
+                    $(`.tabletablefbRank`).removeClass('is-loading')
                 },
                 destroy: true,
                 rowId: 'trId',
