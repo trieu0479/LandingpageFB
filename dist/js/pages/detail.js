@@ -23,21 +23,16 @@ function getDataFB() {
 
 function getLike10Days() {
     $.ajax({
-        url: `http://v7-fffblue.com/server/stats.php?task=getFacebookLikeDay&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}&from=2020-05-07&to=2020-05-11`,
+        url: `//v7-fffblue.com/server/stats.php?task=getFacebookLikeDay&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}&from=2020-05-07&to=2020-05-11`,
         type: "GET"
     }).then(res => {
         res = JSON.parse(res)
-
         renderChart(res)
-
     })
-
-
 }
 
 
 function renderChart(data) {
-    // console.log(data)
     let arrDate = [];
     let arrLikes = [];
     if (!data || data.data.length == 0) {
@@ -49,10 +44,10 @@ function renderChart(data) {
             arrDate.push(formatDate)
             arrLikes.push(getLikes)
         })
-
         console.log(arrDate)
-        let myChart = echarts.init(document.getElementById(''), 'light')
-            // console.log(myChart)
+        console.log(arrLikes)
+        let myChart = echarts.init(document.getElementById(`chartLikes`), 'light')
+        console.log(1)
         let option = {
             tooltip: {
                 trigger: "axis",
@@ -90,7 +85,7 @@ function renderChart(data) {
                 bottom: '3%',
                 containLabel: true
             },
-            color: masterColor,
+            // color: masterColor,
             xAxis: [{
                 type: 'category',
                 boundaryGap: false,
@@ -125,7 +120,7 @@ function renderChart(data) {
                 },
             }, ],
             series: [{
-                name: 'Xếp hạng',
+                data: arrLikes,
                 type: 'line',
                 smooth: true,
                 // stack: "0",
@@ -148,26 +143,9 @@ function renderChart(data) {
         };
 
 
-
-        option = {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                type: 'line'
-            }]
-        };
-
-        myChart.setOption(option);
         new ResizeSensor($(`#chartLikes`), function() {
             myChart.resize();
         });
-        console.log(myChart)
     }
 
 }
