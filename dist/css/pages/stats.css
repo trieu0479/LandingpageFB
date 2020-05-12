@@ -2,6 +2,10 @@ body {
     color: #000;
 }
 
+.fontsize-10 {
+    font-size: 10px;
+}
+
 .fontsize-12 {
     font-size: 12px;
 }
@@ -64,6 +68,17 @@ body {
     max-width: 1280px;
 }
 
+.btn-result-danger {
+    color: #444!important;
+    border: 1px #f4f4f4 solid;
+}
+
+.btn-result-danger:hover {
+    background-color: #faa2c1!important;
+    transition: all 0.2s;
+    color: #fff!important;
+}
+
 .second-pricing-table {
     text-align: center;
     padding: 30px 30px;
@@ -124,6 +139,10 @@ body {
 
 .tvBar .page-wrapper {
     margin-left: 0px;
+}
+
+.fontsize-12 {
+    font-size: 12px;
 }
 
 .fontsize-12 {

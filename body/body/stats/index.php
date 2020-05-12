@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-12 col-12 pb-3 pb-lg-5">
             <div class="content-table mt-5 text-left m-auto" style="white-space:nowrap">
-                <table class="table table-qc-format mb-0 dataTable no-footer table-fbRank" id="tablefbRank">
+                <table class="table mb-0 dataTable borderless no-footer table-fbRank" id="tablefbRank">
                 </table>
             </div>
         </div>
