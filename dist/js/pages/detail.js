@@ -40,7 +40,6 @@ function renderChart(data) {
     // console.log(data)
     let arrDate = [];
     let arrLikes = [];
-    console.log(data)
     if (!data || data.data.length == 0) {
         console.log(1)
     } else {
@@ -51,8 +50,9 @@ function renderChart(data) {
             arrLikes.push(getLikes)
         })
 
-        let myChart = echarts.init($('#chartLikes'), 'light')
-        console.log($(myChart))
+        console.log(arrDate)
+        let myChart = echarts.init(document.getElementById(''), 'light')
+            // console.log(myChart)
         let option = {
             tooltip: {
                 trigger: "axis",
@@ -143,11 +143,28 @@ function renderChart(data) {
                 itemStyle: {
                     color: 'rgb(79, 141, 249)'
                 },
-                data: arrRank
+                data: arrLikes
             }, ]
         };
+
+
+
+        option = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line'
+            }]
+        };
+
         myChart.setOption(option);
-        new ResizeSensor($(`#${type + metric}`), function() {
+        new ResizeSensor($(`#chartLikes`), function() {
             myChart.resize();
         });
         console.log(myChart)
