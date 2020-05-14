@@ -38,8 +38,8 @@ class stats{
         // echo $this->db->getLastQuery();
         $data = [];
         if($informationFb) {
-            $data = $informationFb;
-            $data['json']= json_decode(stripcslashes($informationFb['json']));
+            $data = json_decode(stripcslashes($informationFb['json']));
+            // $data['json']= json_decode(stripcslashes($informationFb['json']));
         }
         // http://v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=101162088206729
         return $data;
