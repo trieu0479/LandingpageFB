@@ -34,17 +34,16 @@ if (!fbId) {
             type: "GET"
         }).then(res => {
             res = JSON.parse(res)
-            let fbCover = res.data.fanpageCover
-            let fbName = res.data.fanpageName
-            let fbCate = res.data.fbCategory
-            let fbId = res.data.fbId
+            console.log(res.data)
+            let fbCover = res.data.cover.source
+            let fbName = res.data.name
+            let fbCate = res.data.category
+            let fbId = res.data.id
             let fbwebsite = res.data.website
             let fbphone = res.data.phone
-
-
-
-
-            $('#fbCover').attr("src", fbCover)
+            console.log(`fbAva`)
+            $('#fbAva').attr("src", `http://graph.facebook.com/${fbId}/picture?type=large`)
+            $('.fbCover').attr("src", fbCover)
             $('#fbName').text(fbName)
             $('#fbCate').text(fbCate)
 
@@ -86,15 +85,6 @@ function getDataFB() {
 
 function renderTable(data) {
     let bbb = [];
-    // console.log(data.data.length)
-    // data.data.forEach((v, k) => {
-    //         var output = {};
-    //         output.formatDate = moment(v.insertTime, "YYYY/MM/DD").format("DD/MM/YYYY")
-    //         output.likesday = v.likes
-
-    //         columns.push(output)
-    //     })
-    // formatColumns(columns)
     let columns = data.data
     let aaa = null
     if (!columns.length - 1) {
