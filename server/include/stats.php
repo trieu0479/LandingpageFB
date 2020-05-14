@@ -39,6 +39,7 @@ class stats{
         $data = [];
         if($informationFb) {
             $data = $informationFb;
+            $data['json']= json_decode($data['json']);
         }
         // http://v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=101162088206729
         return $data;
