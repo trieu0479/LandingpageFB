@@ -44,13 +44,15 @@ function renderData(data) {
 
 
         if (!v.website) {
-            output.website = `<a href="javascript:void(0)">
-                    <span class="btn btn-result-danger btn-default btn-sm rounded-pill bg-danger-2 px-3 py-2 font-13"><i class="fad fa-do-not-enter text-danger mr-2 font-14 font-weight-bold"></i>Chưa có</span>
-                </a>`
+            output.website =
+                `<a href="javascript:void(0)">
+                <span class="btn btn-result-danger btn-default btn-sm rounded-pill bg-danger-2 px-3 py-2 font-13"><i class="fad fa-do-not-enter text-danger mr-2 font-14 font-weight-bold"></i>Chưa có</span>
+            </a>`
         } else {
-            output.website = `<a href="${v.website}">
-                                <span class="btn btn-result-kq btn-default btn-sm rounded-pill px-3 py-2 font-13"><i class="fad fa-eye text-info mr-2 font-14 font-weight-bold"></i>Đi đến</span>
-                            </a>`
+            output.website =
+                `<a href="${v.website}">
+                    <span class="btn btn-result-kq btn-default btn-sm rounded-pill px-3 py-2 font-13"><i class="fad fa-eye text-info mr-2 font-14 font-weight-bold"></i>Đi đến</span>
+                </a>`
         }
         arrtTable.push(output);
     })
@@ -61,25 +63,22 @@ function renderData(data) {
 
 
 function getData() {
+    let from = moment().subtract(7, "days").format("DD/MM/YYYY")
+    let to = moment().format("DD/MM/YYYY")
     $.ajax({
         url: `//v7-fffblue.com/server/stats.php?task=getAllFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&limit=10`,
         type: "GET"
     }).then(data => {
         data = JSON.parse(data)
-            // if (data.length == 0) {
-            //     $('#tablefbRank').addClass('d-none')
-            // } else {
-            // console.log(1)
         $(`#tablefbRank`).DataTable({
                 data: renderData(data),
-                // drawCallback: function(settings) {},
                 columns: [{
                         title: `<div class="text-capitalize font-weight-bold font-12 text-center m-auto" style="max-width:30px;width:30px; line-height:36px">Stt</div>`,
                         "data": data => `<div class="text-center m-auto" style="line-height:40px">${data.stt}</div>`
                     }, {
                         title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px; line-height:36px">Tên FanPage</div>`,
                         "data": data => `<div class="text-left mr-auto text-cut" style="max-width:200px;width: 200px">
-                            <a class="d-flex align-items-center" href="?view=stats&action=detail&fbId=${data.fbId}"> 
+                            <a class="d-flex align-items-center" href="?view=stats&action=detail&fbId=${data.fbId}&start=${from}&end=${to}"> 
                                 <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px">
                                 <p class="mb-0 text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</p>
                             </a>
@@ -134,4 +133,7 @@ function getData() {
 }
 
 
-getData();
+$(document).ready(function() {
+
+    getData();
+});
