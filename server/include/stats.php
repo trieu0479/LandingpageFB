@@ -48,14 +48,21 @@ class stats{
     }
     // toan bo category
     function showCategory(){
-        $showCategory = $this->db->rawQuery("SELECT DISTINCT fbCategory FROM facebook_fanpage");
+        $showCategory = $this->db->rawQuery("SELECT fbCategory FROM facebook_fanpage");
         $data = [];
+        $output = [];
         if($showCategory) {
+            
             foreach($showCategory as $key => $value) {
                 array_push($data,$value [fbCategory]);
             }
+            $vals = array_count_values($data);
+            asort($vals);
+            foreach(array_slice($vals,-10) as $key => $value){
+                array_push($output,$key); 
+            }
         }
-        return $data;
+        return $output;
         //http://v7-fffblue.com/server/stats.php?task=showCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o
     }
     // loc theo category
