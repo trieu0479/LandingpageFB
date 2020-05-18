@@ -323,6 +323,32 @@ a {
     color: #515365 !important;
 }
 
+.Fanpage-container {
+    position: absolute;
+    width: 685px;
+    top: 40px;
+    left: 5px;
+    z-index: 999;
+    background: #fff;
+    max-height: 300px;
+    overflow: auto;
+    display: none;
+}
+
+.fanpage-option {
+    margin: 12px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    border-bottom: 1px dashed #ebedf2;
+}
+
+.img-option {
+    width: 50px;
+    border-radius: 50%;
+    margin: 5px 10px;
+}
+
 @media (max-width: 768px) {
     .d-show {
         display: block !important;

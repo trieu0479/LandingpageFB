@@ -16,8 +16,7 @@ const language = {
 };
 
 var url_ = new URL(location.href);
-var category1 = url_.searchParams.get("category")
-var category = category1.replace('r3plac3', '&')
+var category = url_.searchParams.get("category")
 
 function renderCategory() {
 
@@ -28,15 +27,14 @@ function renderCategory() {
         data = JSON.parse(data)
         data.data.forEach((v, k) => {
             // console.log(v)
-            console.log(category)
             option = `
-            <a href="?view=stats&action=index&category=${v.replace('&','r3plac3')}" class="kt-fbrank ${v == category ? 'active' : ''} ">
+            <a href="?view=stats&action=index&category=${v.replace('&','%26')}" class="kt-fbrank ${v == category ? 'active' : ''} ">
                 <div id="Computers_Electronics_and_Technology" class="kt-widget6__item ">
                     <span>${v}</span>
                 </div>
             </a>`
             $('#catalogFbRank').append(option)
-            console.log(option)
+
 
         })
 
@@ -63,7 +61,6 @@ function renderData(data) {
 
         v.likes == null ? output.likes = 0 : output.likes = v.likes
         v.talking_about_count == null ? output.talkingAbout = 0 : output.talkingAbout = v.talking_about_count
-
         output.likes_yesterday = v.likes_yesterday
 
 
@@ -83,13 +80,42 @@ function renderData(data) {
     return arrtTable;
 }
 
+function getDataSearch(data) {
+    // clearTimeout(timeout_load)
+    console.log(data)
+
+    $('#fanpage-search').html('');
+    var address_option = ``;
+    var data = data.data
+    for (var i in data) {
+        let dataId = data[i].fbId;
+        let dataName = data[i].fanpageName;
+        let datafanpageCover = data[i].fanpageCover;
+        let datalikes = data[i].likes;
+        address_option = `<div class="fanpage-option" data-fbid="${dataId}" data-fbname="${dataName}">
+        <img src="${datafanpageCover}" class="img-option img-fluid">
+            <div class="text-option">
+                <span class="fontsize-14 ">${dataName}</span>
+            </div>
+        </div>`
+        $('#fanpage-search').append(address_option);
+    }
+
+    $('#fanpage-search .fanpage-option').on('click', function() {
+        console.log(1)
+        var elValId = $(this).data('fbid');
+        var elValName = $(this).data('fbname');
+        console.log(elValName)
+        $('.add-fbid').data('fbid', elValId);
+        $('.add-fbid').val(elValName);
+    });
+
+}
+
+
 function getData() {
     let from = moment().subtract(7, "days").format("DD/MM/YYYY")
     let to = moment().format("DD/MM/YYYY")
-
-
-
-
     let whichAPi = '';
     if (!category || category == "All" || category == '') {
         whichAPi = `//v7-fffblue.com/server/stats.php?task=getAllFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&limit=50`
@@ -97,15 +123,42 @@ function getData() {
             // console.log(0)
     } else {
         // console.log(1)
-        console.log('ohyeah', category)
-        whichAPi = `//v7-fffblue.com/server/stats.php?task=getFacebookCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&category=${category}`
+        whichAPi = `//v7-fffblue.com/server/stats.php?task=getFacebookCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&category=${category.replace('&','%26')}`
         $('.all-active').removeClass('active')
+
     }
     $.ajax({
         url: whichAPi,
         type: "GET"
     }).then(data => {
         data = JSON.parse(data)
+        $(`#input-searchFbRank`).on('keyup', function() {
+                // setTimeout(() => {
+                $('#fanpage-search').css('display', 'block');
+                var valuewebsite = $(this).val().toLowerCase();
+                $("#fanpage-search .fanpage-option").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(valuewebsite) > -1)
+                });
+
+                // }, 400);
+                // setTimeout(() => {
+                getDataSearch(data);
+                // }, 500)
+            })
+            // .focusout(function() {
+            //     setTimeout(() => {
+            //         $('#fanpage-search').css('display', 'none');
+            //     }, 200);
+            // });
+
+
+
+
+
+
+
+
+
         $(`#tablefbRank`).DataTable({
                 data: renderData(data),
                 columns: [{
@@ -173,6 +226,8 @@ function getData() {
                 language
             })
             // }
+
+        // research Fanpage Name ne nha
 
     })
 }
