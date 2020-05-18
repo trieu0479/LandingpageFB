@@ -24,7 +24,7 @@ switch ($task){
     case "getFacebookInformation":  
         $kq->data  =  $stats->getFacebookInformation($fbId); break;
     case "showCategory":  
-        $kq->data  =  $stats->showCategory($fbId); break;
+        $kq->data  =  $stats->showCategory($limit); break;
     case "getFacebookCategory":  
         $kq->data  =  $stats->getFacebookCategory($category); break;
     case "getFacebookLikeDay":  

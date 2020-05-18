@@ -47,10 +47,11 @@ class stats{
         return $data;
     }
     // toan bo category
-    function showCategory(){
+    function showCategory($limit){
         $showCategory = $this->db->rawQuery("SELECT fbCategory FROM facebook_fanpage");
         $data = [];
         $output = [];
+        if(empty($limit)) $limit = 10;
         if($showCategory) {
             
             foreach($showCategory as $key => $value) {
@@ -58,7 +59,7 @@ class stats{
             }
             $vals = array_count_values($data);
             asort($vals);
-            foreach(array_slice($vals,-10) as $key => $value){
+            foreach(array_slice($vals,- $limit) as $key => $value){
                 array_push($output,$key); 
             }
         }
