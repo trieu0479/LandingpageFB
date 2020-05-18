@@ -2,6 +2,10 @@ body {
     color: #000;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .fontsize-10 {
     font-size: 10px;
 }
@@ -283,6 +287,40 @@ body {
     background-color: #5578eb!important;
     transition: all 0.2s;
     color: #fff!important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    background: transparent !important
+}
+
+.pagination {
+    padding-top: 10px;
+}
+
+.kt-widget6 .kt-widget6__body .kt-widget6__item>span {
+    color: #595d6e;
+    font-weight: 400;
+    text-align: left;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.kt-widget6 .kt-widget6__body .kt-widget6__item>span:hover {
+    text-decoration: none;
+}
+
+.kt-fbrank span {
+    font-weight: 500 !important;
+    color: #9a9fbf !important;
+}
+
+.kt-fbrank.active span {
+    color: #515365 !important;
 }
 
 @media (max-width: 768px) {

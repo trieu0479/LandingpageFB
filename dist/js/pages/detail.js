@@ -33,24 +33,42 @@ if (!fbId) {
             url: `//v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}`,
             type: "GET"
         }).then(res => {
-            res = JSON.parse(res)
-            console.log(res.data)
-            let fbCover = res.data.cover.source
-            let fbName = res.data.name
-            let fbCate = res.data.category
-            let fbId = res.data.id
-            let fbwebsite = res.data.website
-            let fbphone = res.data.phone
-            console.log(`fbAva`)
-            $('#fbAva').attr("src", `http://graph.facebook.com/${fbId}/picture?type=large`)
-            $('.fbCover').attr("src", fbCover)
-            $('#fbName').text(fbName)
-            $('#fbCate').text(fbCate)
+            if (res) {
+                res = JSON.parse(res)
+
+                let fbCover = res.data.json.cover.source
+                let fbName = res.data.json.name
+                let fbCate = res.data.json.category
+                let fbId = res.data.json.id
+                let fbLikes = res.data.json.likes
+                let fbTalkingAbout = res.data.json.talking_about_count
+                let fbAbout = res.data.json.about
+                let fbLink = res.data.json.link
+                let fbwebsite = res.data.website
+                let fbphone = res.data.phone
+                let Strfbphone = fbphone.slice(2, 12)
+                $('#fbAva').attr("src", `http://graph.facebook.com/${fbId}/picture?type=large`)
+                $('.fbCover').attr("src", fbCover)
+                $('#likeNow').text(fbLikes).removeClass('is-loading')
+                $('#fbTalkingAbout').html(fbTalkingAbout + '<span class="fontsize-16 pl-1 text-dark">/bài<span>').removeClass('is-loading')
+                $('#fbAbout').text(fbAbout).removeClass('is-loading')
+                $('#fbLinkFg').text(fbLink).removeClass('is-loading')
+                fbLink ? $('#fbLinkFg').attr('href', fbLink) : $('#fbWebsite').text('chưa có').removeClass('is-loading')
+
+                fbwebsite ? $('#fbWebsite').text(fbwebsite).removeClass('is-loading') : $('#fbWebsite').text('chưa có').removeClass('is-loading')
+                fbwebsite ? $('#fbWebsite').attr('href', fbwebsite).removeClass('is-loading') : $('#fbWebsite').text('chưa có').removeClass('is-loading')
+
+                fbphone ? $('#fbPhone').text(`(+84) ${Strfbphone}`).removeClass('is-loading') : $('#fbPhone').text('chưa có').removeClass('is-loading')
+
+                $('#fbName').text(fbName)
+                $('#fbCate').text(fbCate)
 
 
-            $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
-            fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
-            fbphone ? $('#phoneNumb').attr('data-original-title', fbphone) : $('#phoneNumb').attr('data-original-title', 'chưa đăng ký')
+                $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
+                fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').addClass('d-none')
+                fbphone ? $('#phoneNumb').attr('data-original-title', fbphone) : $('#phoneNumb').addClass('d-none')
+            }
+
         })
     }
 }
@@ -92,9 +110,12 @@ function renderTable(data) {
     } else {
         aaa = columns.length - 1;
     }
+
     for (i = 0; i < columns.length; i++) {
+
         let output = {}
         output.countlike = columns[aaa].likes - columns[i].likes
+
         if (columns[aaa].likes - columns[i].likes > 0) {
             output.kq = `<span class=" text-success fontsize-14">+${columns[aaa].likes - columns[i].likes}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
         } else if (columns[aaa].likes - columns[i].likes < 0) {
@@ -115,9 +136,6 @@ function getLike10Days() {
     // let to_ = moment(to).format("YYYY-MM-DD")
     let from_ = moment(from, 'DD/MM/YYYY').format('YYYY-MM-DD');
     let to_ = moment(to, 'DD/MM/YYYY').format('YYYY-MM-DD');
-
-    console.log(from)
-    console.log(to_)
 
 
     $("#rangeDateSeo").flatpickr({

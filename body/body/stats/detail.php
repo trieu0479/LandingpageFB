@@ -6,18 +6,18 @@
 	<div class="row">
 		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 			<div class="fb-cover position-relative ">
-				<img src="" class="fbCover " alt="" class="img-facebookCover">
+				<img src="" class="fbCover img-fluid" alt="" class="img-facebookCover">
 			</div>
 			<div class="profile-section">
 				<div class="row">
-					<div class="col col-lg-5 col-md-5 col-sm-12 col-12">
+					<div class="col col-lg-3 col-md-3 col-sm-3 col-3">
 
-						<ul class="nav profile-menu" id="myTab">
+						<ul class="nav profile-menu pl-3" id="myTab">
 							<li class="nav-item">
-								<a class=" active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thống kê</a>
+								<a class=" active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><span class="text-info"><i class="fad fa-globe-europe mr-2"></i></span>Thống kê</a>
 							</li>
 							<li class="nav-item">
-								<a class="" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Thông tin</a>
+								<a class="" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span  class="text-success"><i class="fad fa-newspaper mr-2"></i></span>Thông tin</a>
 							</li>
 						</ul>
 						
@@ -26,8 +26,8 @@
 
 					<div class="col-md-6 col-lg-6 col-sm-12 text-right ml-auto">
 						<div class=" d-flex justify-content-between bg-white">
-							<div class="flatpickr ml-auto mr-4 h-100 d-flex no-block p-2 justify-content-end align-items-center" style="border: 1px solid #edf1f5; background: #edf1f5; border-radius:5px">
-								<input type="text" style="width:170px; border: none; background: #edf1f5;"  id="rangeDateSeo" placeholder="Please select Date Range" data-input="" class="flatpickr-input" readonly="readonly">
+							<div class="flatpickr ml-auto mr-4 h-100 d-flex no-block p-2 justify-content-end align-items-center" style="border-bottom: 1px solid #edf1f5; border-radius:5px">
+								<input type="text" style="width:170px; border: none; "  id="rangeDateSeo" placeholder="Please select Date Range" data-input="" class="flatpickr-input" readonly="readonly">
 								<a class="input-button" title="toggle" data-toggle=""><i class="fal fa-calendar-alt font-14 ml-3"></i></a>
 							</div>
 						</div>
@@ -42,16 +42,12 @@
 					<a href="" target="_blank" class="btn btn-control bg-purple" id="webLink">
 						<i class="fad fontsize-20 fa-browser"></i>
 					</a>
-					
-					<div class="btn btn-control bg-oranger" id="phoneNumb" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-						<i class="fad fontsize-20 fa-mobile-alt"></i>
-					</div>
 				</div>
 
 			</div>
 			<div class="top-header-author">
 				<div class="author-thumb">
-					<img id="fbAva" src="" alt="author">
+					<img id="fbAva" class="img-fluid" src="" alt="author">
 				</div>
 				<div class="author-content">
 					<div class="similarDomain dashed font-weight-500 text-center justify-content-center fontsize-18 font-weight-bold text-primary d-flex" id="fbName"></div>
@@ -71,10 +67,10 @@
 			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0" style="padding-left:15px !important">
 				<div class="box-info bg-white p-4 border-right">
 					<p class="note-top fontsize-14 text-center">
-						top grade
+						Lượt like hiện tại
 					</p>
-					<h3 class="text-first text-info fontsize-44 text-center">
-						A++
+					<h3 class="text-first text-info fontsize-44 text-center is-loading" id="likeNow">
+						
 					</h3>
 					
 				</div>
@@ -93,10 +89,10 @@
 			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0">
 				<div class="box-info bg-white p-4 border-right">
 					<p class="note-top fontsize-14 text-center">
-						TALKING ABOUT RANK
+						Bài đánh giá
 					</p>
-					<h3 class="text-first text-danger fontsize-44 text-center">
-					8,786th
+					<h3 class="text-first text-danger fontsize-44 text-center is-loading" id="fbTalkingAbout">
+						
 					</h3>
 					
 				</div>
@@ -150,51 +146,70 @@
 
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
   <div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0" style="padding-left:15px !important">
-				<div class="box-info bg-white p-4 border-right">
-					<p class="note-top fontsize-14 text-center">
-						top grade
-					</p>
-					<h3 class="text-first text-info fontsize-44 text-center">
-						A++
-					</h3>
-					
+	<div class="row">
+		<div class="col order-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 my-3">
+			<div class="ui-block bg-white">
+				<div class="ui-block-title">
+					<h6 class="title">Bảng thông tin thêm về Fanpage</h6>
+				</div>
+				<div class="ui-block-content">
+					<div class="row">
+						<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+
+							
+							<!-- W-Personal-Info -->
+							
+							<ul class="widget w-personal-info item-block">
+								<li>
+									<span class="title">Giới thiệu:</span>
+									<span class="text is-loading pl-1 is-loading" id="fbAbout"></span>
+								</li>
+								<li>
+									<span class="title">Link Fanpage:</span>
+									<a href="" class="text hover-color pl-1 is-loading" id='fbLinkFg'></a>
+								</li>
+								<li>
+									<span class="title">Website:</span>
+									<a href="" class="text pl-1 is-loading" id="fbWebsite"></a>
+								</li>
+								<li>
+									<span class="title">Điện thoại</span>
+									<span class="text pl-1 is-loading" id='fbPhone'></span>
+								</li>
+							</ul>
+							
+							<!-- ... end W-Personal-Info -->
+						</div>
+						<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+
+							
+							<!-- W-Personal-Info -->
+							
+							<ul class="widget w-personal-info item-block">
+								<li>
+									<span class="title">Favourite Music Bands / Artists:</span>
+									<span class="text">Iron Maid, DC/AC, Megablow, The Ill, Kung Fighters, System of a Revenge.</span>
+								</li>
+								<li>
+									<span class="title">Favourite Books:</span>
+									<span class="text">The Crime of the Century, Egiptian Mythology 101, The Scarred Wizard, Lord of the Wings, Amongst Gods, The Oracle, A Tale of Air and Water.</span>
+								</li>
+								<li>
+									<span class="title">Favourite Writers:</span>
+									<span class="text">Martin T. Georgeston, Jhonathan R. Token, Ivana Rowle, Alexandria Platt, Marcus Roth. </span>
+								</li>
+								<li>
+									<span class="title">Other Interests:</span>
+									<span class="text">Swimming, Surfing, Scuba Diving, Anime, Photography, Tattoos, Street Art.</span>
+								</li>
+							</ul>
+							
+							<!-- ... end W-Personal-Info -->
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0">
-				<div class="box-info bg-white p-4 border-right">
-					<p class="note-top fontsize-14 text-center">
-						LIKES RANK
-					</p>
-					<h3 class="text-first text-success fontsize-44 text-center">
-						10th
-					</h3>
-					
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0">
-				<div class="box-info bg-white p-4 border-right">
-					<p class="note-top fontsize-14 text-center">
-						TALKING ABOUT RANK
-					</p>
-					<h3 class="text-first text-danger fontsize-44 text-center">
-					8,786th
-					</h3>
-					
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0" style="padding-right:15px !important">
-				<div class="box-info bg-white p-4 border-right">
-					<p class="note-top fontsize-14 text-center">
-						CATEGORY RANK
-					</p>
-					<h3 class="text-first text-secondary fontsize-44 text-center">
-						A++
-					</h3>
-					
-				</div>
-			</div>
+		</div>
 
 
 		</div>
