@@ -89,6 +89,10 @@ body {
     display: none;
 }
 
+.mih-100 {
+    min-height: 100% !important;
+}
+
 
 /* ==================================== */
 

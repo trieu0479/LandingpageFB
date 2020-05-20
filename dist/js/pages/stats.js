@@ -82,7 +82,6 @@ function renderData(data) {
 
 function getDataSearch(data) {
     // clearTimeout(timeout_load)
-    console.log(data)
 
     $('#fanpage-search').html('');
     var address_option = ``;
@@ -92,10 +91,11 @@ function getDataSearch(data) {
         let dataName = data[i].fanpageName;
         let datafanpageCover = data[i].fanpageCover;
         let datalikes = data[i].likes;
-        address_option = `<div class="fanpage-option" data-fbid="${dataId}" data-fbname="${dataName}">
+        address_option = `<div class="fanpage-option d-flex" data-fbid="${dataId}" data-fbname="${dataName}">
         <img src="${datafanpageCover}" class="img-option img-fluid">
-            <div class="text-option">
-                <span class="fontsize-14 ">${dataName}</span>
+            <div class="text-option d-flex row">
+                <span class="fontsize-14 col-12 research-fanpages">${dataName}</span>
+                <span class="fontsize-12 text-secondary col-12">Lượt like: ${datalikes ? datalikes : '0'}</span>
             </div>
         </div>`
         $('#fanpage-search').append(address_option);
@@ -131,26 +131,40 @@ function getData() {
         url: whichAPi,
         type: "GET"
     }).then(data => {
-        data = JSON.parse(data)
+        data = JSON.parse(data);
+        getDataSearch(data);
         $(`#input-searchFbRank`).on('keyup', function() {
-                // setTimeout(() => {
+
                 $('#fanpage-search').css('display', 'block');
-                var valuewebsite = $(this).val().toLowerCase();
-                $("#fanpage-search .fanpage-option").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(valuewebsite) > -1)
-                });
-
-                // }, 400);
-                // setTimeout(() => {
-                getDataSearch(data);
-                // }, 500)
+                let valuewebsite = $(this).val().toLowerCase();
+                $("#fanpage-search .fanpage-option").removeClass("d-none").addClass("d-flex");
+                $("#fanpage-search .fanpage-option").each(function() {
+                    let name = $(this).data("fbname").toLowerCase();
+                    let index = name.indexOf(valuewebsite);
+                    if (index == -1) {
+                        $(this).removeClass("d-flex").addClass("d-none");
+                    }
+                })
             })
-            // .focusout(function() {
-            //     setTimeout(() => {
-            //         $('#fanpage-search').css('display', 'none');
-            //     }, 200);
-            // });
+            .focusout(function() {
+                setTimeout(() => {
+                    $('#fanpage-search').css('display', 'none');
+                }, 200);
+            });
+        $('#nextButton').on('click', function() {
+            let fbIdInput = $(`#input-searchFbRank`).data('fbid')
+            console.log(fbIdInput)
 
+
+            let fanpage = '';
+            fanpage = $(`#input-searchFbRank`).val();
+            fanpage ?
+                $('#alert_message').addClass('d-none') :
+                $('#alert_message').removeClass('d-none');
+            if (fanpage) {
+                window.location.href = `?view=stats&action=detail?view=stats&action=detail&fbId=${fbIdInput}&start=${from}&end=${to}`;
+            }
+        })
 
 
 
@@ -187,14 +201,14 @@ function getData() {
                         title: `<div class="text-capitalize font-weight-bold font-14 text-center mr-auto" style="line-height:18px">Lượt thích</div>`,
                         "data": data => `
                             <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
-                                <span class="text-box-catelog text-white fontsize-12 bg-success mr-2 ml-0 mb-0">${data.likes}</span>
+                                <span class="text-box-catelog text-white fontsize-12 bg-success mr-2 ml-0 mb-0">${numeral(data.likes).format('0.00a')}</span>
                             </div>`
                     },
                     {
                         title: `<div class="text-capitalize font-weight-bold font-14 text-center mr-auto" style="line-height:18px">Bài viết đánh giá</div>`,
                         "data": data => `
                             <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
-                                <span class="text-box-catelog text-white fontsize-12 bg-info mr-2 ml-0 mb-0">${data.talkingAbout}</span>
+                                <span class="text-box-catelog text-white fontsize-12 bg-info mr-2 ml-0 mb-0">${numeral(data.talkingAbout).format('0a')}</span>
                             </div>`
                     }
                 ],
@@ -235,9 +249,6 @@ function getData() {
 
 $(document).ready(function() {
 
-    // $('select.selectpicker').on('show.bs.select', function(e) {
-    //     alert('hello');
-    // });
     renderCategory()
     getData();
 });

@@ -47,11 +47,11 @@
 			</div>
 			<div class="top-header-author">
 				<div class="author-thumb">
-					<img id="fbAva" class="img-fluid" src="" alt="author">
+					<img id="fbAva" class="img-fluid is-loading" src="" alt="author">
 				</div>
 				<div class="author-content">
-					<div class="similarDomain dashed font-weight-500 text-center justify-content-center fontsize-18 font-weight-bold text-primary d-flex" id="fbName"></div>
-					<div class="similarDomain dashed font-weight-500 text-center justify-content-center fontsize-16 font-weight-bold text-dark d-flex " id="fbCate"></div>
+					<div class="dashed font-weight-500 text-center justify-content-center fontsize-18 font-weight-bold text-primary d-flex is-loading" id="fbName"></div>
+					<div class="dashed font-weight-500 text-center justify-content-center fontsize-16 font-weight-bold text-dark d-flex is-loading" id="fbCate"></div>
 				</div>
 			</div>
 		</div>
@@ -65,7 +65,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0" style="padding-left:15px !important">
-				<div class="box-info bg-white p-4 border-right">
+				<div class="box-info bg-white p-4 border-right mih-100 h-100">
 					<p class="note-top fontsize-14 text-center">
 						Lượt like hiện tại
 					</p>
@@ -76,18 +76,18 @@
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0">
-				<div class="box-info bg-white p-4 border-right">
+				<div class="box-info bg-white p-4 border-right mih-100 h-100">
 					<p class="note-top fontsize-14 text-center">
-						LIKES RANK
+						Lượt tìm kiếm
 					</p>
-					<h3 class="text-first text-success fontsize-44 text-center">
-						10th
+					<h3 class="text-first text-success fontsize-44 text-center"  id="founded">
+						
 					</h3>
 					
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0">
-				<div class="box-info bg-white p-4 border-right">
+				<div class="box-info bg-white p-4 border-right mih-100 h-100">
 					<p class="note-top fontsize-14 text-center">
 						Bài đánh giá
 					</p>
@@ -98,11 +98,11 @@
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-12 mt-3 px-0" style="padding-right:15px !important">
-				<div class="box-info bg-white p-4 border-right">
+				<div class="box-info bg-white p-4 border-right mih-100 h-100">
 					<p class="note-top fontsize-14 text-center">
-						CATEGORY RANK
+						Checkin
 					</p>
-					<h3 class="text-first text-secondary fontsize-44 text-center">
+					<h3 class="text-first text-secondary fontsize-44 text-center" id="checkin">
 						A++
 					</h3>
 					
@@ -119,7 +119,7 @@
 					<div class="ui-block-title">
 						<h6 class="title">Biểu đồ thống kê lượt like</h6>
 					</div>
-					<div class="box-chart-likes bg-white" id="chartLikes" style="height:315px">
+					<div class="box-chart-likes bg-white is-loading" id="chartLikes" style="height:315px">
 
 					</div>
 				</div>
@@ -166,7 +166,7 @@
 								</li>
 								<li>
 									<span class="title">Link Fanpage:</span>
-									<a href="" class="text hover-color pl-1 is-loading" id='fbLinkFg'></a>
+									<a href="" target="_blank" class="text hover-color pl-1 is-loading" id='fbLinkFg'></a>
 								</li>
 								<li>
 									<span class="title">Website:</span>
@@ -187,20 +187,20 @@
 							
 							<ul class="widget w-personal-info item-block">
 								<li>
-									<span class="title">Favourite Music Bands / Artists:</span>
-									<span class="text">Iron Maid, DC/AC, Megablow, The Ill, Kung Fighters, System of a Revenge.</span>
+									<span class="title">Loại fanpage: </span>
+									<span class="text pl-1 is-loading" id="categoryDes"></span>
 								</li>
 								<li>
-									<span class="title">Favourite Books:</span>
-									<span class="text">The Crime of the Century, Egiptian Mythology 101, The Scarred Wizard, Lord of the Wings, Amongst Gods, The Oracle, A Tale of Air and Water.</span>
+									<span class="title">Liên kết App</span>
+									<span class="text pl-1 is-loading" id="haveApp"></span>
 								</li>
 								<li>
-									<span class="title">Favourite Writers:</span>
-									<span class="text">Martin T. Georgeston, Jhonathan R. Token, Ivana Rowle, Alexandria Platt, Marcus Roth. </span>
+									<span class="title">Mục tiêu</span>
+									<span class="text pl-1 is-loading" id="mission"></span>
 								</li>
 								<li>
-									<span class="title">Other Interests:</span>
-									<span class="text">Swimming, Surfing, Scuba Diving, Anime, Photography, Tattoos, Street Art.</span>
+									<span class="title">Vị trí:</span>
+									<span class="text pl-1 is-loading" id="location"></span>
 								</li>
 							</ul>
 							

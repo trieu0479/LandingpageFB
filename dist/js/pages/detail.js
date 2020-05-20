@@ -35,10 +35,11 @@ if (!fbId) {
         }).then(res => {
             if (res) {
                 res = JSON.parse(res)
-
+                console.log(res)
                 let fbCover = res.data.json.cover.source
                 let fbName = res.data.json.name
                 let fbCate = res.data.json.category
+                let fbhaveapp = res.data.json.has_added_app
                 let fbId = res.data.json.id
                 let fbLikes = res.data.json.likes
                 let fbTalkingAbout = res.data.json.talking_about_count
@@ -46,11 +47,16 @@ if (!fbId) {
                 let fbLink = res.data.json.link
                 let fbwebsite = res.data.website
                 let fbphone = res.data.phone
-                let Strfbphone = fbphone.slice(2, 12)
+                let fbfounded = res.data.json.founded
+                let fbcheckins = res.data.json.checkins
+                let fbmission = res.data.json.mission
+                let fblocation = res.data.json.location.city
                 $('#fbAva').attr("src", `http://graph.facebook.com/${fbId}/picture?type=large`)
                 $('.fbCover').attr("src", fbCover)
-                $('#likeNow').text(fbLikes).removeClass('is-loading')
-                $('#fbTalkingAbout').html(fbTalkingAbout + '<span class="fontsize-16 pl-1 text-dark">/bài<span>').removeClass('is-loading')
+                $('#likeNow').text(numeral(fbLikes).format('0.0a')).removeClass('is-loading')
+                $('#founded').text(numeral(fbfounded).format('0.0a')).removeClass('is-loading')
+                $('#checkin').text(numeral(fbcheckins).format('0.0a')).removeClass('is-loading')
+                $('#fbTalkingAbout').html(numeral(fbTalkingAbout).format('0.0a') + '<span class="fontsize-16 pl-2 text-dark">bài<span>').removeClass('is-loading')
                 $('#fbAbout').text(fbAbout).removeClass('is-loading')
                 $('#fbLinkFg').text(fbLink).removeClass('is-loading')
                 fbLink ? $('#fbLinkFg').attr('href', fbLink) : $('#fbWebsite').text('chưa có').removeClass('is-loading')
@@ -58,10 +64,14 @@ if (!fbId) {
                 fbwebsite ? $('#fbWebsite').text(fbwebsite).removeClass('is-loading') : $('#fbWebsite').text('chưa có').removeClass('is-loading')
                 fbwebsite ? $('#fbWebsite').attr('href', fbwebsite).removeClass('is-loading') : $('#fbWebsite').text('chưa có').removeClass('is-loading')
 
-                fbphone ? $('#fbPhone').text(`(+84) ${Strfbphone}`).removeClass('is-loading') : $('#fbPhone').text('chưa có').removeClass('is-loading')
+                fbphone ? $('#fbPhone').text(`${fbphone}`).removeClass('is-loading') : $('#fbPhone').text('chưa có').removeClass('is-loading')
 
-                $('#fbName').text(fbName)
-                $('#fbCate').text(fbCate)
+                $('#fbName').text(fbName).removeClass('is-loading')
+                $('#fbCate').text(fbCate).removeClass('is-loading')
+                $('#categoryDes').text(fbCate).removeClass('is-loading')
+                $('#haveApp').text(fbhaveapp == false ? "Chưa liên kết" : "Đã liên kết").removeClass('is-loading')
+                $('#mission').text(fbmission ? fbmission : "...").removeClass('is-loading')
+                $('#location').text(fblocation ? fblocation : "...").removeClass('is-loading')
 
 
                 $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
@@ -102,6 +112,7 @@ function getDataFB() {
 
 
 function renderTable(data) {
+
     let bbb = [];
     let columns = data.data
     let aaa = null
@@ -173,7 +184,7 @@ function getLike10Days() {
                 },
                 {
                     title: `<div class="text-capitalize text-center m-auto font-weight-bold font-12" style="max-width:100px;width:100px">Lượt like</div>`,
-                    "data": data => `<div class="sparkline text-center m-auto" style="max-width:100px;width:100px">${data.likesday}</div>`,
+                    "data": data => `<div class="sparkline text-center m-auto" style="max-width:100px;width:100px">${numeral(data.likesday).format('0.0a')}</div>`,
                 },
                 {
                     title: `<div class="text-capitalize text-center m-auto font-weight-bold font-12" style="max-width:100px;width:100px">Biến động</div>`,
@@ -219,7 +230,9 @@ function renderChart(data) {
 
     if (!data || data.data.length == 0) {
         console.log(1)
+        $('#chartLikes').removeClass('is-loading').addClass('empty-state')
     } else {
+        $('#chartLikes').removeClass('is-loading')
         data.data.forEach((v, k) => {
             let formatDate = moment(v.insertTime, "YYYY/MM/DD").format("DD/MM")
             let getLikes = v.likes
