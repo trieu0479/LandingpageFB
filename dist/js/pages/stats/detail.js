@@ -1,7 +1,4 @@
 var url_ = new URL(location.href);
-var fbId = url_.searchParams.get("fbId")
-var from = url_.searchParams.get("start")
-var to = url_.searchParams.get("end")
 
 const language = {
     searchPlaceholder: 'Nhập từ khóa',
@@ -21,7 +18,7 @@ const language = {
 };
 
 if (!fbId) {
-    window.location.href = 'http://v7-fffblue.com/stats.php/?view=stats&action=index';
+    window.location.href = 'https://fff.blue';
     console.log(1)
 } else {
     $(function() {
@@ -145,32 +142,15 @@ function renderTable(data) {
 function getLike10Days() {
     // let from_ = moment(from).format("YYYY-MM-DD")
     // let to_ = moment(to).format("YYYY-MM-DD")
-    let from_ = moment(from, 'DD/MM/YYYY').format('YYYY-MM-DD');
-    let to_ = moment(to, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    
 
-
-    $("#rangeDateSeo").flatpickr({
-        locale: "vn",
-        mode: 'range',
-        dateFormat: "d/m/Y",
-        maxDate: new Date(),
-        defaultDate: [from, to],
-        onClose: function(date) {
-            let startDay_ = flatpickr.formatDate(date[0], "d/m/Y");
-            let endDay_ = flatpickr.formatDate(date[1], "d/m/Y");
-            if (startDay_ != from || endDay_ != to) {
-                window.location.href = `?view=stats&action=detail&fbId=${fbId}&start=${startDay_}&end=${endDay_}`
-            }
-
-        }
-    })
 
 
 
 
 
     $.ajax({
-        url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookLikeDay&userToken=${userToken}&fbId=${fbId}&from=${from_}&to=${to_}`,
+        url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookLikeDay&userToken=${userToken}&fbId=${fbId}`,
         type: "GET"
     }).then(res => {
         res = JSON.parse(res);

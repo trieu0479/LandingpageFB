@@ -264,6 +264,23 @@ function getData() {
 
     })
 }
+function remove_unicode(str) 
+{  
+   str= str.toLowerCase();  
+   str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");  
+   str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");  
+   str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");  
+   str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");  
+   str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");  
+   str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");  
+   str= str.replace(/đ/g,"d");  
+   str= str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'| |\"|\&|\#|\[|\]|~|$|_/g,"-"); 
+ 
+   str= str.replace(/-+-/g,"-"); //thay thế 2- thành 1- 
+   str= str.replace(/^\-+|\-+$/g,"");  
+ 
+   return str;  
+} 
 
 function showFacebookVietnam(name=null){
     $(`#tablefbRank`).DataTable({
@@ -306,7 +323,7 @@ function showFacebookVietnam(name=null){
             }, {
                 title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px; line-height:18px">Tên FanPage</div>`,
                 "data": data => `<div class="text-left mr-auto text-cut" style="max-width:200px;width: 200px">
-                    <a class="d-flex align-items-center" href="?view=stats&action=detail&fbId=${data.fbId}&start=${from}&end=${to}"> 
+                    <a class="d-flex align-items-center" href="rank/${data.fbId}/${remove_unicode(data.fanpageName)}"> 
                         <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px">
                         <p class="mb-0 text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</p>
                     </a>
