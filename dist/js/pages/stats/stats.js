@@ -21,7 +21,7 @@ var category = url_.searchParams.get("category")
 function renderCategory() {
 
     $.ajax({
-        url: `http://v7-fffblue.com/server/stats.php?task=showCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&limit=15`,
+        url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=showCategory&userToken=${userToken}&limit=15`,
         type: "GET",
     }).then(data => {
         data = JSON.parse(data)
@@ -42,6 +42,24 @@ function renderCategory() {
 }
 
 
+function extractHostname(url) {
+    var hostname;
+    //find & remove protocol (http, ftp, etc.) and get hostname
+
+    if (url.indexOf("//") > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+
+    //find & remove port number
+    hostname = hostname.split(':')[0];
+    //find & remove "?"
+    hostname = hostname.split('?')[0];
+
+    return hostname;
+}
 
 function renderData(data) {
     var arrtTable = [];
@@ -52,9 +70,13 @@ function renderData(data) {
     datav2.forEach((v, k) => {
         stt++
         var output = {};
+        
         output.stt = stt
         output.fbId = v.fbId;
-        output.fanpageCover = v.fanpageCover
+
+        let datafanpageCover = `http://graph.facebook.com/${v.fbId}/picture?type=square`;//data[i].fanpageCover;
+        output.fanpageCover =  datafanpageCover;
+
         output.fanpageName = v.fanpageName
         output.fbCategory = v.fbCategory
         output.pageAlias = v.pageAlias
@@ -62,18 +84,11 @@ function renderData(data) {
         v.likes == null ? output.likes = 0 : output.likes = v.likes
         v.talking_about_count == null ? output.talkingAbout = 0 : output.talkingAbout = v.talking_about_count
         output.likes_yesterday = v.likes_yesterday
-
-
         if (!v.website) {
-            output.website =
-                `<a href="javascript:void(0)">
-                <span class="btn btn-result-danger btn-default btn-sm rounded-pill bg-danger-2 px-3 py-2 font-13"><i class="fad fa-do-not-enter text-danger mr-2 font-14 font-weight-bold"></i>Chưa có</span>
-            </a>`
+            output.website = ``
         } else {
-            output.website =
-                `<a href="${v.website}" target="_blank">
-                    <span class="btn btn-result-kq btn-default btn-sm rounded-pill px-3 py-2 font-13"><i class="fad fa-eye text-info mr-2 font-14 font-weight-bold"></i>Đi đến</span>
-                </a>`
+            output.website = v.website
+            output.websiteRootUrl = extractHostname(v.website)
         }
         arrtTable.push(output);
     })
@@ -89,7 +104,7 @@ function getDataSearch(data) {
     for (var i in data) {
         let dataId = data[i].fbId;
         let dataName = data[i].fanpageName;
-        let datafanpageCover = data[i].fanpageCover;
+        let datafanpageCover = `http://graph.facebook.com/${data[i].fbId}/picture?type=square`;//data[i].fanpageCover;
         let datalikes = data[i].likes;
         address_option = `<div class="fanpage-option d-flex" data-fbid="${dataId}" data-fbname="${dataName}">
         <img src="${datafanpageCover}" class="img-option img-fluid">
@@ -118,12 +133,12 @@ function getData() {
     let to = moment().format("DD/MM/YYYY")
     let whichAPi = '';
     if (!category || category == "All" || category == '') {
-        whichAPi = `//v7-fffblue.com/server/stats.php?task=getAllFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&limit=50`
+        whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1`
         $('.all-active').addClass('active')
             // console.log(0)
     } else {
         // console.log(1)
-        whichAPi = `//v7-fffblue.com/server/stats.php?task=getFacebookCategory&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&category=${category.replace('&','%26')}`
+        whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookCategory&userToken=${userToken}&category=${category.replace('&','%26')}`
         $('.all-active').removeClass('active')
 
     }
@@ -185,31 +200,33 @@ function getData() {
                                 <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px">
                                 <p class="mb-0 text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</p>
                             </a>
-                        </div>`,
+                        </div>`
+                     
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-left ml-auto" style="line-height:18px">Danh Mục</div>`,
+                        title: `Danh Mục`,
                         "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <span>${data.fbCategory }</span></div>`,
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-12 text-center mr-auto" style="line-height:18px">Website</div>`,
-                        "data": data => `<div class="text-center m-auto">
-                                            ${data.website}
-                                        </div>`,
+                        title: `Website`,
+                        "data": data => `
+                                            ${data.websiteRootUrl}
+                                        `,
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-14 text-center mr-auto" style="line-height:18px">Lượt thích</div>`,
+                        title: `Lượt thích`,
                         "data": data => `
                             <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
                                 <span class="text-box-catelog text-white fontsize-12 bg-success mr-2 ml-0 mb-0">${numeral(data.likes).format('0.00a')}</span>
                             </div>`
                     },
                     {
-                        title: `<div class="text-capitalize font-weight-bold font-14 text-center mr-auto" style="line-height:18px">Bài viết đánh giá</div>`,
+                        title: `Đánh giá`,
                         "data": data => `
                             <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
                                 <span class="text-box-catelog text-white fontsize-12 bg-info mr-2 ml-0 mb-0">${numeral(data.talkingAbout).format('0a')}</span>
-                            </div>`
+                            </div>`,
+                        width:'90',
                     }
                 ],
 
@@ -237,6 +254,8 @@ function getData() {
                 "ordering": false,
                 info: false,
                 processing: true,
+                    processing: true,
+
                 language
             })
             // }
@@ -246,9 +265,112 @@ function getData() {
     })
 }
 
+function showFacebookVietnam(name=null){
+    $(`#tablefbRank`).DataTable({
+        ajax: {
+            url: (!name) ? `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}` : `//localapi.trazk.com/webdata/websiteapicat.php?task=getWebsiteInACategoryInVietnamServer&catName=${name}&limit=50`,
+            dataSrc: function (res) {
+                var columns = [];
+                var stt = parseInt(res.data.from) + 1;
+                $.each(res.data.data, function (k, v) {
+                    
+                    var output = {};
+                    
+                    output.stt = stt++ ;
+                    output.fbId = v.fbId;
+            
+                    let datafanpageCover = `http://graph.facebook.com/${v.fbId}/picture?type=square`;//data[i].fanpageCover;
+                    output.fanpageCover =  datafanpageCover;
+            
+                    output.fanpageName = v.fanpageName
+                    output.fbCategory = v.fbCategory
+                    output.pageAlias = v.pageAlias
+            
+                    v.likes == null ? output.likes = 0 : output.likes = v.likes
+                    v.talking_about_count == null ? output.talkingAbout = 0 : output.talkingAbout = v.talking_about_count
+                    output.likes_yesterday = v.likes_yesterday
+                    if (!v.website) {
+                        output.website = ``
+                    } else {
+                        output.website = v.website
+                        output.websiteRootUrl = extractHostname(v.website)
+                    }
+                    columns.push(output);
+                })
+                return columns;
+            }
+        },
+        columns: [{
+                title: `<div class="text-capitalize font-weight-bold font-12 text-center m-auto" style="max-width:30px;width:30px; line-height:18px">Stt</div>`,
+                "data": data => `<div class="text-center m-auto" style="line-height:40px">${data.stt}</div>`
+            }, {
+                title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px; line-height:18px">Tên FanPage</div>`,
+                "data": data => `<div class="text-left mr-auto text-cut" style="max-width:200px;width: 200px">
+                    <a class="d-flex align-items-center" href="?view=stats&action=detail&fbId=${data.fbId}&start=${from}&end=${to}"> 
+                        <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px">
+                        <p class="mb-0 text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</p>
+                    </a>
+                </div>`
+             
+            },
+            {
+                title: `Danh Mục`,
+                "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <span>${data.fbCategory }</span></div>`,
+            },
+            {
+                title: `Website`,
+                "data": data => `
+                                    ${data.websiteRootUrl}
+                                `,
+            },
+            {
+                title: `Lượt thích`,
+                "data": data => `
+                    <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
+                        <span class="text-box-catelog text-white fontsize-12 bg-success mr-2 ml-0 mb-0">${numeral(data.likes).format('0.00a')}</span>
+                    </div>`
+            },
+            {
+                title: `Đánh giá`,
+                "data": data => `
+                    <div class="take-care-likes d-flex justify-content-center align-items-center" style="height: 40px">
+                        <span class="text-box-catelog text-white fontsize-12 bg-info mr-2 ml-0 mb-0">${numeral(data.talkingAbout).format('0a')}</span>
+                    </div>`,
+                width:'90',
+            }
+        ],
+
+
+        initComplete: function(settings, json) {
+            $(`#tablefbRank td`).attr('style', 'padding:10px 18px')
+            $(`.tabletablefbRank`).removeClass('is-loading')
+        },
+        paging: true,
+        autoWidth: false,
+        pageLength: 50,
+        ordering: true,
+        "order": [
+            [1, 'DESC']
+        ],
+        info: true,
+        responsive: true,
+        searching: false,
+        sorting: true,
+        destroy: true,
+        rowId: 'trId',
+        "dom": 'ftp',
+        scrollX: false,
+        "ordering": false,
+        info: false,
+        processing: true,
+        serverSide: true,
+
+        language
+    })
+}
 
 $(document).ready(function() {
 
     renderCategory()
-    getData();
+    showFacebookVietnam();
 });

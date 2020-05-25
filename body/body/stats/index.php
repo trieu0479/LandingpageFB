@@ -63,4 +63,4 @@
 
 </div>
 <!-- <script src="../../dist/js/bootstrap-select.min.js"></script> -->
-<script src="../../dist/js/pages/stats.js"></script>
+<script src="<?=$rootURL?>/dist/js/pages/stats/stats.js"></script>

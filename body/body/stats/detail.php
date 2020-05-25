@@ -226,4 +226,4 @@
 
 
 
-<script src="../../dist/js/pages/detail.js"></script>
+<script src="<?=$rootURL?>/dist/js/pages/stats/detail.js"></script>
