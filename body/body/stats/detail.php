@@ -80,7 +80,7 @@
 					<p class="note-top fontsize-14 text-center">
 						Lượt tìm kiếm
 					</p>
-					<h3 class="text-first text-success fontsize-44 text-center"  id="founded">
+					<h3 class="text-first text-success fontsize-44 text-center is-loading"  id="founded">
 						
 					</h3>
 					
@@ -102,8 +102,8 @@
 					<p class="note-top fontsize-14 text-center">
 						Checkin
 					</p>
-					<h3 class="text-first text-secondary fontsize-44 text-center" id="checkin">
-						A++
+					<h3 class="text-first text-secondary fontsize-44 text-center is-loading" id="checkin">
+						...
 					</h3>
 					
 				</div>
