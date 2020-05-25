@@ -30,7 +30,7 @@ if (!fbId) {
 
     function getDataFB() {
         $.ajax({
-            url: `//v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}`,
+            url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookInformation&userToken=${userToken}&fbId=${fbId}`,
             type: "GET"
         }).then(res => {
             if (res) {
@@ -85,7 +85,7 @@ if (!fbId) {
 
 function getDataFB() {
     $.ajax({
-        url: `//v7-fffblue.com/server/stats.php?task=getFacebookInformation&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}`,
+        url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookInformation&userToken=${userToken}&fbId=${fbId}`,
         type: "GET"
     }).then(res => {
         res = JSON.parse(res)
@@ -170,7 +170,7 @@ function getLike10Days() {
 
 
     $.ajax({
-        url: `//v7-fffblue.com/server/stats.php?task=getFacebookLikeDay&userToken=Vm5ZSmVLTjhXcWYwRzFObXlnbk5WUmlIdXF0Zk5XaGpkbXJ5ODMwc3J6Yz06OnD33aPxFDTCO6LhohyjG8o&fbId=${fbId}&from=${from_}&to=${to_}`,
+        url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookLikeDay&userToken=${userToken}&fbId=${fbId}&from=${from_}&to=${to_}`,
         type: "GET"
     }).then(res => {
         res = JSON.parse(res);

@@ -12,8 +12,8 @@ $demoToken = "ZGdZVktsdE91by9qOUtndjc4MjYwTHdQeXllT3NKTS9ZUHVzdThJYTNWST06OhMNb7
 if (@$_GET['userToken']) $userToken =$_GET['userToken'];else $userToken =  $_COOKIE['userToken'];
 if (empty($userToken))  $userToken = $demoToken;
 
-$rootURL = "http://v7-fffblue.com";
-$mysqli = new mysqli ('210.211.116.252', '2020_u_fffblue', '2020_u_fffblue', '2020_fffblue_shorturl');
+$rootURL = "https://fff.blue";
+$mysqli = new mysqli ('maindb.fff.com.vn', '2020_fffblue_shorturl', '123qazZAQ', '2020_fffblue_shorturl');
 $db = new MysqliDb ($mysqli);
 $version = "1.0.3.1";
 ?>
