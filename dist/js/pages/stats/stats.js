@@ -24,13 +24,14 @@ function renderCategory() {
         url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=showCategory&userToken=${userToken}&limit=15`,
         type: "GET",
     }).then(data => {
+        var a = [];
+        a['Cửa hàng quần áo'] = `<i class="fad fa-laugh-wink"></i>`;
         data = JSON.parse(data)
         data.data.forEach((v, k) => {
-
             option = `
             <a href="?view=stats&action=index&category=${remove_unicode(v)}" class="kt-fbrank ${v == category ? 'active' : ''} ">
                 <div id="Computers_Electronics_and_Technology" class="kt-widget6__item ">
-                    <span>${v}</span>
+                ${a[v]} <span> ${v}</span>
                 </div>
             </a>`
             $('#catalogFbRank').append(option)
