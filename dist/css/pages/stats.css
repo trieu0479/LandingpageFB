@@ -235,7 +235,7 @@ a {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 5px 25px 0px 25px;
+    padding: 5px 15px 0px 15px;
     border-radius: 4px;
 }
 
@@ -306,7 +306,7 @@ a {
     color: #595d6e;
     font-weight: 400;
     text-align: left;
-    font-size: 14px;
+    font-size: 13px;
     text-decoration: none;
 }
 
@@ -315,7 +315,6 @@ a {
 }
 
 .kt-fbrank span {
-    font-weight: 500 !important;
     color: #9a9fbf !important;
 }
 
