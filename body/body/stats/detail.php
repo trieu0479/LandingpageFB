@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../dist/css/pages/detail.css">
+<link rel="stylesheet" href="<?=$rootURL?>/dist/css/pages/detail.css">
 
 
 
@@ -225,5 +225,5 @@
 
 
 
-
+<script>var fbId = '<?=$_GET['fbid']?>'</script>
 <script src="<?=$rootURL?>/dist/js/pages/stats/detail.js"></script>
