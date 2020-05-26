@@ -285,20 +285,17 @@ function remove_unicode(str)
 function showFacebookVietnam(name=null){
     $(`#tablefbRank`).DataTable({
         ajax: {
-            url: (!name) ? `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}` : `//localapi.trazk.com/webdata/websiteapicat.php?task=getWebsiteInACategoryInVietnamServer&catName=${name}&limit=50`,
+            url: (!name) ? `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}` : `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&catName=${name}`,
             dataSrc: function (res) {
                 var columns = [];
                 var stt = parseInt(res.data.from) + 1;
                 $.each(res.data.data, function (k, v) {
                     
                     var output = {};
-                    
                     output.stt = stt++ ;
                     output.fbId = v.fbId;
-            
                     let datafanpageCover = `http://graph.facebook.com/${v.fbId}/picture?type=square`;//data[i].fanpageCover;
                     output.fanpageCover =  datafanpageCover;
-            
                     output.fanpageName = v.fanpageName
                     output.fbCategory = v.fbCategory
                     output.pageAlias = v.pageAlias
