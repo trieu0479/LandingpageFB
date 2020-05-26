@@ -128,19 +128,7 @@ function getDataSearch(data) {
 
 
 // function getData() {
-//     let from = moment().subtract(7, "days").format("DD/MM/YYYY")
-//     let to = moment().format("DD/MM/YYYY")
-//     let whichAPi = '';
-//     if (!category || category == "All" || category == '') {
-//         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1`
-//         $('.all-active').addClass('active')
-//         console.log(0)
-//     } else {
-//         console.log(1)
-//             // whichAPi = `http://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookCategory&userToken=${userToken}&category=${category.replace('&','%26')}`
-//         whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
-
-//     }
+//     
 //     $.ajax({
 //         url: whichAPi,
 //         type: "GET"
@@ -380,6 +368,20 @@ function remove_unicode(str) {
 }
 
 function showFacebookVietnam(name = null) {
+    4
+    let from = moment().subtract(7, "days").format("DD/MM/YYYY")
+    let to = moment().format("DD/MM/YYYY")
+    let whichAPi = '';
+    if (!category || category == "All" || category == '') {
+        whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1`
+        $('.all-active').addClass('active')
+        console.log(0)
+    } else {
+        console.log(1)
+            // whichAPi = `http://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookCategory&userToken=${userToken}&category=${category.replace('&','%26')}`
+        whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
+
+    }
     $(`#tablefbRank`).DataTable({
 
         ajax: {
@@ -421,7 +423,7 @@ function showFacebookVietnam(name = null) {
                 "data": data => `<div class="text-center m-auto" style="line-height:40px">${data.stt}</div>`
             }, {
                 title: `<div class="text-capitalize font-weight-bold font-12 text-left" style="max-width:200px;width: 200px; line-height:18px">Tên FanPage</div>`,
-                "data": data => `<div class="text-left mr-auto text-cut" style="max-width:200px;width: 200px">
+                "data": data => `<div class="text-left mr-auto text-cut d-flex  " style="max-width:200px;width: 200px">
                     <a class="d-flex align-items-center" href="rank/${data.fbId}/${remove_unicode(data.fanpageName)}"> 
                         <img src="${data.fanpageCover}" class="img-fluid rounded-circle" style="object-fit:cover; height:40px; width:40px">
                         <p class="mb-0 text-primary pl-3 text-left mr-auto cut-text-title">${data.fanpageName}</p>
@@ -437,11 +439,11 @@ function showFacebookVietnam(name = null) {
             {
                 title: `Website`,
                 "data": data => `
-                                    <div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px">
-                                        <a target="_blank" href="${data.website == undefined ? 'javascrip:voild(0)' : data.website}">${data.website == undefined ? '' : data.website}</a>
-                                    </div>
-                                    
-                                `,
+                        <div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px">
+                            <a target="_blank" href="${data.website == undefined ? 'javascrip:voild(0)' : data.website}">${data.website == undefined ? '' : data.website}</a>
+                        </div>
+                        
+                    `,
             },
             {
                 title: `Lượt thích`,
