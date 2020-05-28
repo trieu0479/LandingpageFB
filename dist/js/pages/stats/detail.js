@@ -19,7 +19,6 @@ const language = {
 
 if (!fbId) {
     window.location.href = 'https://fff.blue';
-    console.log(1)
 } else {
     $(function() {
         $('[data-toggle="tooltip"]').tooltip();
@@ -35,6 +34,8 @@ if (!fbId) {
                 console.log(res)
                 let fbCover = res.data.json.cover.source
                 let fbName = res.data.json.name
+                let fbUsername = res.data.json.username
+                let fbBirthday = res.data.json.birthday
                 let fbCate = res.data.json.category
                 let fbhaveapp = res.data.json.has_added_app
                 let fbId = res.data.json.id
@@ -44,18 +45,30 @@ if (!fbId) {
                 let fbLink = res.data.json.link
                 let fbwebsite = res.data.website
                 let fbphone = res.data.phone
-                let fbfounded = res.data.json.founded
+                let fbhereCount = res.data.json.were_here_count
                 let fbcheckins = res.data.json.checkins
-                let fbmission = res.data.json.mission
-                let fblocation = res.data.json.location.city
-                $('#fbAva').attr("src", `http://graph.facebook.com/${fbId}/picture?type=large`)
-                $('.fbCover').attr("src", fbCover)
+                let fbdescription = res.data.json.description
+                let fbawards = res.data.json.awards
+
+
+
+
+                $('#fbAva').attr("src", 'http://graph.facebook.com/' + fbId + '/picture?type=large').removeClass('is-loading')
+                $('#fbCover').css("--cover-photo-uri", 'url(' + fbCover + ')').removeClass('is-loading')
+
+                $('#fbUsername').text('@' + fbUsername).removeClass('is-loading')
+                $('#fbCate').html(`${fbCate} - <span>${numeral(fbLikes).format()} Like </span>`).removeClass('is-loading')
+
+                $('#fbBirthday').text(fbBirthday).removeClass('is-loading')
                 $('#likeNow').text(numeral(fbLikes).format('0.0a')).removeClass('is-loading')
-                $('#founded').text(numeral(fbfounded).format('0.0a')).removeClass('is-loading')
+
+                $('#fbhereCount').text(numeral(fbhereCount).format('0.0a')).removeClass('is-loading')
                 $('#checkin').text(numeral(fbcheckins).format('0.0a')).removeClass('is-loading')
+
                 $('#fbTalkingAbout').html(numeral(fbTalkingAbout).format('0.0a') + '<span class="fontsize-16 pl-2 text-dark">bài<span>').removeClass('is-loading')
-                $('#fbAbout').text(fbAbout).removeClass('is-loading')
+                $('#fbAbout').text(fbAbout ? fbAbout : "...").removeClass('is-loading')
                 $('#fbLinkFg').text(fbLink).removeClass('is-loading')
+
                 fbLink ? $('#fbLinkFg').attr('href', fbLink) : $('#fbWebsite').text('chưa có').removeClass('is-loading')
 
                 fbwebsite ? $('#fbWebsite').text(fbwebsite).removeClass('is-loading') : $('#fbWebsite').text('chưa có').removeClass('is-loading')
@@ -63,17 +76,15 @@ if (!fbId) {
 
                 fbphone ? $('#fbPhone').text(`${fbphone}`).removeClass('is-loading') : $('#fbPhone').text('chưa có').removeClass('is-loading')
 
-                $('#fbName').text(fbName).removeClass('is-loading')
-                $('#fbCate').text(fbCate).removeClass('is-loading')
+                $('#fbName').prepend(fbName).removeClass('is-loading')
                 $('#categoryDes').text(fbCate).removeClass('is-loading')
                 $('#haveApp').text(fbhaveapp == false ? "Chưa liên kết" : "Đã liên kết").removeClass('is-loading')
-                $('#mission').text(fbmission ? fbmission : "...").removeClass('is-loading')
-                $('#location').text(fblocation ? fblocation : "...").removeClass('is-loading')
+                $('#description').text(fbdescription ? fbdescription : "...").removeClass('is-loading')
+                $('#awards').text(fbawards ? fbawards : "...").removeClass('is-loading')
 
 
                 $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
                 fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').addClass('d-none')
-                fbphone ? $('#phoneNumb').attr('data-original-title', fbphone) : $('#phoneNumb').addClass('d-none')
             }
 
         })
@@ -103,7 +114,6 @@ function getDataFB() {
 
         $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
         fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
-        fbwebsite ? $('#webPhone').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
     })
 }
 
@@ -125,9 +135,9 @@ function renderTable(data) {
         output.countlike = columns[aaa].likes - columns[i].likes
 
         if (columns[aaa].likes - columns[i].likes > 0) {
-            output.kq = `<span class=" text-success fontsize-14">+${columns[aaa].likes - columns[i].likes}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
+            output.kq = `<span class=" text-success fontsize-14">+${numeral(columns[aaa].likes - columns[i].likes).format()}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
         } else if (columns[aaa].likes - columns[i].likes < 0) {
-            output.kq = `<span class=" text-danger fontsize-14"> ${columns[aaa].likes - columns[i].likes}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
+            output.kq = `<span class=" text-danger fontsize-14"> ${numeral(columns[aaa].likes - columns[i].likes).format()}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
         } else if (columns[aaa].likes - columns[i].likes == 0) {
             output.kq = `<span class=" text-warning fontsize-14">-</span>`
         }
@@ -142,12 +152,6 @@ function renderTable(data) {
 function getLike10Days() {
     // let from_ = moment(from).format("YYYY-MM-DD")
     // let to_ = moment(to).format("YYYY-MM-DD")
-    
-
-
-
-
-
 
     $.ajax({
         url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookLikeDay&userToken=${userToken}&fbId=${fbId}`,
@@ -164,7 +168,7 @@ function getLike10Days() {
                 },
                 {
                     title: `<div class="text-capitalize text-center m-auto font-weight-bold font-12" style="max-width:100px;width:100px">Lượt like</div>`,
-                    "data": data => `<div class="sparkline text-center m-auto" style="max-width:100px;width:100px">${numeral(data.likesday).format('0.0a')}</div>`,
+                    "data": data => `<div class="sparkline text-center m-auto" style="max-width:100px;width:100px">${numeral(data.likesday).format()}</div>`,
                 },
                 {
                     title: `<div class="text-capitalize text-center m-auto font-weight-bold font-12" style="max-width:100px;width:100px">Biến động</div>`,
@@ -173,7 +177,7 @@ function getLike10Days() {
             ],
             initComplete: function(settings, json) {
                 $(`#tablefbRank td`).attr('style', 'padding:10px 18px')
-                $(`#tablefbRank_wrapper .dataTables_scrollBody`).perfectScrollbar();
+                    // $(`#tablefbRank_wrapper .dataTables_scrollBody`).perfectScrollbar();
                 $(`.tabletablefbRank`).removeClass('is-loading')
             },
             destroy: true,
@@ -203,8 +207,6 @@ function getLike10Days() {
 
 // render chart 
 function renderChart(data) {
-
-
     let arrDate = [];
     let arrLikes = [];
 
@@ -212,7 +214,7 @@ function renderChart(data) {
         console.log(1)
         $('#chartLikes').removeClass('is-loading').addClass('empty-state')
     } else {
-        $('#chartLikes').removeClass('is-loading')
+        $('#chartLikes').removeClass('is-loading').removeClass('empty-state')
         data.data.forEach((v, k) => {
             let formatDate = moment(v.insertTime, "YYYY/MM/DD").format("DD/MM")
             let getLikes = v.likes
@@ -224,7 +226,7 @@ function renderChart(data) {
             tooltip: {
                 trigger: "axis",
                 backgroundColor: 'rgba(255, 255, 255, 1)',
-                borderColor: 'rgba(93,120,255,1)',
+                borderColor: '#fd397a',
                 borderWidth: 1,
                 extraCssText: 'padding: 10px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);',
                 formatter: params => {
@@ -293,27 +295,32 @@ function renderChart(data) {
             }, ],
             series: [{
 
-                data: arrLikes,
-                name: 'Lượt Like',
-                type: 'line',
-                smooth: true,
-                // stack: "0",
-                areaStyle: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgb(79, 141, 249)'
-                    }, {
-                        offset: 1,
-                        color: '#fff'
-                    }])
+                    data: arrLikes,
+                    name: 'Lượt Like',
+                    type: 'bar',
+                    smooth: true,
+                    // stack: "0",
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#fd397a'
+                            }, {
+                                offset: 1,
+                                color: '#fff'
+                            },
+
+                        ])
+                    },
+
+                    symbol: 'none',
+                    // symbolSize: 10,
+                    itemStyle: {
+                        color: '#fd397a'
+                    },
+                    data: arrLikes
                 },
-                symbol: 'none',
-                // symbolSize: 10,
-                itemStyle: {
-                    color: 'rgb(79, 141, 249)'
-                },
-                data: arrLikes
-            }, ]
+
+            ]
         };
         myChart.setOption(option);
         new ResizeSensor(document.getElementById(`chartLikes`), function() {

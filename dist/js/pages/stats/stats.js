@@ -123,9 +123,9 @@ function getDataList(data) {
                 Đang tải...
                 </div>`
         $('#fanpage-search').html(address_option);
-        console.log(1)
+        // console.log(1)
     } else {
-        console.log(2)
+        // console.log(2)
         let address_option = ``;
         $('#fanpage-search').html('');
         $.each(data.data, function(k, v) {
@@ -138,19 +138,20 @@ function getDataList(data) {
                      <img src="${imageURI}" class="img-option img-fluid">
                          <div class="text-option d-flex row">
                              <span class="fontsize-14 col-12 research-fanpages">${name}</span>
-                             <span class="fontsize-12 text-secondary col-12">Lượt like: ${likes ? likes : '0'}</span>
+                             <span class="fontsize-12 text-secondary col-12">Lượt like: ${likes ? numeral(likes).format('') : '0'}</span>
                          </div>
                      </div>`
             $('#fanpage-search').append(address_option);
             $('#fanpage-search .fanpage-option').on('click', function() {
                 var elValId = $(this).data('fbid');
                 var elValName = $(this).data('fbname');
-                console.log(1)
+                // console.log(1)
+                $('.input-loading').removeClass('is-loading-input')
                 $('.add-fbid').data('fbid', elValId);
                 $('.add-fbid').val(elValName);
                 setTimeout(() => {
                     $('#fanpage-search').css('display', 'none');
-                }, 1000)
+                }, 200)
             });
         })
     }
@@ -182,21 +183,45 @@ function searchKeyBlur() {
 }
 
 function searchKeyUp() {
-    $(`#input-searchFbRank`).on('keyup', function() {
+
+
+    var typingTimer; //timer identifier
+    var doneTypingInterval = 2000; //time in ms, 5 second for example
+    var $input = $('#input-searchFbRank')
+
+    $input.on('keyup', function() {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+        $('.input-loading').addClass('is-loading-input')
+    });
+
+    $input.on('keydown', function() {
+        clearTimeout(typingTimer);
+
+    });
+
+    function doneTyping() {
         let keyword = $(`#input-searchFbRank`).val()
+
         $.ajax({
             url: `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${keyword}`,
             type: "GET"
         }).then(data => {
             data = JSON.parse(data);
+            if (data) {
+                $('.input-loading').removeClass('is-loading-input')
+            }
             localStorage.setItem("data", JSON.stringify(data));
             getDataList(data);
-
-
         })
+    }
 
-        $('#fanpage-search').css('display', 'block');
-    })
+
+
+
+
+
+    $('#fanpage-search').css('display', 'block');
 }
 
 function searchKeyClick() {
@@ -253,8 +278,8 @@ function showFacebookVietnam(name = null) {
             // console.log(0)
     } else {
         // console.log(1)
-        // whichAPi = `http://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookCategory&userToken=${userToken}&category=${category.replace('&','%26')}`
-        whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
+        whichAPi = `http://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookCategory&userToken=${userToken}&category=${category.replace('&','%26')}`
+            // whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
 
     }
 

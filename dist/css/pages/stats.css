@@ -420,12 +420,12 @@
         animation: Fb .6s linear infinite;
     }
     
-    .is-loading-input:before {
+    .is-loading:before {
         content: "";
         box-sizing: border-box;
         position: absolute;
         top: 50%;
-        left: 43%;
+        left: 50%;
         width: 20px;
         height: 20px;
         margin-top: -10px;
@@ -434,6 +434,31 @@
         border: 2px solid #ccc;
         border-top-color: #197bfb;
         animation: Fb .6s linear infinite;
+    }
+    
+    .is-loading-input:before {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 84%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #197bfb;
+        animation: Fb .6s linear infinite;
+        z-index: 999;
+    }
+    
+    .loading {
+        background-color: #ffffff;
+        background-image: url("http://loadinggif.com/images/image-selection/3.gif");
+        background-size: 25px 25px;
+        background-position: right center;
+        background-repeat: no-repeat;
     }
     
     @keyframes fb {

@@ -13,8 +13,8 @@
             <div class="fontSize-14 text-muted mb-2">Công cụ xem xếp hạng fanpage trên facebook</div>     
         </div>
         <div class="maxWidth-800 pb-5 m-auto mrl-md-1">
-            <div class="input-group mt-3">
-                <input type="text" id="input-searchFbRank" autocomplete="off" class="form-control add-fbid fontSize-14 p-2 ml-1 font-12 rounded mr-2" data-fbid="" aria-label="Nhập tên fanpage của bạn vào đây" value="" placeholder="Nhập tên fanpage của bạn vào đây">
+            <div class="input-group mt-3 input-loading">
+                <input type="text" id="input-searchFbRank" autocomplete="off" class="form-control add-fbid fontSize-14 p-2 ml-1 font-12 rounded mr-2form-control add-fbid fontSize-14 p-2 ml-1 font-12 rounded mr-2" data-fbid="" aria-label="Nhập tên fanpage của bạn vào đây" value="" placeholder="Nhập tên fanpage của bạn vào đây">
                 <div class="Fanpage-container" id="fanpage-search"></div>
                 <div class="input-group-append">
                     <button id="nextButton" class="ml-auto  btn-Step1 btn btn-info"><i class="fad fa-layer-plus mr-2"></i> Tiếp tục</button>
