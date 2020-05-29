@@ -96,7 +96,7 @@ function renderData(data) {
         output.stt = stt
         output.fbId = v.fbId;
 
-        let datafanpageCover = `http://graph.facebook.com/${v.fbId}/picture?type=square`; //data[i].fanpageCover;
+        let datafanpageCover = `https://graph.facebook.com/${v.fbId}/picture?type=square`; //data[i].fanpageCover;
         output.fanpageCover = datafanpageCover;
 
         output.fanpageName = v.fanpageName
@@ -206,7 +206,7 @@ function searchKeyUp() {
         let keyword = $(`#input-searchFbRank`).val()
 
         $.ajax({
-            url: `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${keyword}`,
+            url: `https://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${keyword}`,
             type: "GET"
         }).then(data => {
             data = JSON.parse(data);
@@ -237,7 +237,7 @@ function searchKeyClick() {
             $('#alert_message').addClass('d-none') :
             $('#alert_message').removeClass('d-none');
         if (fanpage) {
-            window.location.href = `?view=stats&action=detail?view=stats&action=detail&fbId=${fbIdInput}&start=${from}&end=${to}`;
+            window.location.href = `${rootURL}/facebook-rank/${fbIdInput}/result`;
         }
     })
 }
@@ -277,9 +277,7 @@ function showFacebookVietnam(name = null) {
     if (!category || category == "All" || category == '') {
         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1`
         $('.all-active').addClass('active')
-        console.log(0)
     } else {
-        console.log(1)
         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1&catName=${category}`
         console.log(category)
         console.log(whichAPi)
@@ -303,7 +301,7 @@ function showFacebookVietnam(name = null) {
                             output.stt = stt++;
                             output.fbId = v.fbId;
 
-                            let datafanpageCover = `http://graph.facebook.com/${v.fbId}/picture?type=square`; //data[i].fanpageCover;
+                            let datafanpageCover = `https://graph.facebook.com/${v.fbId}/picture?type=square`; //data[i].fanpageCover;
                             output.fanpageCover = datafanpageCover;
 
                             output.fanpageName = v.fanpageName

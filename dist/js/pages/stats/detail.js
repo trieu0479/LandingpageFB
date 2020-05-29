@@ -1,5 +1,4 @@
 var url_ = new URL(location.href);
-var fbId = url_.searchParams.get("fbId")
 
 const language = {
     searchPlaceholder: 'Nhập từ khóa',
@@ -54,7 +53,7 @@ if (!fbId) {
 
 
 
-                $('#fbAva').attr("src", 'http://graph.facebook.com/' + fbId + '/picture?type=large').removeClass('is-loading')
+                $('#fbAva').attr("src", 'https://graph.facebook.com/' + fbId + '/picture?type=large').removeClass('is-loading')
                 $('#fbCover').css("--cover-photo-uri", 'url(' + fbCover + ')').removeClass('is-loading')
 
                 $('#fbUsername').text('@' + fbUsername).removeClass('is-loading')
@@ -84,7 +83,7 @@ if (!fbId) {
                 $('#awards').text(fbawards ? fbawards : "...").removeClass('is-loading')
 
 
-                $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
+                $('#fbLink').attr('href', `https://facebook.com/${fbId}`)
                 fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').addClass('d-none')
             }
 
@@ -113,7 +112,7 @@ if (!fbId) {
 //         $('#fbCate').text(fbCate)
 
 
-//         $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
+//         $('#fbLink').attr('href', `https://facebook.com/${fbId}`)
 //         fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
 //     })
 // }
@@ -339,7 +338,7 @@ function renderChart(data) {
 function getPostFbRank() {
     $(`#fbPostRank`).DataTable({
         ajax: {
-            url: `http://localapi.trazk.com/2020/api/facebook/index.php?task=getFanpagePost&fbid=${fbId}&userToken=${userToken}&limit=10`,
+            url: `https://localapi.trazk.com/2020/api/facebook/index.php?task=getFanpagePost&fbid=${fbId}&userToken=${userToken}&limit=10`,
             dataSrc: function(res) {
                 var columns = [];
                 let stt = 0

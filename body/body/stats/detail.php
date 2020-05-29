@@ -218,5 +218,5 @@
 
 
 
-<script>var fbId = '<?=$_GET['fbId']?>'</script>
+<script>var fbId = '<?=$_GET['fbid']?>'</script>
 <script src="../../dist/js/pages/stats/detail.js"></script>
