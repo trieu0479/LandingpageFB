@@ -51,7 +51,7 @@ function renderCategory() {
         data.data.forEach((v, k) => {
             // console.log(v)
             option = `
-            <a href="?view=stats&action=index&category=${v.replace('&')}" class="kt-fbrank ${v == category ? 'active' : ''} ">
+            <a href="?view=stats&action=index&category=${v.replace(/\& /g, '')}" class="kt-fbrank ${v == category ? 'active' : ''} ">
                 <div id="Computers_Electronics_and_Technology" class="kt-widget6__item ">
                 <span class="pr-2">${a[v]}</span> <span> ${v}</span>
                 </div>
