@@ -15,5 +15,5 @@ if (empty($userToken))  $userToken = $demoToken;
 $rootURL = "https://fff.blue";
 $mysqli = new mysqli ('maindb.fff.com.vn', '2020_fffblue_shorturl', '123qazZAQ', '2020_fffblue_shorturl');
 $db = new MysqliDb ($mysqli);
-$version = "1.0.3.1";
+$version = "1.0.3.4";
 ?>
