@@ -49,8 +49,9 @@ function renderCategory() {
 
         data = JSON.parse(data)
         data.data.forEach((v, k) => {
+            // console.log(v)
             option = `
-            <a href="?view=stats&action=index&category=${v}" class="kt-fbrank ${v == category ? 'active' : ''} ">
+            <a href="?view=stats&action=index&category=${v.replace('&')}" class="kt-fbrank ${v == category ? 'active' : ''} ">
                 <div id="Computers_Electronics_and_Technology" class="kt-widget6__item ">
                 <span class="pr-2">${a[v]}</span> <span> ${v}</span>
                 </div>
@@ -280,6 +281,7 @@ function showFacebookVietnam(name = null) {
     } else {
         console.log(1)
         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1&catName=${category}`
+        console.log(category)
         console.log(whichAPi)
             // whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
 
