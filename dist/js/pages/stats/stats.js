@@ -50,7 +50,7 @@ function renderCategory() {
         data = JSON.parse(data)
         data.data.forEach((v, k) => {
             option = `
-            <a href="?view=stats&action=index&category=${remove_unicode(v)}" class="kt-fbrank ${v == category ? 'active' : ''} ">
+            <a href="?view=stats&action=index&category=${v}" class="kt-fbrank ${v == category ? 'active' : ''} ">
                 <div id="Computers_Electronics_and_Technology" class="kt-widget6__item ">
                 <span class="pr-2">${a[v]}</span> <span> ${v}</span>
                 </div>
@@ -276,10 +276,11 @@ function showFacebookVietnam(name = null) {
     if (!category || category == "All" || category == '') {
         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1`
         $('.all-active').addClass('active')
-            // console.log(0)
+        console.log(0)
     } else {
-        // console.log(1)
-        whichAPi = `http://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookCategory&userToken=${userToken}&category=${category.replace('&','%26')}`
+        console.log(1)
+        whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1&catName=${category}`
+        console.log(whichAPi)
             // whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
 
     }
@@ -339,7 +340,7 @@ function showFacebookVietnam(name = null) {
                         },
                         {
                             title: `Danh Mục`,
-                            "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <a href="#">${data.fbCategory }</a></div>`,
+                            "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <a href="?view=stats&action=index&category=${data.fbCategory}">${data.fbCategory }</a></div>`,
                         },
                         {
                             title: `Website`,
