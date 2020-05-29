@@ -30,6 +30,7 @@ function renderCategory() {
         a['Cửa hàng giày dép'] = `<i class="fad fa-shoe-prints" style="color: #be4bdb"></i>`;
         a['Đồ em bé/Đồ trẻ em'] = `<i class="fad fa-baby-carriage" style="color: #fd397a"></i>`;
         a['Bất động sản'] = `<i class="fad fa-home-lg-alt" style="color: #f2a311"></i>`;
+        a['Dịch vụ địa phương'] = `<i class="fad fa-bags-shopping" style="color: #0abb87"></i>`;
 
 
         a['Sở thích'] = `<i class="fad fa-heart-circle text-info"></i>`;
@@ -338,7 +339,7 @@ function showFacebookVietnam(name = null) {
                         },
                         {
                             title: `Danh Mục`,
-                            "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <span>${data.fbCategory }</span></div>`,
+                            "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <a href="#">${data.fbCategory }</a></div>`,
                         },
                         {
                             title: `Website`,

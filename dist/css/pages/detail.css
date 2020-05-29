@@ -93,6 +93,10 @@ body {
     min-height: 100% !important;
 }
 
+.w-200px {
+    width: 200px;
+}
+
 
 /* ==================================== */
 
@@ -379,6 +383,46 @@ body {
     bottom: 0px;
     color: rgb(119, 170, 236);
     font-weight: 700;
+}
+
+.cut-text-message {
+    width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    -webkit-line-clamp: 4;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.text-box-catelog {
+    margin: 0
+}
+
+#fbPostRank thead tr th {
+    background: #343a40 !important;
+    color: #fff !important;
+}
+
+.similarTags span {
+    display: inline-block;
+    border: 1px dashed #ccc;
+    background: #f4f4f4;
+    margin: 0 5px 5px 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #333;
+    cursor: default;
+}
+
+.similarTags span:hover {
+    background: #eee;
+}
+
+.similarTags span a {
+    color: #13131d;
+    text-decoration: none;
 }
 
 @keyframes fb {

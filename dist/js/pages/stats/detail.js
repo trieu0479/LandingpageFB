@@ -1,4 +1,5 @@
 var url_ = new URL(location.href);
+var fbId = url_.searchParams.get("fbId")
 
 const language = {
     searchPlaceholder: 'Nhập từ khóa',
@@ -31,7 +32,7 @@ if (!fbId) {
         }).then(res => {
             if (res) {
                 res = JSON.parse(res)
-                console.log(res)
+                    // console.log(res)
                 let fbCover = res.data.json.cover.source
                 let fbName = res.data.json.name
                 let fbUsername = res.data.json.username
@@ -91,31 +92,31 @@ if (!fbId) {
     }
 }
 
-function getDataFB() {
-    $.ajax({
-        url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookInformation&userToken=${userToken}&fbId=${fbId}`,
-        type: "GET"
-    }).then(res => {
-        res = JSON.parse(res)
-        console.log(res)
-        let fbCover = res.data.fanpageCover
-        let fbName = res.data.fanpageName
-        let fbCate = res.data.fbCategory
-        let fbId = res.data.fbId
-        let fbwebsite = res.data.website
-        let fbphone = res.data.phone
+// function getDataFB() {
+//     $.ajax({
+//         url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookInformation&userToken=${userToken}&fbId=${fbId}`,
+//         type: "GET"
+//     }).then(res => {
+//         res = JSON.parse(res)
+//         console.log(res)
+//         let fbCover = res.data.fanpageCover
+//         let fbName = res.data.fanpageName
+//         let fbCate = res.data.fbCategory
+//         let fbId = res.data.fbId
+//         let fbwebsite = res.data.website
+//         let fbphone = res.data.phone
 
 
 
-        $('#fbCover').attr("src", fbCover)
-        $('#fbName').text(fbName)
-        $('#fbCate').text(fbCate)
+//         $('#fbCover').attr("src", fbCover)
+//         $('#fbName').text(fbName)
+//         $('#fbCate').text(fbCate)
 
 
-        $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
-        fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
-    })
-}
+//         $('#fbLink').attr('href', `http://facebook.com/${fbId}`)
+//         fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
+//     })
+// }
 
 
 function renderTable(data) {
@@ -150,8 +151,7 @@ function renderTable(data) {
 
 
 function getLike10Days() {
-    // let from_ = moment(from).format("YYYY-MM-DD")
-    // let to_ = moment(to).format("YYYY-MM-DD")
+
 
     $.ajax({
         url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookLikeDay&userToken=${userToken}&fbId=${fbId}`,
@@ -335,10 +335,115 @@ function renderChart(data) {
 
 
 
+// render post facebook
+function getPostFbRank() {
+    $(`#fbPostRank`).DataTable({
+        ajax: {
+            url: `http://localapi.trazk.com/2020/api/facebook/index.php?task=getFanpagePost&fbid=${fbId}&userToken=${userToken}&limit=10`,
+            dataSrc: function(res) {
+                var columns = [];
+                let stt = 0
+                $.each(res.data.data, function(k, v) {
+                    stt++
+                    var output = {};
+                    output.stt = stt;
+                    // output.name = v.from.name
+                    output.picture = v.picture
+                    output.message = v.message
+                    output.link = v.link
+                    output.likes = !v.likes.summary.total_count ? 0 : v.likes.summary.total_count
+                        // output.shares = v.shares
+                    output.times = moment(v.created_time, "YYYY/MM/DD").format("DD/MM/YYYY")
+                    output.shares = !v.shares ? 0 : v.shares.count
+
+                    if (!v.comments) {
+                        output.comments = 0
+                    } else {
+                        output.comments = v.comments.data.length
+                    }
+
+                    console.log(v)
+                    columns.push(output);
+                })
+                return columns;
+            }
+
+        },
+        columns: [{
+                title: `<div class="text-capitalize font-weight-bold font-12 text-center m-auto" style="max-width:30px;width:30px; line-height:18px">Stt</div>`,
+                "data": data => `<div class="text-center m-auto" style="line-height:40px">${data.stt}</div>`
+            }, {
+                title: `<div class="text-capitalize font-weight-bold font-12 text-left" >Tên FanPage</div>`,
+                "data": data => `<div class="">
+                            <a class="d-flex align-items-center" href="${data.link}"> 
+                                <img src="${data.picture}" class="img-fluid" style="object-fit:cover; height:70px; width:100px">
+                                <i class="fad fa-external-link-alt text-info font-24 pl-2"></i>
+                            </a>
+                    
+                </div>`
+
+            },
+            {
+                title: `<div class="" style="max-width:200px;width:200px;">Nội dung bài viết</div>`,
+                "data": data => `<div class="text-dark text-left mr-auto cut-text-message">${data.message}</div>`,
+                className: 'w-200px'
+            },
+            {
+                title: `Comments`,
+                "data": data => `
+                            <div class="take-care-likes d-flex justify-content-center align-items-center">
+                            <span class="text-box-catelog text-white fontsize-12 ml-0 mb-0" style="background-color: #be4bdb"><i class="fad fa-comments-alt"></i> :  ${numeral(data.comments).format('')}</span>
+                        </div>`,
+                className: 'text-center'
+            },
+            {
+                title: `Likes`,
+                "data": data => `
+                    <div class="take-care-likes d-flex justify-content-center align-items-center">
+                        <span class="text-box-catelog text-white fontsize-12 bg-success ml-0 mb-0"><i class="fad fa-thumbs-up pr-1 text-white"></i>:  ${numeral(data.likes).format('')}</span>
+                    </div>`,
+                className: 'text-center'
+            },
+            {
+                title: `Shares`,
+                "data": data => `
+                    <div class="take-care-likes d-flex justify-content-center align-items-center">
+                        <span class="text-box-catelog text-white fontsize-12 bg-info ml-0 mb-0"><i class="fad fa-share-square pr-1 text-white"></i>:  ${numeral(data.shares).format('')}</span>
+                    </div>`,
+                // width: '90',
+                className: 'text-center'
+            }
+        ],
+
+        initComplete: function(settings, json) {
+            $(`#tablefbRank td`).attr('style', 'padding:10px 10px')
+            $(`.tabletablefbRank`).removeClass('is-loading')
+        },
+        destroy: true,
+        rowId: 'trId',
+        "dom": 'ftp',
+        paging: false,
+        // scrollY: '570px', 
+        scrollX: false,
+        "ordering": false,
+
+        info: false,
+        autoWidth: false,
+        processing: true,
+        searching: false,
+        language
+    })
+}
+
+
+
+
+
+
 
 
 $(document).ready(function() {
     getDataFB();
     getLike10Days();
-
+    getPostFbRank();
 });
