@@ -17,7 +17,12 @@
 								<div class="bg-white" style="border-radius: 5px;padding: 5px 10px 5px 10px;">
 									<div class="font-12 text-dark p-2"><i class="far fa-flag-alt"></i> Ngày thành lập <span id='fbBirthday'>October 14 2011</span><div>
 								</div>
-								<div class="position-absolute w-100" style="top: 25px; left: -15px; justify-content: end; align-items: end; text-align: end;">
+								<div class="position-absolute w-100 d-flex" style="top: 25px; left: -15px; justify-content: end; align-items: end; text-align: end;">
+									<div class="control-block-button mr-auto ml-5">
+										<a target="_blank" href="?view=stats&action=index" class="btn btn-control bg-white ">
+											<i class="fad fa-arrow-to-left text-danger icon-modifine"></i>
+										</a>
+									</div>
 									<div class="control-block-button">
 										<a target="_blank" href="" class="btn btn-control bg-blue" id="fbLink">
 											<i class="fab fa-facebook-f icon-modifine"></i>
@@ -26,6 +31,7 @@
 											<i class="fad fa-browser icon-modifine"></i>
 										</a>
 									</div>
+									
 								</div>
 							</div>
 						</div>

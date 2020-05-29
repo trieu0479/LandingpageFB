@@ -1,4 +1,5 @@
 var url_ = new URL(location.href);
+var fbId = url_.searchParams.get("fbId")
 
 const language = {
     searchPlaceholder: 'Nhập từ khóa',
@@ -348,7 +349,7 @@ function getPostFbRank() {
                     output.stt = stt;
                     // output.name = v.from.name
                     output.picture = v.picture
-                    output.message = v.message
+                    output.message = !v.message ? `<spa class="text-danger">Không có mô tả</span>` : v.message
                     output.link = v.link
                     output.likes = !v.likes.summary.total_count ? 0 : v.likes.summary.total_count
                         // output.shares = v.shares
