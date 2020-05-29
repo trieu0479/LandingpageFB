@@ -91,60 +91,63 @@ if (!fbId) {
         })
     }
 }
-
-
-
 function renderTable(data) {
-    // console.log(data)
-    var table = []
-    let columns = data.data
-    var arr = [];
+    var aaaaa = [];
+    let columns = data.data;
+    console.log(data.data);
+    
     for (let i = 0; i < columns.length; i++) {
-
         let output = {};
-        let countLikes = (columns[i + 1].likes) - columns[i].likes;
-        if (!columns[i + 1].likes) {
-            output.kq = '0'
-        } else {
-            if (countLikes > 0) {
-                output.kq = `<span class=" text-success fontsize-14">+${numeral(countLikes).format()}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
-            } else if (countLikes < 0) {
-                output.kq = `<span class=" text-danger fontsize-14"> ${numeral(countLikes).format()}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
-            } else if (countLikes == 0) {
-                output.kq = `<span class=" text-warning fontsize-14">-</span>`
-            }
-        }
-        output.likesday = columns[i].likes
-        output.formatDate = moment(columns[i].insertTime, "YYYY/MM/DD").format("DD/MM/YYYY")
-            // console.log('output ', output)
-            // console.log('arr ', arr)
-        arr.push(output)
+        let countLikes = 0;
 
+        if(columns[i+1] != undefined) {
+            countLikes = (columns[i + 1].likes) - columns[i].likes; 
+        }
+        
+        if (countLikes > 0) {
+            output.kq = `<span class=" text-success fontsize-14">+${countLikes}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
+        } else if (countLikes < 0) {
+            output.kq = `<span class=" text-danger fontsize-14"> ${countLikes}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
+        } else if (countLikes == 0) {
+            output.kq = `<span class=" text-warning fontsize-14">-</span>`
+        }
+
+        output.formatDate = moment(columns[i].insertTime, "YYYY/MM/DD").format("DD/MM/YYYY")
+        aaaaa.push(output)
+        
+
+        // let countLikes = (columns[i + 1].likes) - columns[i].likes;
+        // if (!columns[i + 1].likes) {
+        //     output.kq = '0'
+        // } else {
+        //     if (countLikes > 0) {
+        //         output.kq = `<span class=" text-success fontsize-14">+${numeral(countLikes).format()}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
+        //     } else if (countLikes < 0) {
+        //         output.kq = `<span class=" text-danger fontsize-14"> ${numeral(countLikes).format()}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
+        //     } else if (countLikes == 0) {
+        //         output.kq = `<span class=" text-warning fontsize-14">-</span>`
+        //     }
+        // }
+        // // output.likesday = columns[i].likes
+        //  output.formatDate = moment(columns[i].insertTime, "YYYY/MM/DD").format("DD/MM/YYYY")
+        // aaaaa.push(output)
     }
-    return arr;
+    console.log(aaaaa)
+    return aaaaa;
 }
 
 
 function getLike10Days() {
-
-
     $.ajax({
         url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookLikeDay&userToken=${userToken}&fbId=${fbId}`,
         type: "GET"
     }).then(res => {
         res = JSON.parse(res);
         renderChart(res)
-
-
-
-
-
-
+        // renderTable(res)
         $('#tableRank-fb').DataTable({
-
             data: renderTable(res),
-            // drawCallback: function(settings) {},
-
+            drawCallback: function(settings) {},
             columns: [{
                     title: `<div class="text-capitalize text-center m-auto font-weight-bold font-12" style="max-width:100px;width:100px">Ngày</div>`,
                     "data": data => `<div class="sparkline text-center m-auto" style="max-width:100px;width:100px">${data.formatDate}</div>`,
