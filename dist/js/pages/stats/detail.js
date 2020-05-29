@@ -92,61 +92,36 @@ if (!fbId) {
     }
 }
 
-// function getDataFB() {
-//     $.ajax({
-//         url: `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getFacebookInformation&userToken=${userToken}&fbId=${fbId}`,
-//         type: "GET"
-//     }).then(res => {
-//         res = JSON.parse(res)
-//         console.log(res)
-//         let fbCover = res.data.fanpageCover
-//         let fbName = res.data.fanpageName
-//         let fbCate = res.data.fbCategory
-//         let fbId = res.data.fbId
-//         let fbwebsite = res.data.website
-//         let fbphone = res.data.phone
-
-
-
-//         $('#fbCover').attr("src", fbCover)
-//         $('#fbName').text(fbName)
-//         $('#fbCate').text(fbCate)
-
-
-//         $('#fbLink').attr('href', `https://facebook.com/${fbId}`)
-//         fbwebsite ? $('#webLink').attr('href', fbwebsite) : $('#webLink').attr('href', 'javascript:void(0)')
-//     })
-// }
 
 
 function renderTable(data) {
-
-    let bbb = [];
+    // console.log(data)
+    var table = []
     let columns = data.data
-    let aaa = null
-    if (!columns.length - 1) {
-        aaa = columns.length - 2;
-    } else {
-        aaa = columns.length - 1;
-    }
+    var arr = [];
+    for (let i = 0; i < columns.length; i++) {
 
-    for (i = 0; i < columns.length; i++) {
-
-        let output = {}
-        output.countlike = columns[aaa].likes - columns[i].likes
-
-        if (columns[aaa].likes - columns[i].likes > 0) {
-            output.kq = `<span class=" text-success fontsize-14">+${numeral(columns[aaa].likes - columns[i].likes).format()}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
-        } else if (columns[aaa].likes - columns[i].likes < 0) {
-            output.kq = `<span class=" text-danger fontsize-14"> ${numeral(columns[aaa].likes - columns[i].likes).format()}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
-        } else if (columns[aaa].likes - columns[i].likes == 0) {
-            output.kq = `<span class=" text-warning fontsize-14">-</span>`
+        let output = {};
+        let countLikes = (columns[i + 1].likes) - columns[i].likes;
+        if (!columns[i + 1].likes) {
+            output.kq = '0'
+        } else {
+            if (countLikes > 0) {
+                output.kq = `<span class=" text-success fontsize-14">+${numeral(countLikes).format()}</span><i class="fad text-success bg-success-2 fa-arrow-up ml-2" style="font-size:12px"></i>`
+            } else if (countLikes < 0) {
+                output.kq = `<span class=" text-danger fontsize-14"> ${numeral(countLikes).format()}</span><i class="fad text-danger fa-arrow-down ml-2" style="font-size:12px"></i>`
+            } else if (countLikes == 0) {
+                output.kq = `<span class=" text-warning fontsize-14">-</span>`
+            }
         }
         output.likesday = columns[i].likes
         output.formatDate = moment(columns[i].insertTime, "YYYY/MM/DD").format("DD/MM/YYYY")
-        bbb.push(output)
+            // console.log('output ', output)
+            // console.log('arr ', arr)
+        arr.push(output)
+
     }
-    return bbb;
+    return arr;
 }
 
 
@@ -159,9 +134,17 @@ function getLike10Days() {
     }).then(res => {
         res = JSON.parse(res);
         renderChart(res)
+
+
+
+
+
+
         $('#tableRank-fb').DataTable({
+
             data: renderTable(res),
             // drawCallback: function(settings) {},
+
             columns: [{
                     title: `<div class="text-capitalize text-center m-auto font-weight-bold font-12" style="max-width:100px;width:100px">Ngày</div>`,
                     "data": data => `<div class="sparkline text-center m-auto" style="max-width:100px;width:100px">${data.formatDate}</div>`,
@@ -362,7 +345,6 @@ function getPostFbRank() {
                         output.comments = v.comments.data.length
                     }
 
-                    console.log(v)
                     columns.push(output);
                 })
                 return columns;
