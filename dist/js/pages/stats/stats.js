@@ -57,7 +57,7 @@ function renderCategory() {
                 </div>
             </a>`
             $('#catalogFbRank').append(option)
-
+            console.log('oh yeah', v.replace(/\& /g, ''))
 
         })
 
@@ -151,6 +151,10 @@ function getDataList(data) {
                 $('.input-loading').removeClass('is-loading-input')
                 $('.add-fbid').data('fbid', elValId);
                 $('.add-fbid').val(elValName);
+
+                let fbIdInput = $('.fanpage-option').attr('data-fbid')
+                window.location.href = `${rootURL}/facebook-rank/${fbIdInput}/result`;
+
                 setTimeout(() => {
                     $('#fanpage-search').css('display', 'none');
                 }, 200)
@@ -279,8 +283,8 @@ function showFacebookVietnam(name = null) {
         $('.all-active').addClass('active')
     } else {
         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1&catName=${category}`
-        console.log(category)
-        console.log(whichAPi)
+        console.log('category', category)
+        console.log('whichAPi dâta', whichAPi)
             // whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
 
     }
