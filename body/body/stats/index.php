@@ -7,7 +7,7 @@
             <div class="fontSize-16 font-weight-bold text-success">FFF BLUE</div>
             <div class="fontSize-24 font-weight-bold text-primary">Công Cụ Xếp Hạng Facebook</div>
             <div class="text-center mt-2 mb-2 extensionLogo">
-                <a target="blank" href="https://chrome.google.com/webstore/detail/facebook-tools/kccoacihbkcjdkjmhpaojhonlcjnmmld"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
+                <a target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
                 <a target="blank" href="https://microsoftedge.microsoft.com/addons/detail/fhohbkpkplmojpkmgbcejdikljogdolh"><img src="https://webrank.vn/dist/images/edge-extension.png"></a>
             </div>
             <div class="fontSize-14 text-muted mb-2">Công cụ xem xếp hạng fanpage trên facebook</div>     
@@ -43,7 +43,7 @@
                         <a href="?view=stats&action=index" class="kt-fbrank all-active">
                                 <div id="" class="kt-widget6__item">
                                 <!-- <span class="pr-2"><i class="fad fa-globe-asia text-info"></i></span> -->
-                                <span>Toàn bộ</span>
+                                <span><i class="fad fa-globe-asia text-info pr-2"></i> Toàn bộ</span>
                             </div>
                         </a>
                         

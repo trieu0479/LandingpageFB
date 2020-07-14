@@ -17,6 +17,10 @@ const language = {
 
 var url_ = new URL(location.href);
 var category = url_.searchParams.get("category")
+function b64EncodeUnicode(str) {
+    return btoa(encodeURIComponent(str))
+       
+}
 
 function renderCategory() {
 
@@ -25,6 +29,7 @@ function renderCategory() {
         type: "GET",
     }).then(data => {
         var a = [];
+        
         a['Cửa hàng quần áo'] = `<i class="fad fa-tshirt text-info"></i>`;
         a['Thiết kế & Thời trang'] = `<i class="fad fa-ruler" style="color: #0abb87"></i>`;
         a['Cửa hàng giày dép'] = `<i class="fad fa-shoe-prints" style="color: #be4bdb"></i>`;
@@ -47,17 +52,16 @@ function renderCategory() {
         a['Sản phẩm/Dịch vụ'] = `<i class="fab fa-product-hunt" style="color: #f2a311"></i>`;
 
 
+
         data = JSON.parse(data)
         data.data.forEach((v, k) => {
-            // console.log(v)
             option = `
-            <a href="?view=stats&action=index&category=${v.replace(/\& /g, '')}" class="kt-fbrank ${v == category ? 'active' : ''} ">
+            <a href="?view=stats&action=index&category=${b64EncodeUnicode(v)}" class="kt-fbrank ${v == category ? 'active' : ''} ">
                 <div id="Computers_Electronics_and_Technology" class="kt-widget6__item ">
                 <span class="pr-2">${a[v]}</span> <span> ${v}</span>
                 </div>
             </a>`
             $('#catalogFbRank').append(option)
-            console.log('oh yeah', v.replace(/\& /g, ''))
 
         })
 
@@ -153,7 +157,8 @@ function getDataList(data) {
                 $('.add-fbid').val(elValName);
 
                 let fbIdInput = $('.fanpage-option').attr('data-fbid')
-                window.location.href = `${rootURL}/facebook-rank/${fbIdInput}/result`;
+                let fbname = $('.fanpage-option').attr('data-fbname')
+                window.location.href = `${rootURL}/facebook-rank/${fbIdInput}/${fbname}`;
 
                 setTimeout(() => {
                     $('#fanpage-search').css('display', 'none');
@@ -283,9 +288,7 @@ function showFacebookVietnam(name = null) {
         $('.all-active').addClass('active')
     } else {
         whichAPi = `https://localapi.trazk.com/2020/api/facebook/stats.php?task=getAllFacebookInformation&userToken=${userToken}&limit=1&catName=${category}`
-        console.log('category', category)
-        console.log('whichAPi dâta', whichAPi)
-            // whichAPi = `http://localapi.trazk.com/2020/api/facebook/graph.php?task=searchFanpageSuggestion&q=${category.replace('&','%26')}`
+     
 
     }
 
@@ -344,7 +347,7 @@ function showFacebookVietnam(name = null) {
                         },
                         {
                             title: `Danh Mục`,
-                            "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <a href="?view=stats&action=index&category=${data.fbCategory}">${data.fbCategory }</a></div>`,
+                            "data": data => `<div class="text-dark text-left mr-auto cut-text-category" style="line-height:40px"> <a href="?view=stats&action=index&category=${b64EncodeUnicode(data.fbCategory)}">${data.fbCategory }</a></div>`,
                         },
                         {
                             title: `Website`,

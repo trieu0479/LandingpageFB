@@ -13,7 +13,7 @@ require_once(__DIR__."/modules/topmenu.php");
         <div class="fontSize-24 font-weight-bold text-primary">Công Cụ Tăng Tương Tác Facebook</div>
 
         <div class="text-center mt-2 mb-2 extensionLogo">
-            <a target="blank" href="https://chrome.google.com/webstore/detail/facebook-tools/kccoacihbkcjdkjmhpaojhonlcjnmmld"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
+                <a target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
             <a target="blank" href="https://microsoftedge.microsoft.com/addons/detail/fhohbkpkplmojpkmgbcejdikljogdolh"><img src="https://webrank.vn/dist/images/edge-extension.png"></a>
         </div>
         <div class="fontSize-14 text-muted mb-2">Tạo khóa link, yêu cầu người dùng tương tác (Like và Comment) vào post trên Facebook để mở khóa </div>        

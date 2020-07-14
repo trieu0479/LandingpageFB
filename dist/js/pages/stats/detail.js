@@ -1,5 +1,5 @@
 var url_ = new URL(location.href);
-var fbId = url_.searchParams.get("fbId")
+//var fbId = url_.searchParams.get("fbId")
 
 const language = {
     searchPlaceholder: 'Nhập từ khóa',
