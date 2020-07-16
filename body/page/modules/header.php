@@ -50,13 +50,15 @@
     
     <link href="<?=$rootURL?>/dist/css/fff/reset.css?v=<?=$version?>" rel="stylesheet">
     <link rel="stylesheet" href="<?=$rootURL?>/dist/css/pages/flatpickr.min.css">
+  <!-- ------css trieutrieu--------------- -->
+  <link href="<?=$rootURL?>/dist/css/pages/landingfb.css" rel="stylesheet">
+  
   
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="<?=$rootURL?>/dist/js/extension/jquery.min.js"></script>
     <script src="<?=$rootURL?>/dist/js/default/controlGlobalValule.js"></script>
     <script src="<?=$rootURL?>/dist/js/default/accountManagement.js"></script>
-    
-
+     
 
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

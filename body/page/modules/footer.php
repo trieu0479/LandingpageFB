@@ -13,7 +13,8 @@
     <!--<script src="<?=$rootURL?>/dist/js/moment.js"></script>-->
     <script src="<?=$rootURL?>/dist/js/numeral.min.js"></script>
     <script src="<?=$rootURL?>/dist/js/ResizeSensor.js"></script>
-    
+    <!-- js----trieu----- -->
+    <script src="<?=$rootURL?>/dist/js/pages/landingfb/landingfb.js"></script>
 
     
   </body>
