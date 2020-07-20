@@ -47,20 +47,20 @@ require_once(__DIR__ . "/modules/header.php");
     <div class="homepageMissionm-auto">
         <!-- -------------------1-----------------------------------    -->
         <section class="position-relative bg-image pt-20 mb-4" image-overlay="8">
-        <div class="animated-shape-wrap">
-                    <div class="animated-shape-item"></div>
-                    <div class="animated-shape-item"></div>
-                    <div class="animated-shape-item"></div>
-                    <div class="animated-shape-item"></div>
-                    <div class="animated-shape-item"></div>
-                </div>
+            <div class="animated-shape-wrap">
+                <div class="animated-shape-item"></div>
+                <div class="animated-shape-item"></div>
+                <div class="animated-shape-item"></div>
+                <div class="animated-shape-item"></div>
+                <div class="animated-shape-item"></div>
+            </div>
             <div class="background-image-wraper" style="background: url('/dist/images/landingfb/header-img2.jpg'); opacity: 1;"></div>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-9">
                         <div class="text-center pb-5 pt-5 pt-md-5 mt-5">
-                            <div class="fontSize-32 font-weight-bold font-montserrat text-white">The Most Uses App Platform </div>
-                            <div class="fontSize-16 mt-2 font-montserrat mb-2 text-white">Tạo khóa link, yêu cầu người dùng tương tác (Like và Comment) vào post trên Facebook để mở khóa</div>
+                            <div class="fontSize-32 font-weight-bold font-montserrat text-white">Facebook Marketing Tool Platform </div>
+                            <div class="fontSize-16 mt-2 font-montserrat mb-2 text-white">Công cụ tiện ích đa chức năng cho người dùng Facebook</div>
 
                             <div class="text-center mt-3 mb-2 extensionLogo">
                                 <a target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
@@ -77,23 +77,23 @@ require_once(__DIR__ . "/modules/header.php");
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="shape-bottom">
                 <img src="/dist/images/landingfb/curve-shape-top.svg" alt="shape" class="bottom-shape img-fluid">
             </div>
         </section>
-        
+
         <!-- ////////////////////////////1//////////////////////////////// -->
 
         <!-- -------------------------------2------------------------------------>
         <section class="section section-issues" id="section-info">
             <div class="section-content">
-                <h2> Are you following web best&nbsp;practices? Checkbot will let you&nbsp;know </h2>
+                <h2> Các Tính năng chính của Extension  </h2>
                 <p class="intro"> Checkbot can crawl 100s of pages in minutes for broken links, duplicate content, invalid HTML, insecure forms and more.<br>
                     Check your site is following <b>50+ best practices</b> recommended by Google, Mozilla, W3C and other&nbsp;web&nbsp;experts. </p>
-                <div class="flex-row">
+                <div class="flex-row-ed">
                     <div class="item item1">
                         <div class="article-box">
                             <div class="card-headerfb">
@@ -104,15 +104,10 @@ require_once(__DIR__ . "/modules/header.php");
                                 <div></div>
                             </div>
                             <div class="card-content">
-                                <h3>eekrtkejt</h3>
+                                <h3>Tính năng bạn bè </h3>
                                 <ul class="bullets-checkmarks">
-                                    <li>Fix all broken page links</li>
-                                    <li>Use unique page titles</li>
-                                    <li>Eliminate duplicate pages</li>
-                                    <li>Use valid HTML, CSS &amp; JS</li>
-                                    <li>Avoid temporary redirects</li>
-                                    <li>Use human readable URLs</li>
-                                    <!-- </ul> <a href="/guide/seo/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
+                                    <li>Lọc bạn bè</li>
+                                    <li>Mời bạn bè thích Fanpage</li>                                                                                                                                                                                                                 
                             </div>
                         </div>
                     </div>
@@ -125,14 +120,13 @@ require_once(__DIR__ . "/modules/header.php");
                                 <div></div>
                             </div>
                             <div class="card-content">
-                                <h3>Speed tests errtegret</h3>
+                                <h3>Tính năng tương tác</h3>
                                 <ul class="bullets-checkmarks">
-                                    <li>Eliminate redirects chains</li>
-                                    <li>Avoid inlining CSS &amp; JS</li>
-                                    <li>Minify CSS &amp; JavaScript</li>
-                                    <li>Leverage browser caching</li>
-                                    <li>Enable server compression</li>
-                                    <li>Avoid render blocking scripts</li>
+                                    <li>Chọc ghẹo bạn bè</li>
+                                    <li>Gửi tin nhắn bạn bè</li>
+                                    <li>Tăng tương tác</li>
+                                    <li> Thả tương tác tự động</li>
+                                    <li>Comment tự động</li>                                   
                                 </ul>
                                 <!-- <a href="/guide/speed/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
                             </div>
@@ -147,14 +141,12 @@ require_once(__DIR__ . "/modules/header.php");
                                 <div></div>
                             </div>
                             <div class="card-content">
-                                <h3>Security ertetet tests</h3>
+                                <h3>Tính năng nhóm</h3>
                                 <ul class="bullets-checkmarks">
-                                    <li>Use HTTPS on all pages</li>
-                                    <li>Avoid mixed content errors</li>
-                                    <li>Secure password forms</li>
-                                    <li>Enable HSTS preload</li>
-                                    <li>Turn on XSS protection</li>
-                                    <li>Disable type sniffing</li>
+                                  <li>Đăng bài vào nhóm </li>
+                                  <li>Mời tham gia nhóm</li>
+                                  <li>Hủy tham gia nhóm</li>
+                                  <li>Tìm nhóm từ bạn bè</li>
                                     <!-- </ul> <a href="/guide/security/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
                             </div>
                         </div>
@@ -183,7 +175,7 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="elementor-column-wrap">
                                 <h2 class="elment-kit-tittle text-dark font-weight-600 ">Are You Scared Of Ban? We Got You Covered!</h2>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
+                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
@@ -221,52 +213,81 @@ require_once(__DIR__ . "/modules/header.php");
 
         </section>
         <!-- ----------------------4----------------------------------------------------------- -->
-        <section class="section second-even">
+        <section class="section">
             <div class="section-container">
                 <div class="row">
-
-                    <div class="col-12 col-lg-6">
-                        <div class="elementor-content-wrap d-flex justify-content-center flex-column">
-                            <div class="elementor-column-wrap">
-                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Are You Scared Of Ban? We Got You Covered!</h2>
+                    <div class="col-12 col-lg-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
+                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    </span>
+                                    <div class="icon-text">
+                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
+                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
-                        </div>
-                        <div class="elementor-content-attribute">
-                            <ul class="elementor-list">
-                                <li class="elementor-list-items">
-                                    <span class="elementor-icon-list-icon text-primary">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                            <div class="col-12">
+                                <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
+                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
-                                </li>
-                                <li class="elementor-list-items">
-                                    <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                    <div class="icon-text">
+                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
+                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
+                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
-                                </li>
-                                <li class="elementor-list-items">
-                                    <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
-                                    </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
-
-                                </li>
-                                <li class="elementor-list-items">
-                                    <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
-                                    </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
-                                </li>
-                            </ul>
+                                    <div class="icon-text">
+                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
+                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="elementor-wrap d-flex justify-content-center align-items-center">
-                            <div class="elementor-img">
-                                <img src="/dist/images/landingfb/pilotposter-brief-2-1024x751.png" alt="">
+                    <div class="col-12 col-lg-4 d-flex align-items-center">
+                        <div class="">
+                            <img alt="Image placholder" src="/dist/images/landingfb/macbook.png" class="img-center img-fluid">
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
+                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    </span>
+                                    <div class="icon-text">
+                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
+                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
+                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    </span>
+                                    <div class="icon-text">
+                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
+                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
+                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    </span>
+                                    <div class="icon-text">
+                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
+                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -290,7 +311,7 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="elementor-column-wrap">
                                 <h2 class="elment-kit-tittle text-dark font-weight-600 ">Are You Scared Of Ban? We Got You Covered!</h2>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
+                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
@@ -327,8 +348,74 @@ require_once(__DIR__ . "/modules/header.php");
             </div>
 
         </section>
-        <!-- --------------------------------------6--------------------------------------------- -->
-        <section class="section" id="section-price">
+
+        <!-- -------------------------------------6----------------------------------------------------- -->
+        <section class="section" id="section-more">
+            <div class="section-content">
+                <h2> More </h2>
+                <p class="intro"> Checkbot can crawl 100s of pages in minutes for broken links, duplicate content, invalid HTML, insecure forms and more.<br>
+                </p>
+                <div class="mores">
+                    <div class="boxmore d-flex">
+                          <div class="more-icon">
+                          <i class="fas fa-shield-alt fontSize-24"></i>
+                          </div>
+                          <div class="more-content">
+                             <h3>Explore your site</h3>
+                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                         </div>
+                    </div>
+                    <div class="boxmore d-flex">
+                          <div class="more-icon">
+                          <i class="fas fa-shield-alt fontSize-24"></i>
+                          </div>
+                          <div class="more-content">
+                             <h3>Explore your site</h3>
+                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                         </div>
+                    </div>
+                    <div class="boxmore d-flex">
+                          <div class="more-icon">
+                          <i class="fas fa-shield-alt fontSize-24"></i>
+                          </div>
+                          <div class="more-content">
+                             <h3>Explore your site</h3>
+                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                         </div>
+                    </div>
+                    <div class="boxmore d-flex">
+                          <div class="more-icon">
+                          <i class="far fa-download fontSize-24"></i>
+                          </div>
+                          <div class="more-content">
+                             <h3>Explore your site</h3>
+                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                         </div>
+                    </div>
+                    <div class="boxmore d-flex">
+                          <div class="more-icon">
+                          <i class="far fa-download fontSize-24"></i>
+                          </div>
+                          <div class="more-content">
+                             <h3>Explore your site</h3>
+                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                         </div>
+                    </div>
+                    <div class="boxmore d-flex">
+                          <div class="more-icon">
+                          <i class="far fa-download fontSize-24"></i>
+                          </div>
+                          <div class="more-content">
+                             <h3>Explore your site</h3>
+                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --------------------------------------7--------------------------------------------- -->
+        <section class="section  section-elementor" id="section-price">
             <div class="section-container">
                 <div class="row w-100 ml-0">
                     <div class="col-12">
@@ -510,7 +597,7 @@ require_once(__DIR__ . "/modules/header.php");
                 </div>
             </div>
         </section>
-        <!-- -------------------------------------7----------------------------------------------------------- -->
+        <!-- -------------------------------------8----------------------------------------------------------- -->
         <section class="section section-elementor">
 
             <div class="section-container">
@@ -546,3 +633,4 @@ require_once(__DIR__ . "/modules/header.php");
 <script src="<?= $rootURL ?>/dist/js/default/header.js?v=<?= $version ?>"></script>
 
 <? require_once(__DIR__."/modules/footer.php")?>
+

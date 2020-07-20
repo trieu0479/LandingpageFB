@@ -29,7 +29,8 @@ html {
     position: absolute;
     content: '';
     /* background: linear-gradient(75deg, rgb(40,136,245), rgb(135, 135, 210))!important; */
-    background: linear-gradient(75deg, rgb(40,136,245), white) !important;
+    /* background: linear-gradient(75deg, rgb(40,136,245), white) !important; */
+    background: linear-gradient(75deg, rgb(12 109 247), white) !important;    
     width: 100%;
     height: 100%;
     top: 0;
@@ -102,13 +103,13 @@ html {
     text-align: center;
     color: #567790;
 }
-.flex-row {
+.flex-row-ed {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: -1em;
 }
-.flex-row>* {
+.flex-row-ed>* {
     margin: 1em;
 }
 .page-content .section-issues .article-box {
@@ -242,7 +243,10 @@ font-family: "Roboto";
     list-style: none;
     text-decoration: none;
 }
-
+ul.elementor-list li {
+    font-size: 16px;
+    line-height: 1.9;
+}
 .elementor-list-items .elementor-icon-list-icon i{
 color: #042ff8;
 
@@ -255,7 +259,7 @@ color: #042ff8;
     background-color: white!important;
 }
 
-.flex-row .item {
+.flex-row-ed .item {
     cursor: pointer;
 }
 
@@ -905,3 +909,39 @@ margin-bottom: -59px;
       -webkit-transform: translate(-1px, 0px) rotate(180deg);
     }
   }
+  .secondary-bg {
+    background: rgb(114,157,217)
+}
+.text-color-1b2e4b {
+    color:#1b2e4b
+}
+.text-color-6E6B69 {
+    color:#6E6B69;
+}
+.mores {
+    display: grid;
+    grid-gap: 3em;
+    max-width: 100em;
+    margin: auto;
+    grid-template-columns: repeat(auto-fill,minmax(20em,1fr));
+}
+.more-icon {
+    width: 2em;
+    margin-right: 1em;
+}
+.more-icon i {
+  color: rgb(42,133,245);
+}
+.more-content h3{
+    margin: 0;
+    margin-bottom: 1em;
+    text-align: left;
+    font-size: 24px;
+    color: #255071;
+}
+p.intro {
+    font-family: Roboto,Arial,Helvetica,sans-serif!important;
+}
+.icon-text h5{
+  font-size: 24px;
+}
