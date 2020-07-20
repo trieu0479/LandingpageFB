@@ -62,9 +62,18 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="fontSize-32 font-weight-bold font-montserrat text-white">Facebook Marketing Tool Platform </div>
                             <div class="fontSize-16 mt-2 font-montserrat mb-2 text-white">Công cụ tiện ích cho người dùng Facebook</div>
 
-                            <div class="text-center mt-3 mb-2 extensionLogo">
-                                <a target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
-                                <a target="blank" href="https://microsoftedge.microsoft.com/addons/detail/fhohbkpkplmojpkmgbcejdikljogdolh"><img src="https://webrank.vn/dist/images/edge-extension.png"></a>
+                            <div class="text-center mt-4 mb-2 extensionLogo">
+                                <a class="btn btn-dark btn-ex"  target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi">
+                                    <img src="<?= $rootURL ?>/dist/images/landingfb/chrome icon.png" class="mr-1">
+                                    <span class="ml-2 text-white">Tải tiện ích&nbsp;<b>Chrome Extension</b></span>
+                                    <span class="ml-1">➜</span>
+                                </a>
+                             
+                                <a  class="btn btn-dark btn-ex ml-4" target="blank" href="https://microsoftedge.microsoft.com/addons/detail/fhohbkpkplmojpkmgbcejdikljogdolh">
+                                    <img src="<?= $rootURL ?>/dist/images/landingfb/microsoftedgenewlogo.5.jpg" class="mr-1">
+                                    <span class="ml-2 text-white">Tải tiện ích&nbsp;<b>Microsoft Edge</b></span>
+                                    <span class="ml-1">➜</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -90,7 +99,7 @@ require_once(__DIR__ . "/modules/header.php");
         <!-- -------------------------------2------------------------------------>
         <section class="section section-issues" id="section-info">
             <div class="section-content">
-                <h2> Các tính năng chính của Extension  </h2>
+                <h2> Các tính năng chính của Extension </h2>
                 <p class="intro">Với 11 <b>tính năng</b> bao gồm tính năng cơ bản, phổ biến và tính năng mới để người sử dụng có thể bảo mật Facebook <br> tăng tương tác tốt hơn và hạn chế thao tác thủ công tiết kiệm rất nhiều thời gian khi sử dụng.</p>
                 <div class="flex-row-ed">
                     <div class="item item1">
@@ -106,11 +115,11 @@ require_once(__DIR__ . "/modules/header.php");
                                 <h3>Tính năng bạn bè </h3>
                                 <ul class="bullets-checkmarks">
                                     <li>Lọc bạn bè</li>
-                                    <li>Mời bạn bè thích Fanpage</li>                                                                                                                                                                                                                 
+                                    <li>Mời bạn bè thích Fanpage</li>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
+                    <div class="item item2">
                         <div class="article-box">
                             <div class="card-headerfb">
                                 <div class="svg"> <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +134,7 @@ require_once(__DIR__ . "/modules/header.php");
                                     <li>Gửi tin nhắn bạn bè</li>
                                     <li>Tăng tương tác</li>
                                     <li> Thả tương tác tự động</li>
-                                    <li>Comment tự động</li>                                   
+                                    <li>Comment tự động</li>
                                 </ul>
                                 <!-- <a href="/guide/speed/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
                             </div>
@@ -142,17 +151,17 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="card-content">
                                 <h3>Tính năng nhóm</h3>
                                 <ul class="bullets-checkmarks">
-                                  <li>Đăng bài vào nhóm </li>
-                                  <li>Mời tham gia nhóm</li>
-                                  <li>Hủy tham gia nhóm</li>
-                                  <li>Tìm nhóm từ bạn bè</li>
+                                    <li>Đăng bài vào nhóm </li>
+                                    <li>Mời tham gia nhóm</li>
+                                    <li>Hủy tham gia nhóm</li>
+                                    <li>Tìm nhóm từ bạn bè</li>
                                     <!-- </ul> <a href="/guide/security/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
                             </div>
                         </div>
-                    </div>                   
-                    <div class="indicator item "></div>
-                                        
-                    
+                    </div>
+                    <div class=""></div>
+
+
                 </div>
                 <!-- <p class="outro"> New to optimising websites? Checkbot will teach you what fixes to make and why they're important.<br class="visible-lg"> Browse Checkbot's <a href="/guide/">Web Best Practices Guide</a> for an overview of the 50+ rules Checkbot automatically tests for. </p> -->
             </div>
@@ -358,58 +367,58 @@ require_once(__DIR__ . "/modules/header.php");
                 </p>
                 <div class="mores">
                     <div class="boxmore d-flex">
-                          <div class="more-icon">
-                          <i class="fas fa-shield-alt fontSize-24"></i>
-                          </div>
-                          <div class="more-content">
-                             <h3>Explore your site</h3>
-                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                         </div>
+                        <div class="more-icon">
+                            <i class="fas fa-shield-alt fontSize-24"></i>
+                        </div>
+                        <div class="more-content">
+                            <h3>Explore your site</h3>
+                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                        </div>
                     </div>
                     <div class="boxmore d-flex">
-                          <div class="more-icon">
-                          <i class="fas fa-shield-alt fontSize-24"></i>
-                          </div>
-                          <div class="more-content">
-                             <h3>Explore your site</h3>
-                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                         </div>
+                        <div class="more-icon">
+                            <i class="fas fa-shield-alt fontSize-24"></i>
+                        </div>
+                        <div class="more-content">
+                            <h3>Explore your site</h3>
+                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                        </div>
                     </div>
                     <div class="boxmore d-flex">
-                          <div class="more-icon">
-                          <i class="fas fa-shield-alt fontSize-24"></i>
-                          </div>
-                          <div class="more-content">
-                             <h3>Explore your site</h3>
-                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                         </div>
+                        <div class="more-icon">
+                            <i class="fas fa-shield-alt fontSize-24"></i>
+                        </div>
+                        <div class="more-content">
+                            <h3>Explore your site</h3>
+                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                        </div>
                     </div>
                     <div class="boxmore d-flex">
-                          <div class="more-icon">
-                          <i class="far fa-download fontSize-24"></i>
-                          </div>
-                          <div class="more-content">
-                             <h3>Explore your site</h3>
-                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                         </div>
+                        <div class="more-icon">
+                            <i class="far fa-download fontSize-24"></i>
+                        </div>
+                        <div class="more-content">
+                            <h3>Explore your site</h3>
+                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                        </div>
                     </div>
                     <div class="boxmore d-flex">
-                          <div class="more-icon">
-                          <i class="far fa-download fontSize-24"></i>
-                          </div>
-                          <div class="more-content">
-                             <h3>Explore your site</h3>
-                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                         </div>
+                        <div class="more-icon">
+                            <i class="far fa-download fontSize-24"></i>
+                        </div>
+                        <div class="more-content">
+                            <h3>Explore your site</h3>
+                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                        </div>
                     </div>
                     <div class="boxmore d-flex">
-                          <div class="more-icon">
-                          <i class="far fa-download fontSize-24"></i>
-                          </div>
-                          <div class="more-content">
-                             <h3>Explore your site</h3>
-                             <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                         </div>
+                        <div class="more-icon">
+                            <i class="far fa-download fontSize-24"></i>
+                        </div>
+                        <div class="more-content">
+                            <h3>Explore your site</h3>
+                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -634,4 +643,3 @@ require_once(__DIR__ . "/modules/header.php");
 <script src="<?= $rootURL ?>/dist/js/default/header.js?v=<?= $version ?>"></script>
 
 <? require_once(__DIR__."/modules/footer.php")?>
-
