@@ -83,8 +83,11 @@ html {
     position: relative;
 }
 .section-content {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
+}
+#section-info {
+    border-top:none!important;
 }
 
 .section-content h2 {
@@ -116,9 +119,10 @@ html {
     min-width: 21em;
     box-shadow: 0 0.2em 1.5em rgba(0,0,0,.1);
     margin: 0 auto;
-    max-width: 15em;
+    /* max-width: 15em; */
     color: rgba(0,0,0,.5);
     padding: .1em;
+    min-height: 26em;
 }
 .article-box .card-headerfb {
     text-align: center;
@@ -185,14 +189,14 @@ svg:not(:root) {
     margin-bottom: 0;
 }
 .page-content .intro, .page-content .outro {
-    font-size: 1.2em;
+    font-size: 1.27em;
     text-align: center;
     color: #567790;
 }
 .indicator {
     position: absolute;
     content: "";
-    height: 58.5%;
+    height: 26em;
     position: absolute;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
@@ -203,8 +207,8 @@ svg:not(:root) {
     background-color: #fff;
     -webkit-box-shadow: 6px 60px 45px 0 rgba(0,0,0,.1);
     box-shadow: 7px 17px 35px 0 rgba(0,0,0,.1);
-    width: 292px;
-    left: 515.328px;
+    width: 293.99px;
+    /* left: 42em; */
     
 }
 /* --------------------wrap-3---------------------- */

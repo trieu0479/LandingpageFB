@@ -60,7 +60,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-md-10 col-lg-9">
                         <div class="text-center pb-5 pt-5 pt-md-5 mt-5">
                             <div class="fontSize-32 font-weight-bold font-montserrat text-white">Facebook Marketing Tool Platform </div>
-                            <div class="fontSize-16 mt-2 font-montserrat mb-2 text-white">Công cụ tiện ích đa chức năng cho người dùng Facebook</div>
+                            <div class="fontSize-16 mt-2 font-montserrat mb-2 text-white">Công cụ tiện ích cho người dùng Facebook</div>
 
                             <div class="text-center mt-3 mb-2 extensionLogo">
                                 <a target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi"><img src="https://webrank.vn/dist/images/chrome-extension.png" class="mr-2"></a>
@@ -90,9 +90,8 @@ require_once(__DIR__ . "/modules/header.php");
         <!-- -------------------------------2------------------------------------>
         <section class="section section-issues" id="section-info">
             <div class="section-content">
-                <h2> Các Tính năng chính của Extension  </h2>
-                <p class="intro"> Checkbot can crawl 100s of pages in minutes for broken links, duplicate content, invalid HTML, insecure forms and more.<br>
-                    Check your site is following <b>50+ best practices</b> recommended by Google, Mozilla, W3C and other&nbsp;web&nbsp;experts. </p>
+                <h2> Các tính năng chính của Extension  </h2>
+                <p class="intro">Với 11 <b>tính năng</b> bao gồm tính năng cơ bản, phổ biến và tính năng mới để người sử dụng có thể bảo mật Facebook <br> tăng tương tác tốt hơn và hạn chế thao tác thủ công tiết kiệm rất nhiều thời gian khi sử dụng.</p>
                 <div class="flex-row-ed">
                     <div class="item item1">
                         <div class="article-box">
@@ -150,8 +149,10 @@ require_once(__DIR__ . "/modules/header.php");
                                     <!-- </ul> <a href="/guide/security/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
                             </div>
                         </div>
-                    </div>
-                    <div class="indicator"></div>
+                    </div>                   
+                    <div class="indicator item "></div>
+                                        
+                    
                 </div>
                 <!-- <p class="outro"> New to optimising websites? Checkbot will teach you what fixes to make and why they're important.<br class="visible-lg"> Browse Checkbot's <a href="/guide/">Web Best Practices Guide</a> for an overview of the 50+ rules Checkbot automatically tests for. </p> -->
             </div>
@@ -173,7 +174,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-content-wrap d-flex justify-content-center flex-column">
                             <div class="elementor-column-wrap">
-                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Are You Scared Of Ban? We Got You Covered!</h2>
+                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Tính năng Bạn Bè</h2>
                             </div>
                             <p class="elementor-p-desciber text-dark  text-left fontSize-16">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
                         </div>
