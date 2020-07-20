@@ -73,7 +73,7 @@ require_once(__DIR__ . "/modules/header.php");
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-11 col-lg-9">
                         <div class="hero-animation-img">
-                            <img src="/dist/images/landingfb/facebook tool.png" alt="shape" class="bottom-shape img-fluid">
+                            <img src="<?= $rootURL ?>/dist/images/landingfb/facebook tool.png" alt="shape" class="bottom-shape img-fluid">
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ require_once(__DIR__ . "/modules/header.php");
             </div>
 
             <div class="shape-bottom">
-                <img src="/dist/images/landingfb/curve-shape-top.svg" alt="shape" class="bottom-shape img-fluid">
+                <img src="<?= $rootURL ?>/dist/images/landingfb/curve-shape-top.svg" alt="shape" class="bottom-shape img-fluid">
             </div>
         </section>
 
@@ -167,7 +167,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-wrap d-flex justify-content-center align-items-center">
                             <div class="elementor-img">
-                                <img src="/dist/images/landingfb/pilotposter-brief-5-1024x751.png" alt="">
+                                <img src="<?= $rootURL ?>/dist/images/landingfb/pilotposter-brief-5-1024x751.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@ require_once(__DIR__ . "/modules/header.php");
                     </div>
                     <div class="col-12 col-lg-4 d-flex align-items-center">
                         <div class="">
-                            <img alt="Image placholder" src="/dist/images/landingfb/macbook.png" class="img-center img-fluid">
+                            <img alt="Image placholder" src="<?= $rootURL ?>/dist/images/landingfb/macbook.png" class="img-center img-fluid">
                         </div>
 
                     </div>
@@ -303,7 +303,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-wrap d-flex justify-content-center align-items-center">
                             <div class="elementor-img">
-                                <img src="/dist/images/landingfb/pilotposter-brief-5-1024x751.png" alt="">
+                                <img src="<?= $rootURL ?>/dist/images/landingfb/pilotposter-brief-5-1024x751.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -495,7 +495,7 @@ require_once(__DIR__ . "/modules/header.php");
                                         <div class="sassico-single-pricing">
                                             <div class="sassico-content-body" style="background-color: rgb(255,245,247);">
                                                 <div class="sassico-pricing-header">
-                                                    <img src="/dist/images/landingfb/diamond.png" class="sassico-pricing-image" width="35" alt="sassico pricing icon">
+                                                    <img src="<?= $rootURL ?>/dist/images/landingfb/diamond.png" class="sassico-pricing-image" width="35" alt="sassico pricing icon">
                                                     <h2 class="saasico-pricing-plan-title secondcl">
                                                         <lang lang="en">Gói VIP</lang>
                                                     </h2>
@@ -548,7 +548,7 @@ require_once(__DIR__ . "/modules/header.php");
                                         <div class="sassico-single-pricing">
                                             <div class="sassico-content-body">
                                                 <div class="sassico-pricing-header">
-                                                    <img src="/dist/images/landingfb/poll.png" class="sassico-pricing-image icon-nav" alt="sassico pricing icon" style="width: 35px !important;">
+                                                    <img src="<?= $rootURL ?>/dist/images/landingfb/poll.png" class="sassico-pricing-image icon-nav" alt="sassico pricing icon" style="width: 35px !important;">
 
                                                     <h2 class="saasico-pricing-plan-title">
                                                         <lang lang="en">Gói Cơ Bản</lang>
@@ -611,7 +611,7 @@ require_once(__DIR__ . "/modules/header.php");
                     </div>
                     <div class="col-12 col-md-4 d-flex align-items-center justify-content-md-end justify-content-start mt-3 mt-md-0 px-5 px-md-0">
                         <a href="https://www.google.com/partners/agency?id=9496172382&amp;hl=vi">
-                            <img src="/dist/images/landingfb/doitac.svg" class="float-md-right float-left" height="60"></a>
+                            <img src="<?= $rootURL ?>/dist/images/landingfb/doitac.svg" class="float-md-right float-left" height="60"></a>
                     </div>
                 </div>
             </div>
