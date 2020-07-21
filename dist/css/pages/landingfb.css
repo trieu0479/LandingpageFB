@@ -8,12 +8,16 @@ html {
     padding-top: 20px;
 }
 .fixd-top {
-        position: absolute; ;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    width:100%;
    
+}
+.nav-item.menuhover:hover  a {
+ color: antiquewhite;
 }
 [image-overlay="8"]:before, [data-overly-top="8"]:before, [data-overly-bottom="8"]:before, [data-overlay-gradient="8"]:before {
     opacity: 0.8;
@@ -30,7 +34,7 @@ html {
     content: '';
     /* background: linear-gradient(75deg, rgb(40,136,245), rgb(135, 135, 210))!important; */
     /* background: linear-gradient(75deg, rgb(40,136,245), white) !important; */
-    background: linear-gradient(75deg,rgb(30 30 226 / 76%),rgb(2,175,231))!important;;    
+    background: linear-gradient(75deg,rgb(30 30 226 / 76%),rgb(2,175,231))!important;
     width: 100%;
     height: 100%;
     top: 0;
@@ -122,7 +126,7 @@ html {
     /* max-width: 15em; */
     color: rgba(0,0,0,.5);
     padding: .1em;
-    min-height: 26em;
+    min-height: 28.2em;
     
 }
 
@@ -265,6 +269,12 @@ svg:not(:root) {
 .elementor-column-wrap .elementor-p-desciber {   
 font-family: "Roboto";
 }
+.elementor-column-wrap {
+    padding: 1em 0em;
+}
+.elementor-p-desciber {
+    line-height: 2;
+}
 .elementor-list {
     padding: 0em;
     margin: 0em;
@@ -273,7 +283,7 @@ font-family: "Roboto";
 }
 ul.elementor-list li {
     font-size: 16px;
-    line-height: 1.9;
+    line-height: 2.4;
 }
 .elementor-list-items .elementor-icon-list-icon i{
 color: #042ff8;
@@ -288,7 +298,7 @@ color: #042ff8;
 }
 
 .flex-row-ed .item {
-    cursor: pointer;
+    cursor: default;
 }
 
 
@@ -945,11 +955,12 @@ margin-bottom: -59px;
 }
 .text-color-6E6B69 {
     color:#6E6B69;
+    line-height: 2;
 }
 .mores {
     display: grid;
     grid-gap: 3em;
-    max-width: 100em;
+    max-width: 65em;
     margin: auto;
     grid-template-columns: repeat(auto-fill,minmax(20em,1fr));
 }
@@ -990,4 +1001,10 @@ p.intro {
 }
 .btn-ex {
     border-radius: 20px;
+}
+.bg-linear-gradient-index {
+    background: linear-gradient(75deg,rgb(30 30 226 / 76%),rgb(2,175,231))!important;
+}
+.bg-none {
+    background: none!important;
 }

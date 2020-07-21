@@ -5,34 +5,34 @@ $meta['image'] = "https://fff.blue/dist/images/step-11.jpg";
 require_once(__DIR__ . "/modules/header.php");
 ?>
 <header class="header">
-    <nav class="navbar navbar-expand-lg fixd-top bg-transparent">
+    <nav class="navbar navbar-expand-lg fixd-top">
         <a class="navbar-brand" href="#"><img src="<?= $rootURL ?>/dist/images/logo/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""></a>
         <!-- Links -->
         <div class="navbar">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item menuhover">
                     <a class="nav-link colorCAB" href="#">Trang chủ</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item menuhover">
                     <a class="nav-link colorCAB" href="">Hướng dẫn</a>
                 </li>
             </ul>
         </div>
         <div class="navbar navbar-collapse ">
             <ul class="navbar-nav ml-auto mr-4">
-                <li class="nav-item active d-md-block">
-                    <a class="nav-link  colorCAB" href="#section-info">Tiện ích</a>
+                <li class="nav-item menuhover active d-md-block">
+                    <a class="nav-link  colorCAB" href="#section-friend">Tính năng bạn bè</a>
                 </li>
-                <li class="nav-item active d-md-block">
-                    <a class="nav-link  colorCAB" href="#">Tính năng 1</a>
+                <li class="nav-item menuhover active d-md-block">
+                    <a class="nav-link  colorCAB" href="#section-interactive">Tính năng tương tác</a>
                 </li>
-                <li class="nav-item active d-md-block">
-                    <a class="nav-link  colorCAB" href="#section-info">Tính năng 2</a>
+                <li class="nav-item menuhover active d-md-block">
+                    <a class="nav-link  colorCAB" href="#section-group">Tính năng nhóm</a>
                 </li>
-                <li class="nav-item active d-md-block">
-                    <a class="nav-link  colorCAB" href="#">Tính năng 3</a>
+                <li class="nav-item menuhover active d-md-block">
+                    <a class="nav-link  colorCAB" href="#section-other">Tính năng khác</a>
                 </li>
-                <li class="nav-item active d-md-block">
+                <li class="nav-item menuhover active d-md-block">
                     <a class="nav-link  colorCAB" href="#section-price">Bảng giá</a>
                 </li>
             </ul>
@@ -60,16 +60,16 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-md-10 col-lg-9">
                         <div class="text-center pb-5 pt-5 pt-md-5 mt-5">
                             <div class="fontSize-32 font-weight-bold font-montserrat text-white">Facebook Marketing Tool Platform </div>
-                            <div class="fontSize-16 mt-2 font-montserrat mb-2 text-white">Công cụ tiện ích cho người dùng Facebook</div>
+                            <div class="fontSize-16 mt-3 font-montserrat mb-2 text-white">Công cụ tiện ích cho người dùng Facebook</div>
 
                             <div class="text-center mt-4 mb-2 extensionLogo">
-                                <a class="btn btn-dark btn-ex"  target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi">
+                                <a class="btn btn-dark btn-ex" target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi">
                                     <img src="<?= $rootURL ?>/dist/images/landingfb/chrome icon.png" class="mr-1">
                                     <span class="ml-2 text-white">Tải tiện ích&nbsp;<b>Chrome Extension</b></span>
                                     <span class="ml-1">➜</span>
                                 </a>
-                             
-                                <a  class="btn btn-dark btn-ex ml-4" target="blank" href="https://microsoftedge.microsoft.com/addons/detail/fhohbkpkplmojpkmgbcejdikljogdolh">
+
+                                <a class="btn btn-dark btn-ex ml-4" target="blank" href="https://microsoftedge.microsoft.com/addons/detail/fhohbkpkplmojpkmgbcejdikljogdolh">
                                     <img src="<?= $rootURL ?>/dist/images/landingfb/microsoftedgenewlogo.5.jpg" class="mr-1">
                                     <span class="ml-2 text-white">Tải tiện ích&nbsp;<b>Microsoft Edge</b></span>
                                     <span class="ml-1">➜</span>
@@ -82,7 +82,7 @@ require_once(__DIR__ . "/modules/header.php");
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-11 col-lg-9">
                         <div class="hero-animation-img">
-                            <img src="<?= $rootURL ?>/dist/images/landingfb/facebook tool.png" alt="shape" class="bottom-shape img-fluid">
+                            <img src="<?= $rootURL ?>/dist/images/landingfb/index-img.png" alt="shape" class="bottom-shape img-fluid">
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ require_once(__DIR__ . "/modules/header.php");
         <section class="section section-issues" id="section-info">
             <div class="section-content">
                 <h2> Các tính năng chính của Extension </h2>
-                <p class="intro">Với 11 <b>tính năng</b> bao gồm tính năng cơ bản, phổ biến và tính năng mới để người sử dụng có thể bảo mật Facebook <br> tăng tương tác tốt hơn và hạn chế thao tác thủ công tiết kiệm rất nhiều thời gian khi sử dụng.</p>
+                <p class="intro">Với 16 tính năng bao gồm tính năng chính trong nhóm công cụ và thêm các tính năng khác để người sử dụng có thể bảo mật Facebook <br> tăng tương tác tốt hơn và hạn chế thao tác thủ công tiết kiệm rất nhiều thời gian khi sử dụng.</p>
                 <div class="flex-row-ed">
                     <div class="item item1">
                         <div class="article-box">
@@ -135,6 +135,7 @@ require_once(__DIR__ . "/modules/header.php");
                                     <li>Tăng tương tác</li>
                                     <li> Thả tương tác tự động</li>
                                     <li>Comment tự động</li>
+                                    <li>Thả tim bài viết mới</li>
                                 </ul>
                                 <!-- <a href="/guide/speed/" class="btn btn-primary">See all rules tested &nbsp;➜</a> -->
                             </div>
@@ -170,7 +171,7 @@ require_once(__DIR__ . "/modules/header.php");
 
         <!-- //////////////////////////////////2//////////////////////////////// -->
         <!-- -----------------------------------3----------------------------- -->
-        <section class="section section-elementor">
+        <section class="section section-elementor" id="section-friend">
             <div class="section-container">
                 <div class="row">
                     <div class="col-12 col-lg-6">
@@ -185,7 +186,7 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="elementor-column-wrap">
                                 <h2 class="elment-kit-tittle text-dark font-weight-600 ">Tính năng Bạn Bè</h2>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
+                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">Hầu như một tài khoản Facebook có thể kết bạn và nhận được nhiều lời mời kết bạn từ nhiều người.Với số bạn bè quá đông như vậy làm sao kiểm soát được người nào tương tác? Với <b>Tính năng bạn bè</b>, bạn có thể </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
@@ -193,27 +194,15 @@ require_once(__DIR__ . "/modules/header.php");
                                     <span class="elementor-icon-list-icon text-primary">
                                         <i aria-hidden="true" class="fas fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
+                                    <span class="elementor-icon-list-text">Hủy kết bạn với hàng loạt bạn bè không tương tác</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
                                         <i aria-hidden="true" class="fas fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
+                                    <span class="elementor-icon-list-text">Mời bạn bè thích Fanpage chỉ với 1 cú click chuột</span>
                                 </li>
-                                <li class="elementor-list-items">
-                                    <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
-                                    </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
 
-                                </li>
-                                <li class="elementor-list-items">
-                                    <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
-                                    </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
-                                </li>
                             </ul>
 
                         </div>
@@ -223,79 +212,83 @@ require_once(__DIR__ . "/modules/header.php");
 
         </section>
         <!-- ----------------------4----------------------------------------------------------- -->
-        <section class="section">
+        <section class="section" id="section-interactive">
             <div class="section-container">
+                <div class="text-dark font-weight-600 mb-5 btn btn-large btn-primary ml-auto" style="font-weight:600!important"> 
+                <span style="font-size: 1.4rem;"> Tính năng Tương Tác </span>
+            </div>
+                <!-- <p style="font-size: 16px;text-align: center;color: #567790;" class="">Tăng lượng tương tác đem đến cho người dùng Facebook những lợi thế nhất định, đồng thời giúp trang, nhóm của bạn mở rộng phạm vi tiếp cận dễ dàng. Tương tác Facebook không chỉ giúp bạn truyền thông tin tốt hơn mà còn tăng khả năng thương hiệu cho tài khoản.</p> -->
                 <div class="row">
                     <div class="col-12 col-lg-4">
                         <div class="row">
                             <div class="col-12">
                                 <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    <span class="far fa-hand-lizard fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
                                     <div class="icon-text">
-                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
-                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                        <h5 class="mb-2 text-color-1b2e4b">Chọc ghẹo bạn bè</h5>
+                                        <p class="text-color-6E6B69">Tính năng thú vị của nhằm tăng tương tác, nhấn mạnh chủ tài khoản Facebook.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    <span class="fab fa-facebook-messenger fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
                                     <div class="icon-text">
-                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
-                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                        <h5 class="mb-2 text-color-1b2e4b">Gửi tin nhắn bạn bè</h5>
+                                        <p class="text-color-6E6B69">Thuận tiện hơn trong việc gửi tin nhắn Messenger tới nhiều người chỉ với vài thao tác.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    <span class="far fa-link fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
                                     <div class="icon-text">
-                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
-                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                        <h5 class="mb-2 text-color-1b2e4b">Tăng tương tác</h5>
+                                        <p class="text-color-6E6B69">Có độ tương tác trao đổi cao để sử dụng được bắt buộc phải Like và Comment trên bài viết của chủ sỡ hữu. </p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 d-flex align-items-center">
-                        <div class="">
-                            <img alt="Image placholder" src="<?= $rootURL ?>/dist/images/landingfb/macbook.png" class="img-center img-fluid">
-                        </div>
+                    <div class="col-12 col-lg-4 d-flex justify-content-center ">
+
+                        <img alt="Image placholder" style="object-fit:contain;" src="<?= $rootURL ?>/dist/images/landingfb/chia-se-nhieu-noi-dung-huu-ich.png" class="img-center img-fluid">
+
 
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="row">
                             <div class="col-12">
                                 <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    <span class="fab fa-gratipay fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
                                     <div class="icon-text">
-                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
-                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                        <h5 class="mb-2 text-color-1b2e4b">Thả tương tác tự động</h5>
+                                        <p class="text-color-6E6B69">Tự động thả cảm xúc được chọn theo bài viết. </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    <span class="far fa-comments fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
                                     <div class="icon-text">
-                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
-                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                        <h5 class="mb-2 text-color-1b2e4b">Comment tự động</h5>
+                                        <p class="text-color-6E6B69">Soạn nội dung cần bình luận và bật tương tác hệ thống sẽ auto bình luận vào bài viết bạn bè từ bình luận.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="d-flex align-items-start mb-sm-0 mb-md-5 mb-lg-5">
-                                    <span class="far fa-sliders-h fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
+                                    <span class="far fa-heart fontSize-24 icon-size-xs p-3 secondary-bg rounded shadow-sm text-white mr-4">
                                     </span>
                                     <div class="icon-text">
-                                        <h5 class="mb-2 text-color-1b2e4b">Responsive web design</h5>
-                                        <p class="text-color-6E6B69">Modular and interchangable componente between layouts and even demos.</p>
+                                        <h5 class="mb-2 text-color-1b2e4b">Thả tim bài viết mới</h5>
+                                        <p class="text-color-6E6B69">Thả tim bài viết mới có thêm số lượng bài viết cho bao nhiêu lần tương tác. </p>
                                     </div>
                                 </div>
                             </div>
@@ -306,7 +299,7 @@ require_once(__DIR__ . "/modules/header.php");
 
         </section>
         <!-- ---------------------------------5---------------------------------------------------->
-        <section class="section section-elementor">
+        <section class="section section-elementor" id="section-group">
             <div class="section-container">
                 <div class="row">
                     <div class="col-12 col-lg-6">
@@ -319,9 +312,9 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-content-wrap d-flex justify-content-center flex-column">
                             <div class="elementor-column-wrap">
-                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Are You Scared Of Ban? We Got You Covered!</h2>
+                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Tính năng Nhóm</h2>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">No one likes being spammed, same applies to facebook. The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include The facebook spam detector bans accounts that violates it's pre-set rules. We understand the major part of this rule and that is why we have design Pilot Poster with so much features to avoid you being ban. And they include </p>
+                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">Nhóm là một phần không thể thiếu trên mạng xã hội Facebook, Nhóm có thể lập ra để những người có cùng sở thích tìm hiểu,chia sẻ hoặc có những mục đích nhất định vào nhóm. Với tính năng nhóm, bạn có thể quản lý tài khoản cá nhân trên nhóm dễ dàng hơn như là: </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
@@ -329,26 +322,26 @@ require_once(__DIR__ . "/modules/header.php");
                                     <span class="elementor-icon-list-icon text-primary">
                                         <i aria-hidden="true" class="fas fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
+                                    <span class="elementor-icon-list-text">Đăng bài viết vào nhiều nhóm.</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
                                         <i aria-hidden="true" class="fas fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
+                                    <span class="elementor-icon-list-text">Mời hàng loạt bạn bè tham gia nhóm bất kỳ trên Facebook.</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
                                         <i aria-hidden="true" class="fas fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
+                                    <span class="elementor-icon-list-text">Hủy nhóm đã tham gia với 1 cú click.</span>
 
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
                                         <i aria-hidden="true" class="fas fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Option to add unique id's to every post.</span>
+                                    <span class="elementor-icon-list-text">Tìm nhóm cùng sở thích từ bạn bè.</span>
                                 </li>
                             </ul>
 
@@ -360,10 +353,10 @@ require_once(__DIR__ . "/modules/header.php");
         </section>
 
         <!-- -------------------------------------6----------------------------------------------------- -->
-        <section class="section" id="section-more">
+        <section class="section" id="section-other">
             <div class="section-content">
-                <h2> More </h2>
-                <p class="intro"> Checkbot can crawl 100s of pages in minutes for broken links, duplicate content, invalid HTML, insecure forms and more.<br>
+                <h2> Các tính năng khác </h2>
+                <p class="intro">Ngoài tính năng chính trong nhóm công cụ ở trên thì còn có thêm các công cụ tiện ích dưới đây cũng được nhiều người sử dụng quan tâm. <br> Đặc biệt là tính năng Quét bảo mật là thật sự cần thiết cho tài khoản Facebook. <br>
                 </p>
                 <div class="mores">
                     <div class="boxmore d-flex">
@@ -371,55 +364,40 @@ require_once(__DIR__ . "/modules/header.php");
                             <i class="fas fa-shield-alt fontSize-24"></i>
                         </div>
                         <div class="more-content">
-                            <h3>Explore your site</h3>
-                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                            <h3>Khiên bảo vệ</h3>
+                            <p> Tính năng khi bật khiên bảo vệ :
+                                Sẽ hiển thị một khiên nhỏ màu xanh dưới ảnh đại diện của bạn và
+                                người dùng không thể tải xuống ảnh của bạn.</p>
                         </div>
                     </div>
                     <div class="boxmore d-flex">
                         <div class="more-icon">
-                            <i class="fas fa-shield-alt fontSize-24"></i>
+                            <i class="fas fa-download fontSize-24"></i>
                         </div>
                         <div class="more-content">
-                            <h3>Explore your site</h3>
-                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                            <h3>Tải video từ Facebook</h3>
+                            <p>Tải video từ Facebook về máy, thông qua việc dán URL video vào ô và thực hiện lưu . Tool giúp bạn tải video HD không qua hình thức trung gian phức tạp.</p>
                         </div>
                     </div>
                     <div class="boxmore d-flex">
                         <div class="more-icon">
-                            <i class="fas fa-shield-alt fontSize-24"></i>
+                            <i class="fas fa-unlock fontSize-24"></i>
                         </div>
                         <div class="more-content">
-                            <h3>Explore your site</h3>
-                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                            <h3>Quét bảo mật</h3>
+                            <p>Kiểm tra và thiết lập các quyền riêng tư trên facebook cá nhân bảo mật tài khoản Facebook của bạn.</p>
                         </div>
                     </div>
                     <div class="boxmore d-flex">
                         <div class="more-icon">
-                            <i class="far fa-download fontSize-24"></i>
+                            <i class="fas fa-eye-slash fontSize-24"></i>
                         </div>
                         <div class="more-content">
-                            <h3>Explore your site</h3>
-                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
+                            <h3>Quyền riêng tư</h3>
+                            <p>Các hình thức chặn seen tin nhắn, story... giúp bạn xem bí mật trong thời gian bận không có thời gian rãnh.</p>
                         </div>
                     </div>
-                    <div class="boxmore d-flex">
-                        <div class="more-icon">
-                            <i class="far fa-download fontSize-24"></i>
-                        </div>
-                        <div class="more-content">
-                            <h3>Explore your site</h3>
-                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                        </div>
-                    </div>
-                    <div class="boxmore d-flex">
-                        <div class="more-icon">
-                            <i class="far fa-download fontSize-24"></i>
-                        </div>
-                        <div class="more-content">
-                            <h3>Explore your site</h3>
-                            <p>Get an overview of your site structure. Show your most linked to pages, list all image/JS/CSS files, review non-indexable pages, explore all redirects and more.</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -433,7 +411,7 @@ require_once(__DIR__ . "/modules/header.php");
                             <h3 class="text-dark">
                                 <lang lang="en">Nâng cấp lên VIP</lang>
                             </h3>
-                            <p class="font-gg font-14">
+                            <p class="font-gg" style="font-size: 1.27em;color: #567790;">
                                 <lang lang="en">Gói VIP là cách để bạn ủng hộ chúng tôi và mở khỏa thêm nhiều tính năng thú vị!</lang>
                             </p>
                         </div>
