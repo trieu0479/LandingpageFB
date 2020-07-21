@@ -184,9 +184,9 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-content-wrap d-flex justify-content-center flex-column">
                             <div class="elementor-column-wrap">
-                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Tính năng Bạn Bè</h2>
+                                <span class="elment-kit-tittle font-weight-600 color-feauture ">Tính năng Bạn Bè</span>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">Hầu như một tài khoản Facebook có thể kết bạn và nhận được nhiều lời mời kết bạn từ nhiều người.Với số bạn bè quá đông như vậy làm sao kiểm soát được người nào tương tác? Với <b>Tính năng bạn bè</b>, bạn có thể </p>
+                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">Một tài khoản Facebook có thể kết bạn và nhận được nhiều lời mời kết bạn từ nhiều người.Với số bạn bè quá đông như vậy làm sao kiểm soát được người nào tương tác? Với <b>Tính năng bạn bè</b>, bạn có thể </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
@@ -214,8 +214,8 @@ require_once(__DIR__ . "/modules/header.php");
         <!-- ----------------------4----------------------------------------------------------- -->
         <section class="section" id="section-interactive">
             <div class="section-container">
-                <div class="text-dark font-weight-600 mb-5 btn btn-large btn-primary ml-auto" style="font-weight:600!important"> 
-                <span style="font-size: 1.4rem;"> Tính năng Tương Tác </span>
+                <div class="font-weight-600 mb-4 text-center" style="font-weight:600!important"> 
+                <span style="font-size: 1.6rem;" class="color-feauture"> Tính năng Tương Tác </span>
             </div>
                 <!-- <p style="font-size: 16px;text-align: center;color: #567790;" class="">Tăng lượng tương tác đem đến cho người dùng Facebook những lợi thế nhất định, đồng thời giúp trang, nhóm của bạn mở rộng phạm vi tiếp cận dễ dàng. Tương tác Facebook không chỉ giúp bạn truyền thông tin tốt hơn mà còn tăng khả năng thương hiệu cho tài khoản.</p> -->
                 <div class="row">
@@ -312,7 +312,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-content-wrap d-flex justify-content-center flex-column">
                             <div class="elementor-column-wrap">
-                                <h2 class="elment-kit-tittle text-dark font-weight-600 ">Tính năng Nhóm</h2>
+                                <span class="elment-kit-tittle color-feauture font-weight-600 ">Tính năng Nhóm</span>
                             </div>
                             <p class="elementor-p-desciber text-dark  text-left fontSize-16">Nhóm là một phần không thể thiếu trên mạng xã hội Facebook, Nhóm có thể lập ra để những người có cùng sở thích tìm hiểu,chia sẻ hoặc có những mục đích nhất định vào nhóm. Với tính năng nhóm, bạn có thể quản lý tài khoản cá nhân trên nhóm dễ dàng hơn như là: </p>
                         </div>
@@ -356,7 +356,7 @@ require_once(__DIR__ . "/modules/header.php");
         <section class="section" id="section-other">
             <div class="section-content">
                 <h2> Các tính năng khác </h2>
-                <p class="intro">Ngoài tính năng chính trong nhóm công cụ ở trên thì còn có thêm các công cụ tiện ích dưới đây cũng được nhiều người sử dụng quan tâm. <br> Đặc biệt là tính năng Quét bảo mật là thật sự cần thiết cho tài khoản Facebook. <br>
+                <p class="intro">Ngoài tính năng chính trong nhóm công cụ ở trên thì còn có thêm các tính năng khác dưới đây cũng được nhiều người sử dụng quan tâm. <br> Đặc biệt là tính năng Quét bảo mật là thật sự cần thiết cho tài khoản Facebook. <br>
                 </p>
                 <div class="mores">
                     <div class="boxmore d-flex">

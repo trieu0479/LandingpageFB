@@ -265,6 +265,7 @@ svg:not(:root) {
 }
 .elementor-column-wrap .elment-kit-tittle {
    font-weight: 600!important;
+   font-size: 1.6rem;
 }
 .elementor-column-wrap .elementor-p-desciber {   
 font-family: "Roboto";
@@ -997,7 +998,7 @@ p.intro {
 
 }
 .extensionLogo span:hover {
-    color:#00000063!important;
+    color:white!important;
 }
 .btn-ex {
     border-radius: 20px;
@@ -1007,4 +1008,7 @@ p.intro {
 }
 .bg-none {
     background: none!important;
+}
+.color-feauture {
+    color: #1896E7!important;
 }
