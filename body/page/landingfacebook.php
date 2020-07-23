@@ -186,21 +186,21 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="elementor-column-wrap">
                                 <span class="elment-kit-tittle font-weight-600 color-feauture ">Tính năng Bạn Bè</span>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">Một tài khoản Facebook có thể kết bạn và nhận được nhiều lời mời kết bạn từ nhiều người.Với số bạn bè quá đông như vậy làm sao kiểm soát được người nào tương tác? Với <b>Tính năng bạn bè</b>, bạn có thể </p>
+                            <p class="elementor-p-desciber text-dark  text-left ">Một tài khoản Facebook có thể kết bạn và nhận được nhiều lời mời kết bạn từ nhiều người.Với số bạn bè quá đông như vậy làm sao kiểm soát được người nào tương tác? Với <b>Tính năng bạn bè</b>, bạn có thể </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon text-primary">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                    <i class="far fa-user-slash"></i>
                                     </span>
                                     <span class="elementor-icon-list-text">Hủy kết bạn với hàng loạt bạn bè không tương tác</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                        <i aria-hidden="true" class="far fa-users"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Mời bạn bè thích Fanpage chỉ với 1 cú click chuột</span>
+                                    <span class="elementor-icon-list-text">Mời bạn bè thích Fanpage chỉ với 1 click chuột</span>
                                 </li>
 
                             </ul>
@@ -215,8 +215,12 @@ require_once(__DIR__ . "/modules/header.php");
         <section class="section" id="section-interactive">
             <div class="section-container">
                 <div class="font-weight-600 mb-4 text-center" style="font-weight:600!important"> 
-                <span style="font-size: 1.6rem;" class="color-feauture"> Tính năng Tương Tác </span>
+                <span style="font-size: 1.6rem;" class="color-feauture"> Tính năng Tương Tác 
+               
+                </span>
+                
             </div>
+            <hr style="width:12%" class="mb-3">
                 <!-- <p style="font-size: 16px;text-align: center;color: #567790;" class="">Tăng lượng tương tác đem đến cho người dùng Facebook những lợi thế nhất định, đồng thời giúp trang, nhóm của bạn mở rộng phạm vi tiếp cận dễ dàng. Tương tác Facebook không chỉ giúp bạn truyền thông tin tốt hơn mà còn tăng khả năng thương hiệu cho tài khoản.</p> -->
                 <div class="row">
                     <div class="col-12 col-lg-4">
@@ -255,7 +259,6 @@ require_once(__DIR__ . "/modules/header.php");
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 d-flex justify-content-center ">
-
                         <img alt="Image placholder" style="object-fit:contain;" src="<?= $rootURL ?>/dist/images/landingfb/chia-se-nhieu-noi-dung-huu-ich.png" class="img-center img-fluid">
 
 
@@ -314,32 +317,32 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="elementor-column-wrap">
                                 <span class="elment-kit-tittle color-feauture font-weight-600 ">Tính năng Nhóm</span>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left fontSize-16">Nhóm là một phần không thể thiếu trên mạng xã hội Facebook, Nhóm có thể lập ra để những người có cùng sở thích tìm hiểu,chia sẻ hoặc có những mục đích nhất định vào nhóm. Với tính năng nhóm, bạn có thể quản lý tài khoản cá nhân trên nhóm dễ dàng hơn như là: </p>
+                            <p class="elementor-p-desciber text-dark  text-left ">Nhóm là một phần không thể thiếu trên mạng xã hội Facebook, Nhóm có thể lập ra để những người có cùng sở thích tìm hiểu,chia sẻ hoặc có những mục đích nhất định vào nhóm. Với <b>Tính năng nhóm</b>, bạn có thể quản lý tài khoản cá nhân trên nhóm dễ dàng hơn như là </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon text-primary">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                        <i aria-hidden="true" class="far fa-edit"></i>
                                     </span>
                                     <span class="elementor-icon-list-text">Đăng bài viết vào nhiều nhóm.</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                        <i aria-hidden="true" class="far fa-user-plus"></i>
                                     </span>
                                     <span class="elementor-icon-list-text">Mời hàng loạt bạn bè tham gia nhóm bất kỳ trên Facebook.</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                        <i aria-hidden="true" class="fas fa-ban"></i>
                                     </span>
                                     <span class="elementor-icon-list-text">Hủy nhóm đã tham gia với 1 cú click.</span>
 
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
-                                        <i aria-hidden="true" class="fas fa-users"></i>
+                                        <i aria-hidden="true" class="far fa-search-plus"></i>
                                     </span>
                                     <span class="elementor-icon-list-text">Tìm nhóm cùng sở thích từ bạn bè.</span>
                                 </li>
@@ -574,7 +577,7 @@ require_once(__DIR__ . "/modules/header.php");
                                                 </button>
                                             </div>
 
-                                            <div class="sassico-pricing-filter"></div>
+                                            <div class="sassico-pricing-filter bg-first-pricing "></div>
 
                                         </div>
                                     </div>
