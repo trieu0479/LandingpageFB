@@ -32,8 +32,8 @@ require_once(__DIR__ . "/modules/header.php");
                 <li class="nav-item menuhover active d-md-block">
                     <a class="nav-link  colorCAB" href="#section-other">Tính năng khác</a>
                 </li>
-                <li class="nav-item menuhover active d-md-block">
-                    <a class="nav-link  colorCAB" href="#section-price">Bảng giá</a>
+                <li class="nav-item menuhover active d-md-block price-after">
+                    <a class="nav-link colorCAB priceafter" href="#section-price">Bảng giá</a>
                 </li>
             </ul>
         </div>
@@ -63,7 +63,7 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="fontSize-16 mt-3 font-montserrat mb-2 text-white">Công cụ tiện ích cho người dùng Facebook</div>
 
                             <div class="text-center mt-4 mb-2 extensionLogo">
-                                <a class="btn btn-dark btn-ex" target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-viral-to/fpogdcgblkkiadigokjobbfganhbihhn?hl=vi">
+                                <a class="btn btn-dark btn-ex" target="blank" href="https://chrome.google.com/webstore/detail/fffblue-facebook-marketin/kccoacihbkcjdkjmhpaojhonlcjnmmld?hl=vi">
                                     <img src="<?= $rootURL ?>/dist/images/landingfb/chrome icon.png" class="mr-1">
                                     <span class="ml-2 text-white">Tải tiện ích&nbsp;<b>Chrome Extension</b></span>
                                     <span class="ml-1">➜</span>
@@ -177,7 +177,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-wrap d-flex justify-content-center align-items-center">
                             <div class="elementor-img">
-                                <img src="<?= $rootURL ?>/dist/images/landingfb/pilotposter-brief-5-1024x751.png" alt="">
+                                <img src="<?= $rootURL?>/dist/images/landingfb/xoa-nen-ban-be.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -192,9 +192,9 @@ require_once(__DIR__ . "/modules/header.php");
                             <ul class="elementor-list">
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon text-primary">
-                                    <i class="far fa-user-slash"></i>
+                                        <i class="far fa-user-slash"></i>
                                     </span>
-                                    <span class="elementor-icon-list-text">Hủy kết bạn với hàng loạt bạn bè không tương tác</span>
+                                    <span class="elementor-icon-list-text">Lọc bạn bè</span>
                                 </li>
                                 <li class="elementor-list-items">
                                     <span class="elementor-icon-list-icon">
@@ -214,13 +214,14 @@ require_once(__DIR__ . "/modules/header.php");
         <!-- ----------------------4----------------------------------------------------------- -->
         <section class="section" id="section-interactive">
             <div class="section-container">
-                <div class="font-weight-600 mb-4 text-center" style="font-weight:600!important"> 
-                <span style="font-size: 1.6rem;" class="color-feauture"> Tính năng Tương Tác 
-               
-                </span>
-                
-            </div>
-            <hr style="width:12%" class="mb-3">
+                <div class="font-weight-600 mb-4 text-center hr-tt" style="font-weight:600!important">
+                    <span style="font-size: 1.6rem;" class="color-feauture"> Tính năng Tương Tác
+
+                    </span>
+
+                  
+                </div>
+                <div class="mb-3 hr-border mt-4"> </div>
                 <!-- <p style="font-size: 16px;text-align: center;color: #567790;" class="">Tăng lượng tương tác đem đến cho người dùng Facebook những lợi thế nhất định, đồng thời giúp trang, nhóm của bạn mở rộng phạm vi tiếp cận dễ dàng. Tương tác Facebook không chỉ giúp bạn truyền thông tin tốt hơn mà còn tăng khả năng thương hiệu cho tài khoản.</p> -->
                 <div class="row">
                     <div class="col-12 col-lg-4">
@@ -258,8 +259,8 @@ require_once(__DIR__ . "/modules/header.php");
 
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 d-flex justify-content-center ">
-                        <img alt="Image placholder" style="object-fit:contain;" src="<?= $rootURL ?>/dist/images/landingfb/chia-se-nhieu-noi-dung-huu-ich.png" class="img-center img-fluid">
+                    <div class="col-12 col-lg-4 ">
+                        <img alt="Image placholder" style="" src="<?= $rootURL ?>/dist/images/landingfb/personal-memories-concept_23-2148403720.jpg" class="img-center img-fluid">
 
 
                     </div>
@@ -308,7 +309,7 @@ require_once(__DIR__ . "/modules/header.php");
                     <div class="col-12 col-lg-6">
                         <div class="elementor-wrap d-flex justify-content-center align-items-center">
                             <div class="elementor-img">
-                                <img src="<?= $rootURL ?>/dist/images/landingfb/pilotposter-brief-5-1024x751.png" alt="">
+                                <img src="<?= $rootURL ?>/dist/images/landingfb/group feauture.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -317,7 +318,7 @@ require_once(__DIR__ . "/modules/header.php");
                             <div class="elementor-column-wrap">
                                 <span class="elment-kit-tittle color-feauture font-weight-600 ">Tính năng Nhóm</span>
                             </div>
-                            <p class="elementor-p-desciber text-dark  text-left ">Nhóm là một phần không thể thiếu trên mạng xã hội Facebook, Nhóm có thể lập ra để những người có cùng sở thích tìm hiểu,chia sẻ hoặc có những mục đích nhất định vào nhóm. Với <b>Tính năng nhóm</b>, bạn có thể quản lý tài khoản cá nhân trên nhóm dễ dàng hơn như là </p>
+                            <p class="elementor-p-desciber text-dark  text-left ">Nhóm có thể lập ra để những người có cùng sở thích tìm hiểu,chia sẻ hoặc có những mục đích nhất định vào nhóm. Với <b>Tính năng nhóm</b>, bạn có thể quản lý tài khoản cá nhân trên nhóm dễ dàng hơn như là </p>
                         </div>
                         <div class="elementor-content-attribute">
                             <ul class="elementor-list">

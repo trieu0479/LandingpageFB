@@ -1013,3 +1013,29 @@ p.intro {
 .color-feauture {
     color: #1896E7!important;
 }
+.hr-border {
+    width:12% ;
+    border-top: 1.5px solid rgba(0,0,0,.1);
+    margin: auto;
+}
+.section-container .hr-border:hover{
+    width: 27%;
+    transition: .8s ease;
+    border-top: 1.5px solid blue;
+} 
+
+
+header ul li a.nav-link.colorCAB.priceafter::after {
+    position: relative;
+    left: 0px;
+    top:.2px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 0.37em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
