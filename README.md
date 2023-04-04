@@ -1,6 +1,3 @@
 # landingfb
-html
-css
-js
-jquery
+php
 
